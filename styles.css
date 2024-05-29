@@ -231,6 +231,7 @@ nav ul li a:hover {
     background-repeat: repeat-x; 
     background-size: auto 100%; 
     animation: scrollBackground 10s linear infinite;
+    box-shadow: 0px 0px 30px black;
 }
 
 @keyframes scrollBackground {
@@ -261,6 +262,7 @@ nav ul li a:hover {
     transition: transform 0.3s;
     color: #fff;
     overflow: hidden;
+    box-shadow: 0px 0px 30px black;
 }
 
 .resource-card {
@@ -273,6 +275,7 @@ nav ul li a:hover {
     transition: transform 0.3s;
     color: #fff;
     overflow: hidden;
+    box-shadow: 0px 0px 30px black;
 }
 
 .resource-card img {
@@ -336,45 +339,79 @@ nav ul li a:hover {
     padding: 8px;
 }
 
-.contact form {
+.newsletter {
+    background: rgb(34, 34, 34);
+    border-radius: 40px;
+    padding: 30px 50px;
+    text-align: center;
+    box-shadow: 0px 0px 30px black;
+}
+
+.newsletter h2 {
+    font-size: 24px;
+    font-family: var(--primary-font);
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.newsletter p {
+    color: rgba(255, 255, 255, 0.521);
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+.newsletter form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.contact form label {
-    color: var(--orange);
+.newsletter form label {
     font-family: var(--primary-font);
-    font-size: 24px;
-    text-transform: uppercase;
+    font-size: 18px;
+    color: #fff;
     margin-bottom: 10px;
-}
-
-.contact form input, .contact form textarea {
+    text-align: left;
     width: 100%;
-    max-width: 500px;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 2px solid var(--orange);
-    border-radius: 4px;
-}
-
-.contact form button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background: #fff;
-    color: var(--eerie-black);
-    cursor: pointer;
     text-transform: uppercase;
-    font-family: var(--primary-font);
-    transition: background 0.3s;
 }
 
-.contact form button:hover {
-    background: var(--orange);
-    transform: scale(1.05);
+.newsletter form input[type="email"] {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--orange);
+    width: calc(100% - 20px);
+    margin-bottom: 20px;
+    background-color: #333;
 }
+
+.newsletter form button[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    background-color: white;
+    color: var(--eerie-black);
+    font-family: var(--primary-font);
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
+
+.newsletter form button[type="submit"]:hover {
+    transform: scale(1.05);
+    background-color: var(--orange);
+}
+
+@media (min-width: 768px) {
+    .newsletter {
+        max-width: 600px; /* Limit max width for better centering */
+        margin: 0 auto; /* Center the section horizontally */
+    }
+}
+
+
 
 footer {
     color: var(--orange);
@@ -382,6 +419,7 @@ footer {
     padding: 8px;
     background-color: #333;
     font-family: var(--secondary-font);
+    margin-top: 40px;
 }
 
 #loading {
@@ -424,6 +462,7 @@ footer {
     transition: transform 0.3s;
     color: #fff;
     overflow: hidden;
+    box-shadow: 0px 0px 30px black;
 }
 
 .content-card img {
