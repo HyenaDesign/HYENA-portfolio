@@ -1,10 +1,10 @@
 const htmlFiles = [
-    "page1.html",
-    "page2.html",
-    "page3.html",
-    "page4.html",
-    "page5.html",
-    "page6.html"
+    "untox.html",
+    "ascii.html",
+    "katana.html",
+    "uselessweb.html",
+    "fire.html",
+    "theprestige.html"
 ];
 
 const loadingDiv = document.getElementById("loading");
