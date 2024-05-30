@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HYENA DESIGN</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <nav>
@@ -17,7 +18,7 @@
                 <li><a href="#features">FEATURES</a></li>
                 <li><a href="#projects">PROJECTS</a></li>
                 <li><a href="#about">ABOUT</a></li>
-                <li><a href="#newsletter">JOIN NOW</a></li>
+                <li><a href="#newsletter" id="join">JOIN NOW</a></li>
             </ul>
         </div>
     </nav>
@@ -94,7 +95,7 @@
     <section id="resources" class="resources">
         <h2>RESOURCES</h2>
         <div class="resource-list">
-            <a href="#" class="resource-card">
+            <a href="wetransfer_grunge-textures_2024-05-29_1546.zip" download class="resource-card">
                 <img src="assets/grain.gif" alt="grain graphic">
                 <h3>HOMEMADE GRAIN TEXTURES</h3>
                 <p>DOWNLOAD HERE MY OWN GRAIN TEXTURE LIBRARY WITH HIGH QUALITY IMAGES</p>
@@ -104,6 +105,12 @@
                 <img src="assets/insta.gif" alt="instagram graphic">
                 <h3>INSPIRATION BASE</h3>
                 <p>CHECK OUT MY INSTAGRAM AND FEEL FREE TO USE IT FOR INSPIRATION</p>
+            </a>
+
+            <a href="https://www.youtube.com/channel/UCCJYXWcln2oLbzhLJt0FEwQ" class="resource-card">
+                <img src="assets/channels4_profile.jpg" alt="youtube logo">
+                <h3>YOUTUBE CONTENT</h3>
+                <p>FEEL FREE TO VISIT MY YOUTUBE CHANNEL FOR GAME-RELATED CONTENT</p>
             </a>
         </div>
     </section>
@@ -116,7 +123,7 @@
 
     <section id="newsletter" class="newsletter">
         <h2>Subscribe to Our Newsletter</h2>
-        <p>The first 3 clients to subscribe to the newsletter can enjoy a 50% discount on a logo</p>
+        <p>Every 10th client to subscribe to the newsletter can enjoy a 50% discount on a logo</p>
         <form action="YOUR_FORM_ACTION_URL" method="POST">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
@@ -124,7 +131,11 @@
         </form>
     </section>
     
-    <footer>&copy; HYENA 2024</footer>
+    <footer>
+        <div class="footer">
+            &copy; HYENA 2024
+        </div>
+    </footer>
 
     <script src="scripts/script.js"></script>
     <script src="scripts/nav.js"></script>

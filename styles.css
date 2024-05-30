@@ -89,6 +89,20 @@ nav ul li a {
     font-size: 18px;
 }
 
+nav ul li #join {
+    color: var(--orange);
+    background-color: transparent;
+    -webkit-text-stroke: 0px;
+    padding: 4px;
+    border-radius: 8px;
+    border: 2px solid var(--orange);
+}
+
+nav ul li #join:hover {
+    background-color: var(--orange);
+    color: var(--eerie-black);
+}
+
 nav ul li a:hover {
     color: var(--orange);
     -webkit-text-stroke: 0px;
