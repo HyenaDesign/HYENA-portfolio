@@ -498,3 +498,17 @@ footer {
     background-color: var(--orange);
     color: var(--eerie-black);
 }
+
+.socials ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    margin-right: 3%;
+    gap: 30px;
+}
+
+.socials ul li a img {
+    width: 30px;
+    filter: invert(48%) sepia(100%) saturate(2455%) hue-rotate(6deg) brightness(99%) contrast(102%);
+}
