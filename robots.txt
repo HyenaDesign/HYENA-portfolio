@@ -6,5 +6,6 @@ Disallow: /private/
 User-agent: Googlebot
 Disallow: /test/
 
+
 # Specify the location of your sitemap
 Sitemap: https://hyenadesign.github.io/HYENA-portfolio/sitemap.xml
