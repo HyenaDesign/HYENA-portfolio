@@ -16,7 +16,7 @@ jobs:
     - name: FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@4.3.1
       with:
-        server: ftp://https://hyenathedesigner.be          # The FTP server URL
+        server: ftp://ftp.hyenathedesigner.be          # The FTP server URL
         username: ${{ secrets.FTP_USERNAME }}      # Your FTP username (from repository secrets)
         password: ${{ secrets.FTP_PASSWORD }}      # Your FTP password (from repository secrets)
         local-dir: ./                              # Directory to upload (the repository root)
