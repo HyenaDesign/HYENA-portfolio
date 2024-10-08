@@ -8,4 +8,4 @@ Disallow: /test/
 
 
 # Specify the location of your sitemap
-Sitemap: https://hyenadesign.github.io/HYENA-portfolio/sitemap.xml
+Sitemap: https://hyenathedesigner.be/sitemap.xml
