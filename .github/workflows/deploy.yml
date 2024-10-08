@@ -20,4 +20,4 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}      # Your FTP username (from repository secrets)
         password: ${{ secrets.FTP_PASSWORD }}      # Your FTP password (from repository secrets)
         local-dir: ./                              # Directory to upload (the repository root)
-        server-dir: /public_html/                 # Directory on your FTP server (adjust if needed)
+        server-dir: /www/                 # Directory on your FTP server (adjust if needed)
