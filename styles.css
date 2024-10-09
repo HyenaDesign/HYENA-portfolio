@@ -158,7 +158,7 @@ nav ul li a:hover {
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    background: url('newbg.webp') no-repeat;
+    background: url('assets/hero.webp') no-repeat;
     background-size: cover;
     background-position: center;
     
