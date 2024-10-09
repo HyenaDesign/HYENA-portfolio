@@ -116,10 +116,14 @@ nav ul li a:hover {
     border: none;
     color: var(--orange);
     cursor: pointer;
+    z-index: 1001; /* Ensure it's above other elements */
 }
 
-
 @media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show the hamburger on mobile */
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
@@ -129,6 +133,11 @@ nav ul li a:hover {
         top: 60px;
         left: 0;
         padding: 20px 0;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
     }
 
     .nav-links ul {
@@ -139,15 +148,8 @@ nav ul li a:hover {
     .nav-links ul li {
         margin: 10px 0;
     }
-
-    .hamburger {
-        display: block;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
 }
+
 
 .hero-banner {
     position: relative;
@@ -489,4 +491,88 @@ footer {
 .socials ul li a img {
     width: 30px;
     filter: invert(48%) sepia(100%) saturate(2455%) hue-rotate(6deg) brightness(99%) contrast(102%);
+}
+
+@media (max-width: 768px) {
+    body {
+        text-align: center; /* Center all body content */
+    }
+
+    .hero-banner {
+        justify-content: center;
+        align-items: center;
+        height: 70vh; /* Reduce height for mobile */
+    }
+
+    .hero-content {
+        text-align: center; /* Center the text content */
+        margin: 0 auto; /* Center the entire hero content */
+    }
+
+    .hero-content h1 {
+        font-size: 36px; /* Scale down heading */
+    }
+
+    .hero-content p {
+        font-size: 18px; /* Scale down paragraph text */
+        width: 90%; /* Adjust width for better fit */
+        margin: 0 auto; /* Center paragraph */
+    }
+}
+
+/* Scale down and center cards in a column on mobile */
+@media (max-width: 768px) {
+    .feature-list, .resource-list, .content-list, .project-list {
+        flex-direction: column; /* Stack in a column */
+        align-items: center; /* Center the cards */
+    }
+
+    .feature-card, .resource-card, .project-card, .content-card {
+        width: 90%; /* Scale down the cards */
+        max-width: 350px; /* Limit width for better appearance */
+        margin: 10px auto; /* Center each card */
+    }
+
+    .feature-card h3, .project-card h3, .resource-card h3 {
+        font-size: 20px; /* Reduce font size */
+    }
+
+    .feature-card p, .project-card p, .resource-card p {
+        font-size: 14px; /* Scale down paragraph text */
+    }
+
+    .content-card img, .resource-card img, .project-card img {
+        height: 200px; /* Reduce image height for mobile */
+    }
+}
+
+/* Newsletter and Other Section Scaling */
+@media (max-width: 768px) {
+    .newsletter {
+        padding: 20px; /* Reduce padding for mobile */
+        width: 90%; /* Limit width */
+        margin: 20px auto; /* Center newsletter */
+    }
+
+    .newsletter h2 {
+        font-size: 20px; /* Scale down header */
+    }
+
+    .newsletter p {
+        font-size: 14px; /* Reduce paragraph text size */
+    }
+
+    .features, .projects, .resources, .about, .contact {
+        padding: 20px 10px; /* Smaller padding */
+    }
+
+    .about p {
+        font-size: 16px; /* Reduce font size in 'about' section */
+        margin: 0 auto;
+        max-width: 90%; /* Limit paragraph width */
+    }
+
+    footer {
+        font-size: 14px; /* Scale down footer text */
+    }
 }
