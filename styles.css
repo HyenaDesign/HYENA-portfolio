@@ -25,7 +25,7 @@ body::after {
     height: 100%;
     background: url("assets/bg.webp");
     background-size: cover;
-    opacity: 8%;
+    opacity: 20%;
     background-position: center;
     background-repeat: no-repeat;
     pointer-events: none;
