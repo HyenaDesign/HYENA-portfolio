@@ -252,6 +252,7 @@ nav ul li a:hover {
     margin: 10px;
     border-radius: 8px;
     width: 30%;
+    height: 400px;
     text-align: center;
     transition: transform 0.3s;
     color: #fff;
@@ -281,7 +282,7 @@ nav ul li a:hover {
 
 .project-card img {
     width: 100%; 
-    height: 200px; 
+    height: 250px; 
     object-fit: cover; 
     border-radius: 4px; 
 }
@@ -541,8 +542,12 @@ footer {
         font-size: 14px; /* Scale down paragraph text */
     }
 
-    .content-card img, .resource-card img, .project-card img {
+    .content-card img, .resource-card img {
         height: 200px; /* Reduce image height for mobile */
+    }
+
+    .project-card img {
+        height: 250px;
     }
 }
 
