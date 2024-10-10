@@ -378,7 +378,7 @@ nav ul li a:hover {
     border: 1px solid var(--orange);
     width: calc(100% - 20px);
     margin-bottom: 20px;
-    background-color: #333;
+    background-color: #888888;
 }
 
 .newsletter form button[type="submit"] {
