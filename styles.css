@@ -25,7 +25,7 @@ body::after {
     height: 100%;
     background: url("assets/bg.webp");
     background-size: cover;
-    opacity: 20%;
+    opacity: 5%;
     background-position: center;
     background-repeat: no-repeat;
     pointer-events: none;
@@ -194,12 +194,12 @@ nav ul li a:hover {
 }
 
 
-.features, .projects, .resources, .about, .contact {
+.features, .resources, .about, .contact {
     padding: 60px 20px;
 }
 
 
-.features h2, .projects h2, .resources h2, .about h2, .contact h2 {
+.features h2, .resources h2, .about h2, .contact h2 {
     font-size: 36px;
     font-family: var(--primary-font);
     color: var(--orange);
@@ -207,15 +207,14 @@ nav ul li a:hover {
     margin-bottom: 40px;
 }
 
-.feature-list, .resource-list, .content-list, .project-list {
+.feature-list, .resource-list, .content-list {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .feature-card,
-.resource-card,
-.project-card {
+.resource-card {
     background: rgba(34, 34, 34, 0.9);
     padding: 20px;
     margin: 10px;
@@ -241,29 +240,6 @@ nav ul li a:hover {
     }
 }
 
-
-.projects {
-    background-image: url("assets/projectsbg.webp");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-blend-mode:difference;
-}
-
-.project-card {
-    background: #222;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    width: 30%;
-    height: 400px;
-    text-align: center;
-    transition: transform 0.3s;
-    color: #fff;
-    overflow: hidden;
-    box-shadow: 0px 0px 30px black;
-}
-
 .resource-card {
     background: #222;
     padding: 20px;
@@ -284,36 +260,18 @@ nav ul li a:hover {
     border-radius: 4px; 
 }
 
-.project-card img {
-    width: 100%; 
-    height: 400px; 
-    object-fit: cover; 
-    border-radius: 4px; 
-}
-
-.resource-card:hover {
-    transform: scale(1.05);
-    color: var(--orange);
-}
-
-.project-card:hover {
-    transform: scale(1.05);
-    background-color: var(--orange);
-    color: var(--eerie-black);
-}
-
 .feature-card:hover {
     transform: scale(1.05);
     color: var(--orange);
     box-shadow: 0px 0px 20px var(--orange);
 }
 
-.feature-card h3, .project-card h3 {
+.feature-card h3 {
     font-size: 24px;
     font-family: var(--primary-font);
 }
 
-.feature-card p, .project-card p {
+.feature-card p {
     font-size: 16px;
 }
 
@@ -523,31 +481,27 @@ footer {
 
 /* Scale down and center cards in a column on mobile */
 @media (max-width: 768px) {
-    .feature-list, .resource-list, .content-list, .project-list {
+    .feature-list, .resource-list, .content-list {
         flex-direction: column; /* Stack in a column */
         align-items: center; /* Center the cards */
     }
 
-    .feature-card, .resource-card, .project-card, .content-card {
+    .feature-card, .resource-card, .content-card {
         width: 90%; /* Scale down the cards */
         max-width: 350px; /* Limit width for better appearance */
         margin: 10px auto; /* Center each card */
     }
 
-    .feature-card h3, .project-card h3, .resource-card h3 {
+    .feature-card h3, .resource-card h3 {
         font-size: 20px; /* Reduce font size */
     }
 
-    .feature-card p, .project-card p, .resource-card p {
+    .feature-card p, .resource-card p {
         font-size: 14px; /* Scale down paragraph text */
     }
 
     .content-card img, .resource-card img {
         height: 200px; /* Reduce image height for mobile */
-    }
-
-    .project-card img {
-        height: 400px;
     }
 }
 
@@ -567,7 +521,7 @@ footer {
         font-size: 14px; /* Reduce paragraph text size */
     }
 
-    .features, .projects, .resources, .about, .contact {
+    .features, .resources, .about, .contact {
         padding: 20px 10px; /* Smaller padding */
     }
 
