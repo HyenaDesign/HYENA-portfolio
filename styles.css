@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=switzer@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
 
 :root {
-    --primary-font: "Days One", sans-serif;
+    --primary-font: "Switzer", sans-serif;
     --secondary-font: "Jacquard 12", system-ui;
     --orange: #ff7f00;
     --eerie-black: #121212;
@@ -158,20 +158,14 @@ nav ul li a:hover {
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    background: url('assets/hero.webp') no-repeat;
-    background-size: cover;
-    background-position: center;
-    
-    /* Apply a mask to fade out the opacity */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+    padding: 20px;
 }
 
 .hero-content {
-    position: relative; /* Position content over the canvas */
-    z-index: 2; /* Bring the text content above the canvas */
-    text-align: left; /* Aligns text to the left */
-    margin-left: 20px; /* Adds some left margin for spacing */
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    margin-right: 20px; /* Adds space between text and image */
 }
 
 .hero-content h1 {
@@ -183,14 +177,23 @@ nav ul li a:hover {
 
 .hero-content p {
     font-family: var(--primary-font);
-    font-size: 70px;
+    font-size: 50px;
     color: #fff;
     width: 70%;
     margin-top: -20px;
 }
 
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    width: 400px; /* Adjust width as needed */
+    object-fit: contain; /* Ensure image scales well */
+    filter: invert(1);
+}
+
+
 .features {
-    margin-top: -100px;
+    margin-top: 400px;
 }
 
 
