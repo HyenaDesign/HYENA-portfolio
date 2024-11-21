@@ -4,8 +4,9 @@
 :root {
     --primary-font: "Switzer", sans-serif;
     --secondary-font: "Jacquard 12", system-ui;
-    --orange: #ff7f00;
-    --eerie-black: #121212;
+    --orange: #CE4F0A;
+    --eerie-black: #131313;
+    --white: #F2F2F2;
 }
 
 body {
@@ -48,7 +49,7 @@ nav {
     padding-right: 20px;
     padding-top: 4px;
     padding-bottom: 4px;
-    background: rgba(34, 34, 34, 0.7);
+    background: none;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -58,16 +59,7 @@ a {
 }
 
 .logo {
-    font-size: 24px;
-    font-family: var(--primary-font);
-    color: transparent;
-    -webkit-text-stroke: 0.8px var(--orange);
-}
-
-.logo:hover {
-    cursor: pointer;
-    -webkit-text-stroke: 0px;
-    color: var(--orange);
+    width: 100px;
 }
 
 nav ul {
@@ -154,46 +146,41 @@ nav ul li a:hover {
 .hero-banner {
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     height: 100vh;
     overflow: hidden;
     padding: 20px;
+    margin-top: 0px;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
     text-align: left;
-    margin-right: 20px; /* Adds space between text and image */
+    margin-right: -150px; /* Adds space between text and image */
 }
 
 .hero-content h1 {
     font-family: var(--primary-font);
-    font-size: 140px;
+    font-size: 220px;
     color: var(--orange);
     margin: 0;
 }
 
 .hero-content p {
     font-family: var(--primary-font);
-    font-size: 50px;
+    font-size: 90px;
     color: #fff;
     width: 70%;
     margin-top: -20px;
-}
-
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-    width: 400px; /* Adjust width as needed */
-    object-fit: contain; /* Ensure image scales well */
-    filter: invert(1);
+    line-height: 80px;
 }
 
 
 .features {
-    margin-top: 400px;
+    margin-top: -100px;
 }
 
 
@@ -216,8 +203,97 @@ nav ul li a:hover {
     flex-wrap: wrap;
 }
 
-.feature-card,
-.resource-card {
+#projects {
+    padding: 40px;
+    color: #fff;
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--orange);
+}
+
+/* Horizontally scrollable carousel */
+.project-carousel {
+    display: flex;
+    overflow-x: auto; /* Horizontal scroll */
+    scroll-behavior: smooth; /* Smooth scrolling */
+    gap: 20px; /* Space between cards */
+    padding-bottom: 20px; /* Prevent cards from overlapping scrollbar */
+}
+
+/* Hide scrollbar while keeping scrolling functionality */
+.project-carousel::-webkit-scrollbar {
+    height: 8px; /* Scrollbar height */
+}
+
+.project-carousel::-webkit-scrollbar-thumb {
+    background: rgba(255, 165, 0, 0.8); /* Scrollbar thumb color */
+    border-radius: 4px; /* Rounded scrollbar thumb */
+}
+
+.project-carousel::-webkit-scrollbar-track {
+    background: rgba(34, 34, 34, 0.9); /* Scrollbar track color */
+}
+
+.project-card {
+    flex: 0 0 300px; /* Fixed width for horizontal alignment */
+    background: rgba(34, 34, 34, 0.9);
+    padding: 20px;
+    margin: 10px 0; /* Adds spacing around cards */
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0px 0px 30px black;
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--orange);
+}
+
+.project-card p {
+    font-size: 1em;
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.8);
+}
+
+#untox {
+    background-image: url("untox/untox-mockup.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+#midjourney {
+    background-image: url("midjourney/phone.webp");
+    background-size: cover;
+    background-position: center;
+}
+
+#asciify {
+    background-image: url("asciify/asciifymockup.webp");
+    background-size: cover;
+    background-position: 70%;
+}
+
+.feature-card {
     background: rgba(34, 34, 34, 0.9);
     padding: 20px;
     margin: 10px;
