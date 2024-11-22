@@ -69,6 +69,15 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NG3ZS2G6"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+    <div id="preloader">
+        <img src="assets/hyena-logo.webp" alt="logo">
+        <p id="progress-text">0%</p>
+        <div class="progress-bar">
+          <div class="progress"></div>
+        </div>
+      </div>
+    <div id="content">
     <nav>
         <a href="#hero"><img src="assets/hyena-logo.webp" alt="Hyena Logo" class="logo"></a>
         <button class="hamburger" aria-label="Toggle navigation">&#9776;</button> <!-- Added hamburger icon here -->
@@ -81,15 +90,12 @@
             </ul>
         </div>
     </nav>
-    
-
     <section id="hero" class="hero-banner">
         <div class="hero-content">
             <h1>HYENA</h1>
             <p>UNLEASHING BOLD AND CREATIVE DESIGN SOLUTIONS</p>
         </div>
     </section>
-
     <section id="features" class="features">
         <h2>FEATURES</h2>
         <div class="feature-list">
@@ -120,10 +126,8 @@
             <div id="asciify" class="project-card">
                 <h3>ASCIIFY</h3>
             </div>
-            <div class="project-card">
-                <img src="blender/weepingangel.webp" alt="Weeping Angel">
-                <h3>WEEPING ANGEL</h3>
-                <p>ILLUSTRATION</p>
+            <div id="swear" class="project-card">
+                <h3>SWEAR</h3>
             </div>
             <div class="project-card">
                 <img src="blender/weepingangel.webp" alt="Weeping Angel">
@@ -168,15 +172,22 @@
         <a href="about.html">CLICK HERE TO READ MORE</a>
     </section>
 
-    <section id="newsletter" class="newsletter">
-        <h2>Subscribe to the Hyena newsletter</h2>
-        <p>Enjoy news, freebies and tutorials with the hyena newsletter. Sign up now!</p>
-        <form action="YOUR_FORM_ACTION_URL" method="POST">
+    <section class="contact-form">
+        <h2>CONTACT ME</h2>
+        <form action="https://formspree.io/f/xqkvzqpw" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-            <button type="submit">Subscribe</button>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send</button>
         </form>
     </section>
+    
 
     <section id="socials" class="socials">
         <ul>
@@ -191,6 +202,8 @@
             &copy; HYENA 2024
         </div>
     </footer>
+    <script src="scripts/preloader.js"></script>
+</div>
 
     <script src="scripts/nav.js"></script>
 </body>
