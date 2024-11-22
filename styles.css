@@ -17,7 +17,7 @@ body {
   }
 
 
-  
+
   #preloader {
     position: fixed;
     top: 0;
@@ -440,80 +440,6 @@ nav ul li a:hover {
     color: var(--orange);
     padding: 8px;
 }
-
-.newsletter {
-    background: rgb(34, 34, 34);
-    border-radius: 40px;
-    padding: 30px 50px;
-    text-align: center;
-    box-shadow: 0px 0px 30px black;
-}
-
-.newsletter h2 {
-    font-size: 24px;
-    font-family: var(--primary-font);
-    color: #fff;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.newsletter p {
-    color: rgba(255, 255, 255, 0.521);
-    text-transform: uppercase;
-    font-size: 18px;
-}
-
-.newsletter form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.newsletter form label {
-    font-family: var(--primary-font);
-    font-size: 18px;
-    color: #fff;
-    margin-bottom: 10px;
-    text-align: left;
-    width: 100%;
-    text-transform: uppercase;
-}
-
-.newsletter form input[type="email"] {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid var(--orange);
-    width: calc(100% - 20px);
-    margin-bottom: 20px;
-    background-color: #888888;
-}
-
-.newsletter form button[type="submit"] {
-    padding: 10px 20px;
-    border-radius: 6px;
-    border: none;
-    background-color: white;
-    color: var(--eerie-black);
-    font-family: var(--primary-font);
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-transform: uppercase;
-}
-
-.newsletter form button[type="submit"]:hover {
-    transform: scale(1.05);
-    background-color: var(--orange);
-}
-
-@media (min-width: 768px) {
-    .newsletter {
-        max-width: 600px; /* Limit max width for better centering */
-        margin: 0 auto; /* Center the section horizontally */
-    }
-}
-
-
 
 footer {
     color: var(--orange);
