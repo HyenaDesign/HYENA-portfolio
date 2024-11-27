@@ -1,7 +1,6 @@
 @import url('https://api.fontshare.com/v2/css?f[]=switzer@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
 
-
 :root {
     --primary-font: "Switzer", sans-serif;
     --secondary-font: "Jacquard 12", system-ui;
@@ -9,15 +8,7 @@
     --eerie-black: #131313;
     --white: #F2F2F2;
 }
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden; 
-  }
-
-
-
+/* preloader styles */
   #preloader {
     position: fixed;
     top: 0;
@@ -34,9 +25,7 @@ body {
   }
 
   #preloader img {
-    /* turn image into black and white */
     filter: grayscale(100%);
-    /* turn image darker by brightness */
     filter: brightness(0);
   }
   
@@ -57,7 +46,6 @@ body {
     transition: width 0.2s ease-in-out; 
   }
   
-  
   #content {
     opacity: 0;
     transition: opacity 1s ease-in-out;
@@ -70,15 +58,14 @@ body {
     font-weight: bold;
     text-align: center;
   }
-  
-
-
+/* body styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
     background: black;
+    overflow: hidden;
 }
 
 body::after {
@@ -100,8 +87,7 @@ body::after {
 h2, h3 {
     font-family: var(--primary-font);
 }
-
-
+/* nav styles */
 nav {
     position: sticky;
     top: 0; 
@@ -164,7 +150,6 @@ nav ul li a:hover {
     color: var(--orange);
     -webkit-text-stroke: 0px;
 }
-
 /* Hamburger styles */
 .hamburger {
     display: none;
@@ -173,12 +158,12 @@ nav ul li a:hover {
     border: none;
     color: var(--orange);
     cursor: pointer;
-    z-index: 1001; /* Ensure it's above other elements */
+    z-index: 1001;
 }
 
 @media (max-width: 768px) {
     .hamburger {
-        display: block; /* Show the hamburger on mobile */
+        display: block;
     }
 
     .nav-links {
@@ -207,8 +192,7 @@ nav ul li a:hover {
         padding: 10px 20px;
     }
 }
-
-
+/* hero section styles */
 .hero-banner {
     position: relative;
     display: flex;
@@ -241,20 +225,13 @@ nav ul li a:hover {
     font-size: 90px;
     color: #fff;
     width: 70%;
-    margin-top: -20px;
-    line-height: 80px;
+    margin: 0;
+    line-height: 90px;
 }
-
-
-.features {
-    margin-top: -300px;
-}
-
-
+/* cards styles */
 .features, .resources, .about, .contact {
     padding: 60px 20px;
 }
-
 
 .features h2, .resources h2, .about h2, .contact h2 {
     font-size: 36px;
@@ -269,9 +246,53 @@ nav ul li a:hover {
     justify-content: space-around;
     flex-wrap: wrap;
 }
+/* features styles */
+.features {
+    margin-top: -300px;
+}
 
+.feature-card {
+    background: rgba(34, 34, 34, 0.9);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    width: 30%;
+    text-align: center;
+    transition: transform 0.3s;
+    color: #fff;
+    overflow: hidden;
+    background-image: url('assets/scrolling-bg.svg');
+    background-repeat: repeat-x; 
+    background-size: auto 100%; 
+    animation: scrollBackground 10s linear infinite;
+    box-shadow: 0px 0px 30px black;
+}
+
+@keyframes scrollBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+    color: var(--orange);
+    box-shadow: 0px 0px 20px var(--orange);
+}
+
+.feature-card h3 {
+    font-size: 24px;
+    font-family: var(--primary-font);
+}
+
+.feature-card p {
+    font-size: 16px;
+}
+/* projects styles */
 #projects {
-    padding: 40px;
     color: #fff;
     text-align: center;
 }
@@ -282,35 +303,33 @@ nav ul li a:hover {
     color: var(--orange);
 }
 
-/* Horizontally scrollable carousel */
 .project-carousel {
     display: flex;
-    overflow-x: auto; /* Horizontal scroll */
-    scroll-behavior: smooth; /* Smooth scrolling */
-    gap: 20px; /* Space between cards */
-    padding-bottom: 20px; /* Prevent cards from overlapping scrollbar */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding-bottom: 20px;
     scroll-snap-type: x mandatory;
 }
 
-/* Hide scrollbar while keeping scrolling functionality */
 .project-carousel::-webkit-scrollbar {
-    height: 8px; /* Scrollbar height */
+    height: 8px;
 }
 
 .project-carousel::-webkit-scrollbar-thumb {
-    background: var(--orange); /* Scrollbar thumb color */
-    border-radius: 4px; /* Rounded scrollbar thumb */
+    background: var(--orange);
+    border-radius: 4px;
 }
 
 .project-carousel::-webkit-scrollbar-track {
-    background: rgba(34, 34, 34, 0.9); /* Scrollbar track color */
+    background: rgba(34, 34, 34, 0.9);
 }
 
 .project-card {
-    flex: 0 0 300px; /* Fixed width for horizontal alignment */
+    flex: 0 0 300px;
     background: rgba(34, 34, 34, 0.9);
     padding: 20px;
-    margin: 10px 0; /* Adds spacing around cards */
+    margin: 10px 0;
     border-radius: 8px;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -343,7 +362,7 @@ nav ul li a:hover {
     transform: scale(1.05);
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.8);
 }
-
+/* mockups styles */
 #untox {
     background-image: url("untox/untox-mockup.webp");
     background-size: cover;
@@ -367,33 +386,7 @@ nav ul li a:hover {
     background-size: cover;
     background-position: center;
 }
-
-.feature-card {
-    background: rgba(34, 34, 34, 0.9);
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    width: 30%;
-    text-align: center;
-    transition: transform 0.3s;
-    color: #fff;
-    overflow: hidden;
-    background-image: url('assets/scrolling-bg.svg');
-    background-repeat: repeat-x; 
-    background-size: auto 100%; 
-    animation: scrollBackground 10s linear infinite;
-    box-shadow: 0px 0px 30px black;
-}
-
-@keyframes scrollBackground {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 100% 0;
-    }
-}
-
+/* resources styles */
 .resource-card {
     background: #222;
     padding: 20px;
@@ -413,22 +406,7 @@ nav ul li a:hover {
     object-fit: cover; 
     border-radius: 4px; 
 }
-
-.feature-card:hover {
-    transform: scale(1.05);
-    color: var(--orange);
-    box-shadow: 0px 0px 20px var(--orange);
-}
-
-.feature-card h3 {
-    font-size: 24px;
-    font-family: var(--primary-font);
-}
-
-.feature-card p {
-    font-size: 16px;
-}
-
+/* about styles */
 .about {
     text-align: center;
 }
@@ -454,49 +432,6 @@ footer {
     font-family: var(--secondary-font);
     margin-top: 40px;
 }
-.content-card {
-    background: #222;
-    padding: 20px;
-    margin: 10px;
-    margin-top: 80px;
-    border-radius: 8px;
-    margin-bottom: 80px;
-    width: 30%;
-    text-align: center;
-    transition: transform 0.3s;
-    color: #fff;
-    overflow: hidden;
-    box-shadow: 0px 0px 30px black;
-}
-
-.content-card img {
-    width: 100%; 
-    height: 300px; 
-    object-fit: cover; 
-    border-radius: 4px; 
-}
-
-.content-card #screen {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.content-card:hover {
-    transform: scale(1.05);
-    background-color: var(--orange);
-    color: var(--eerie-black);
-}
-
-.socials ul {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    justify-content: center;
-    margin-right: 3%;
-    gap: 30px;
-}
 
 .contact-form {
     width: 100%;
@@ -516,7 +451,6 @@ footer {
     font-size: 2em;
     color: var(--orange);
 }
-
 /* Adjusting input fields for responsiveness */
 .contact-form input,
 .contact-form textarea {
@@ -545,7 +479,6 @@ footer {
     resize: none;
 }
 
-/* Submit button */
 .contact-form button {
     background-color: var(--orange);
     color: white;
@@ -562,7 +495,6 @@ footer {
     transform: scale(1.05); /* Slight zoom on hover */
 }
 
-/* Label styling */
 .contact-form label {
     display: block;
     text-align: left;
@@ -572,7 +504,15 @@ footer {
     margin-bottom: 4px;
     font-family: Helvetica, sans-serif;
 }
-
+/* socials styles */
+.socials ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    margin-right: 3%;
+    gap: 30px;
+}
 /* Two-column layout for larger screens */
 @media (min-width: 768px) {
     .two {
