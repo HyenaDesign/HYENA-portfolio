@@ -521,7 +521,7 @@ footer {
 .contact-form input,
 .contact-form textarea {
     width: calc(100% - 40px); /* Full width with padding accounted for */
-    max-width: 800px; /* Restrict overly wide inputs */
+    max-width: 1000px; /* Restrict overly wide inputs */
     padding: 10px;
     margin: 10px auto; /* Center inputs and textareas */
     border: 1px solid #444;
