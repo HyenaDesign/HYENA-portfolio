@@ -221,10 +221,33 @@ nav ul li a:hover {
 }
 
 .hero-content h1 {
-    font-family: var(--primary-font);
-    font-size: clamp(2rem, 10vw, 18rem);
-    color: var(--orange);
-    margin: 0;
+  cursor: default;
+  margin: 0;
+  font-family: var(--primary-font);
+  color: var(--orange);
+  background: linear-gradient(to right, #CE4F0A 0, rgb(255, 179, 79) 10%, #CE4F0A 20%);
+  background-position: 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+  -webkit-text-size-adjust: none;
+  font-size: clamp(2rem, 10vw, 18rem);
+  text-decoration: none;
+  white-space: nowrap;
+}
+    
+@keyframes shine { 
+    0% {
+        background-position: -260px;
+    }
+    60% {
+        background-position: 800px;
+    }
+    100% {
+        background-position: 800px;
+    }
 }
 
 .hero-content p {
@@ -235,6 +258,43 @@ nav ul li a:hover {
     margin: 0;
     line-height: 90px;
 }
+
+.widgets {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+    margin-top: -150px;
+}
+
+.widgets img {
+    scale: 1.4;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.widgets img:hover {
+    transform: scale(1.05);
+}
+
+
+/* widgets for smaller screens */
+@media (max-width: 768px) {
+    .widgets {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .widgets img {
+        width: 95%;
+        scale: 1;
+    }
+
+    .widgets #top-langs {
+        width: 390px;
+    }
+}
+
 /* cards styles */
 .features, .resources, .about, .contact {
     padding: 60px 20px;
@@ -254,9 +314,6 @@ nav ul li a:hover {
     flex-wrap: wrap;
 }
 /* features styles */
-.features {
-    margin-top: -300px;
-}
 
 .feature-card {
     background: rgba(34, 34, 34, 0.9);
@@ -320,7 +377,7 @@ nav ul li a:hover {
 }
 
 .project-carousel::-webkit-scrollbar {
-    height: 8px;
+    height: 12px;
 }
 
 .project-carousel::-webkit-scrollbar-thumb {
