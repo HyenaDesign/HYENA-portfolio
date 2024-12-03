@@ -120,7 +120,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 4px;
     padding: 10px 20px;
 }
 
@@ -218,6 +218,8 @@ nav ul li a:hover {
     text-align: left;
     margin: 0 auto;
     padding: 5vh 2vw;
+    cursor: default;
+    user-select: none;
 }
 
 .hero-content h1 {
@@ -237,7 +239,8 @@ nav ul li a:hover {
   text-decoration: none;
   white-space: nowrap;
 }
-    
+
+
 @keyframes shine { 
     0% {
         background-position: -260px;
