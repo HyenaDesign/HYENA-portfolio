@@ -357,101 +357,172 @@ nav ul li a:hover {
 .feature-card p {
     font-size: 16px;
 }
-/* projects styles */
+
 #projects {
     color: #fff;
     text-align: center;
+    padding: 60px 20px;
+    font-family: var(--primary-font);
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 #projects h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 36px;
     color: var(--orange);
-}
-
-.project-carousel {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding-bottom: 20px;
-    scroll-snap-type: x mandatory;
-}
-
-.project-carousel::-webkit-scrollbar {
-    height: 12px;
-}
-
-.project-carousel::-webkit-scrollbar-thumb {
-    background: var(--orange);
-    border-radius: 4px;
-}
-
-.project-carousel::-webkit-scrollbar-track {
-    background: rgba(34, 34, 34, 0.9);
-}
-
-.project-card {
-    flex: 0 0 300px;
-    background: rgba(34, 34, 34, 0.9);
-    padding: 20px;
-    margin: 10px 0;
-    border-radius: 8px;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    color: #fff;
-    overflow: hidden;
-    box-shadow: 0px 0px 30px black;
-    scroll-snap-align: start;
+    margin-bottom: 40px;
 }
 
-.project-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.project-card h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+/* Project List Styling */
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between project items */
+    animation: fadeIn 1s ease-in-out;
     color: var(--orange);
 }
 
-.project-card p {
-    font-size: 1em;
-    margin-bottom: 0;
-    opacity: 0.8;
+/* Project Item Styling */
+.project-item {
+    position: relative;
+    font-size: 1.8em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 20px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    border-top: 2px solid #444;
+    border-bottom: 2px solid #444;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
-.project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.8);
-}
-/* mockups styles */
-#untox {
-    background-image: url("untox/untox-mockup.webp");
-    background-size: cover;
-    background-position: center;
+/* Hover Effects */
+.project-item:hover {
+    color: #ff4500; /* Change color on hover */
+    transform: translateX(10px); /* Subtle shift to the right */
 }
 
-#midjourney {
-    background-image: url("midjourney/phone.webp");
-    background-size: cover;
-    background-position: center;
+.project-content {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 15px;
+    flex-grow: 1; /* Ensures text takes the available space */
 }
 
-#asciify {
-    background-image: url("asciify/asciifymockup.webp");
-    background-size: cover;
-    background-position: 70%;
+.project-title {
+    font-size: 1.6em;
+    color: var(--orange);
+    text-decoration: none;
 }
 
-#swear {
-    background-image: url("assets/Swear.webp");
-    background-size: cover;
-    background-position: center;
+/* Project Image */
+.project-item img {
+    width: 250px; /* Large image size */
+    height: auto;
+    border-radius: 5px;
+    background-color: #444; /* Placeholder color */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
 }
+
+/* Project Info (hidden initially) */
+.project-info {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.project-item:hover .project-info {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Info text styling */
+.info-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 0.7em;
+    color: #ddd;
+}
+
+/* Click indicator styling */
+.click-indicator img {
+    width: 30px;
+    background: none;
+}
+
+.project-item:hover .click-indicator {
+    opacity: 1;
+}
+
+/* Hover effect on image */
+.project-item:hover img {
+    opacity: 1; /* Show image on hover */
+}
+
+/* Fade-in Animation on Page Load */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #projects h2 {
+        font-size: 2.5em;
+    }
+
+    .project-item {
+        font-size: 1.2em; /* Slightly smaller text size */
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    /* Image size smaller for mobile but still large */
+    .project-item img {
+        width: 320px; /* Image is smaller on mobile */
+        opacity: 1; /* Always visible on mobile */
+    }
+
+    .project-title {
+        font-size: 1.4em; /* Slightly smaller title text */
+    }
+
+    .click-indicator img {
+        display: none;
+    }
+
+    .project-info {
+        display: none;
+    }
+}
+
+/* Larger Screen Layout (Desktop) */
+@media (min-width: 1024px) {
+    .project-item {
+        font-size: 2em;
+    }
+}
+
 /* resources styles */
 .resource-card {
     background: #222;
