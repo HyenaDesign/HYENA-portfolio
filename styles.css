@@ -240,7 +240,6 @@ nav ul li a:hover {
   white-space: nowrap;
 }
 
-
 @keyframes shine { 
     0% {
         background-position: -260px;
@@ -268,7 +267,7 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     gap: 200px;
-    margin-top: -150px;
+    margin-top: -170px;
 }
 
 .widgets img {
