@@ -1,4 +1,4 @@
-@import url('https://api.fontshare.com/v2/css?f[]=switzer@800&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=switzer@100,101,200,201,300,301,400,401,500,501,600,601,700,701,800,801,900,901,1,2&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap');
 
 :root {
@@ -130,6 +130,7 @@ nav ul li a {
     text-decoration: none;
     font-family: var(--primary-font);
     font-size: 18px;
+    font-weight: 800;
 }
 
 nav ul li #join {
@@ -210,6 +211,7 @@ nav ul li a:hover {
     overflow: hidden;
     padding: 20px;
     margin-top: 100px;
+    margin-bottom: 0;
 }
 
 .hero-content {
@@ -226,6 +228,7 @@ nav ul li a:hover {
   cursor: default;
   margin: 0;
   font-family: var(--primary-font);
+  font-weight: 800;
   color: var(--orange);
   background: linear-gradient(to right, #CE4F0A 0, rgb(255, 179, 79) 10%, #CE4F0A 20%);
   background-position: 0;
@@ -254,6 +257,7 @@ nav ul li a:hover {
 
 .hero-content p {
     font-family: var(--primary-font);
+    font-weight: 800;
     font-size: 90px;
     color: #fff;
     width: 70%;
@@ -261,13 +265,12 @@ nav ul li a:hover {
     line-height: 90px;
 }
 
-.widgets {
+/* .widgets {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 200px;
-    margin-top: -170px;
 }
 
 .widgets img {
@@ -295,7 +298,7 @@ nav ul li a:hover {
     .widgets #top-langs {
         width: 390px;
     }
-}
+} */
 
 /* cards styles */
 .features, .resources, .about, .contact {
@@ -306,8 +309,9 @@ nav ul li a:hover {
     font-size: 36px;
     font-family: var(--primary-font);
     color: var(--orange);
-    text-align: center;
+    text-align: left;
     margin-bottom: 40px;
+    padding: 20px;
 }
 
 .feature-list, .resource-list, .content-list {
@@ -318,44 +322,31 @@ nav ul li a:hover {
 /* features styles */
 
 .feature-card {
-    background: rgba(34, 34, 34, 0.9);
     padding: 20px;
     margin: 10px;
-    border-radius: 8px;
     width: 30%;
-    text-align: center;
+    text-align: left;
     transition: transform 0.3s;
     color: #fff;
     overflow: hidden;
-    background-image: url('assets/scrolling-bg.svg');
-    background-repeat: repeat-x; 
-    background-size: auto 100%; 
-    animation: scrollBackground 10s linear infinite;
-    box-shadow: 0px 0px 30px black;
-}
-
-@keyframes scrollBackground {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 100% 0;
-    }
-}
-
-.feature-card:hover {
-    transform: scale(1.05);
-    color: var(--orange);
-    box-shadow: 0px 0px 20px var(--orange);
+    background-image: url('assets/services-bg.svg');
+    background-repeat: no-repeat;
+    background-size: 99%;
+    background-position: center;
 }
 
 .feature-card h3 {
-    font-size: 24px;
+    font-size: 36px;
     font-family: var(--primary-font);
+    padding-left: 12px;
+    margin-bottom: -10px;
 }
 
 .feature-card p {
     font-size: 16px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    margin-bottom: 30px;
 }
 
 #projects {
@@ -369,8 +360,8 @@ nav ul li a:hover {
 #projects h2 {
     font-size: 36px;
     color: var(--orange);
-    text-align: center;
     margin-bottom: 40px;
+    text-align: left;
 }
 
 /* Project List Styling */
@@ -389,7 +380,7 @@ nav ul li a:hover {
 .project-item {
     position: relative;
     font-size: 1.8em;
-    font-weight: 600;
+    color: white;
     letter-spacing: 1px;
     text-transform: uppercase;
     padding: 20px;
@@ -402,6 +393,7 @@ nav ul li a:hover {
     border-top: 2px solid #444;
     border-bottom: 2px solid #444;
     transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 800;
     cursor: pointer;
     box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
@@ -422,7 +414,7 @@ nav ul li a:hover {
 
 .project-title {
     font-size: 1.6em;
-    color: var(--orange);
+    color: white;
     text-decoration: none;
 }
 
@@ -537,6 +529,7 @@ nav ul li a:hover {
     box-shadow: 0px 0px 30px black;
 }
 
+
 .resource-card img {
     width: 100%; 
     height: 400px; 
@@ -545,15 +538,21 @@ nav ul li a:hover {
 }
 /* about styles */
 .about {
-    text-align: center;
+    margin-top: -150px;
+    height: 80vh;
+    background: linear-gradient(to bottom, rgba(206, 79, 10) 50%, rgba(206, 137, 10));
 }
 
 .about p {
-    font-size: 18px;
-    color: #bbb;
-    text-align: center;
-    max-width: 800px;
+    font-size: 28px;
+    text-transform: uppercase;
+    font-family: var(--primary-font);
+    font-weight: 400;
+    color: black;
+    text-align: left;
+    max-width: 1100px;
     margin: 0 auto;
+    padding-top: 80px;
 }
 
 .about a {
