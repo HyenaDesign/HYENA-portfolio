@@ -243,6 +243,26 @@ nav ul li a:hover {
   white-space: nowrap;
 }
 
+.model-viewer {
+    position: absolute;
+    top: 0;
+    left: 40%; /* Move the model to the right */
+    width: 75%;
+    height: 75%;
+    z-index: -1;
+}
+
+/* Media Query for mobile devices */
+@media (max-width: 768px) {
+    .model-viewer {
+        position: absolute;
+        top: 15%; /* Center vertically */
+        left: 0; /* Center horizontally */
+        /* transform: translate(-50%, -50%); */
+        width: 100%; /* Adjust the width of the model */
+    }
+}
+
 @keyframes shine { 
     0% {
         background-position: -260px;
