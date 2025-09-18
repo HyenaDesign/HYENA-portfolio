@@ -125,8 +125,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: transparent;
-    -webkit-text-stroke: 0.8px var(--orange);
+    color: white;
     text-decoration: none;
     font-family: var(--primary-font);
     font-size: 18px;
@@ -403,6 +402,7 @@ nav ul li a:hover {
     overflow: hidden;
     box-shadow: 0px 0px 30px black;
     scroll-snap-align: start;
+    min-height: 350px;
 }
 
 .project-card img {
@@ -452,6 +452,13 @@ nav ul li a:hover {
     background-size: cover;
     background-position: center;
 }
+
+
+#nothingos {
+    background-image: url("nothingos/nothingos.png");
+    background-size: cover;
+    background-position: center;
+}
 /* resources styles */
 .resource-card {
     background: #222;
@@ -472,6 +479,180 @@ nav ul li a:hover {
     object-fit: cover; 
     border-radius: 4px; 
 }
+
+
+.skills {
+    padding: 60px 20px;
+    background: none;
+    text-align: center;
+}
+
+.skills h2 {
+    color: var(--orange);
+    font-size: 2.2em;
+    margin-bottom: 16px;
+}
+
+.skills p {
+    color: #bbb;
+    font-size: 1.1em;
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(34,34,34,0.85);
+    border-radius: 8px;
+    padding: 18px 24px;
+    min-width: 120px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    transition: transform 0.2s;
+}
+
+.skill-card:hover {
+    transform: scale(1.07);
+    box-shadow: 0 4px 24px var(--orange);
+}
+
+.skill-card img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 10px;
+}
+
+.skill-card span {
+    color: #fff;
+    font-size: 1em;
+    font-family: var(--primary-font);
+    margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skills-list {
+        gap: 16px;
+    }
+    .skill-card {
+        min-width: 90px;
+        padding: 12px 8px;
+    }
+    .skill-card img {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+.skills-graph {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: flex-start;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.skill-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 18px;
+}
+
+.skill-label {
+    display: flex;
+    align-items: center;
+    min-width: 170px;
+    gap: 12px;
+}
+
+.skill-label img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0;
+}
+
+.skill-label span {
+    color: #fff;
+    font-size: 1.05em;
+    font-family: var(--primary-font);
+    margin-top: 0;
+    letter-spacing: 0.5px;
+}
+
+.skill-bar {
+    flex: 1;
+    height: 16px;
+    background: #222;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    margin-top: 0;
+    margin-bottom: 0;
+    min-width: 120px;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange) 60%, #ffb34f 100%);
+    border-radius: 8px 0 0 8px;
+    transition: width 1s cubic-bezier(.77,0,.18,1);
+}
+
+@media (max-width: 768px) {
+    .skills-graph {
+        max-width: 98vw;
+        gap: 14px;
+    }
+    .skill-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    .skill-label {
+        min-width: 0;
+        font-size: 0.95em;
+    }
+    .skill-bar {
+        width: 100%;
+        height: 12px;
+    }
+    .skill-label img {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background: #333;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--orange) 60%, #ffb34f 100%);
+    border-radius: 5px 0 0 5px;
+    transition: width 1s cubic-bezier(.77,0,.18,1);
+}
+
 /* about styles */
 .about {
     text-align: center;
