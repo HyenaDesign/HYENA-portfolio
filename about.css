@@ -1,0 +1,182 @@
+.about-main {
+    max-width: 900px;
+    margin: 60px auto 60px auto;
+    padding: 0 24px;
+    color: #fff;
+    font-family: var(--primary-font, 'Helvetica', sans-serif);
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.about-hero {
+    text-align: center;
+    margin-bottom: 48px;
+    border-bottom: 2px solid rgba(255,179,79,0.13);
+    padding-bottom: 36px;
+}
+
+.about-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin-bottom: 18px;
+    box-shadow: 0 0 24px #0004;
+    object-fit: cover;
+}
+
+.about-hero h1 {
+    color: var(--orange);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-family: var(--primary-font);
+}
+
+.about-lead {
+    font-size: 1.2em;
+    color: #eee;
+    margin: 0 auto;
+    max-width: 700px;
+    line-height: 1.7;
+}
+
+.about-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 48px;
+    justify-content: space-between;
+    margin: 48px 0 48px 0;
+    border-bottom: 2px solid rgba(255,179,79,0.13);
+    padding-bottom: 36px;
+}
+
+.about-card {
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    min-width: 220px;
+    max-width: 300px;
+    flex: 1 1 220px;
+    color: #fff;
+}
+
+.about-card h2 {
+    color: var(--orange);
+    margin-top: 0;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    border-bottom: 1.5px solid rgba(255,179,79,0.13);
+    padding-bottom: 6px;
+}
+
+.about-card ul {
+    text-align: left;
+    padding-left: 18px;
+    color: #eee;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.about-card p {
+    color: #eee;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.about-skills {
+    text-align: center;
+    margin: 48px 0 40px 0;
+    border-bottom: 2px solid rgba(255,179,79,0.13);
+    padding-bottom: 36px;
+}
+
+.about-skills h2 {
+    color: var(--orange);
+    font-size: 1.5em;
+    margin-bottom: 18px;
+}
+
+.about-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.about-skills-list .highlight {
+    background: #222;
+    color: var(--orange);
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: var(--primary-font);
+    margin-bottom: 6px;
+}
+
+.about-contact {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.about-btn {
+    background: var(--orange);
+    color: #fff;
+    padding: 14px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: var(--primary-font);
+    font-size: 1.1em;
+    margin-bottom: 18px;
+    display: inline-block;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px #0004;
+}
+
+.about-btn:hover {
+    background: #ffb34f;
+    color: #222;
+}
+
+.about-socials {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.about-socials img {
+    width: 32px;
+    filter: invert(48%) sepia(100%) saturate(2455%) hue-rotate(6deg) brightness(99%) contrast(102%);
+    transition: transform 0.2s;
+}
+
+.about-socials img:hover {
+    transform: scale(1.15);
+}
+
+.highlight {
+    color: var(--orange);
+    font-weight: bold;
+    background: rgba(255,179,79,0.08);
+    padding: 0 3px;
+    border-radius: 3px;
+}
+
+@media (max-width: 900px) {
+    .about-main {
+        padding: 0 4vw;
+    }
+    .about-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+    .about-card {
+        max-width: 95vw;
+        min-width: 0;
+        width: 100%;
+    }
+}
