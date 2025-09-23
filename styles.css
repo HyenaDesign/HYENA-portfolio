@@ -607,7 +607,7 @@ footer {
     color: var(--orange);
     text-align: center;
     padding: 8px;
-    background-color: #333;
+    background-color: black;
     font-family: var(--secondary-font);
     margin-top: 40px;
 }
