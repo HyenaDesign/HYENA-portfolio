@@ -1,25 +1,43 @@
-// preloader.js
+// Optimized preloader.js - Faster loading for better performance
 document.addEventListener("DOMContentLoaded", function () {
     const preloader = document.getElementById("preloader");
     const progress = document.querySelector(".progress");
-    const progressText = document.getElementById("progress-text"); // Get the <p> element
+    const progressText = document.getElementById("progress-text");
     const content = document.getElementById("content");
   
     let progressValue = 0;
-  
-    // Simulate progress
+    
+    // Faster preloader - reduced time from 2s to 1s
     const interval = setInterval(() => {
-      if (progressValue < 100) {
-        progressValue += 5; // Increment progress by 5%
-        progress.style.width = progressValue + "%"; // Update the width dynamically
-        progressText.textContent = progressValue + "%"; // Update the percentage text
-      } else {
-        clearInterval(interval); // Stop the interval once progress is complete
-        preloader.style.display = "none"; // Hide the preloader
-        content.style.display = "block"; // Show the main content
-        content.style.opacity = "1"; // Trigger fade-in effect
-        document.body.style.overflow = "auto"; // Restore scrolling
-      }
-    }, 100); // Interval duration in milliseconds
-  });
-  
+        if (progressValue < 100) {
+            progressValue += 10; // Increased increment for faster loading
+            progress.style.width = progressValue + "%";
+            progressText.textContent = progressValue + "%";
+        } else {
+            clearInterval(interval);
+            
+            // Use requestAnimationFrame for smoother transition
+            requestAnimationFrame(() => {
+                preloader.style.transform = "translateY(-100%)";
+                preloader.style.transition = "transform 0.3s ease-out";
+                content.style.opacity = "1";
+                document.body.style.overflow = "auto";
+                
+                // Remove preloader after animation
+                setTimeout(() => {
+                    preloader.style.display = "none";
+                }, 300);
+            });
+        }
+    }, 50); // Reduced interval for faster completion
+    
+    // Ensure content shows even if something goes wrong
+    setTimeout(() => {
+        if (preloader.style.display !== "none") {
+            clearInterval(interval);
+            preloader.style.display = "none";
+            content.style.opacity = "1";
+            document.body.style.overflow = "auto";
+        }
+    }, 1500); // Maximum preloader time
+});

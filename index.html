@@ -19,6 +19,19 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://github-readme-stats.vercel.app">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/hyena-logo.webp" as="image" type="image/webp">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=switzer@800&display=swap" as="style">
+    
     <!-- Primary Meta Tags -->
     <title>HYENA DESIGN</title>
     <meta name="title" content="HYENA DESIGN" />
@@ -44,10 +57,74 @@
     <link rel="canonical" href="https://hyenathedesigner.be/index.html">
     <link rel="icon" type="image/x-icon" href="assets/NewFavicon.svg">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></noscript>
+    
+    <!-- Critical inline CSS for above-the-fold content -->
+    <style>
+        /* Critical CSS for immediate rendering */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #CE4F0A;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            gap: 20px;
+        }
+        #content {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            overflow-x: hidden;
+            font-family: 'Helvetica', sans-serif;
+        }
+        .hero-banner {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: black;
+            margin-top: -80px;
+            margin-bottom: 160px;
+        }
+        .hero-content h1 {
+            font-size: 8em;
+            color: #CE4F0A;
+            margin: 0;
+            text-align: left;
+        }
+    </style>
+    
+    <!-- Defer JavaScript loading -->
+    <script>
+        // Load GSAP asynchronously after page load
+        function loadScript(src, callback) {
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            if (callback) script.onload = callback;
+            document.head.appendChild(script);
+        }
+        
+        // Load GSAP after DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js', function() {
+                loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js');
+            });
+        });
+    </script>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DBRXCCT"
@@ -80,8 +157,8 @@
         </div>
     </section>    
         <section class="widgets">
-            <a href="https://github.com/HyenaDesign"><img id="github-stats" src="https://github-readme-stats.vercel.app/api?username=HyenaDesign&show_icons=true&title_color=CE4F0A&icon_color=CE4F0A&bg_color=222&text_color=F2F2F2&hide_border=true" alt="GitHub Stats"></a>
-            <a href="https://github.com/HyenaDesign"><img id="top-langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=HyenaDesign&layout=compact&title_color=CE4F0A&icon_color=CE4F0A&bg_color=222&text_color=F2F2F2&hide_border=true" width="355" alt="Github Top Languages"></a>
+            <a href="https://github.com/HyenaDesign"><img id="github-stats" src="https://github-readme-stats.vercel.app/api?username=HyenaDesign&show_icons=true&title_color=CE4F0A&icon_color=CE4F0A&bg_color=222&text_color=F2F2F2&hide_border=true" alt="GitHub Stats" loading="lazy"></a>
+            <a href="https://github.com/HyenaDesign"><img id="top-langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=HyenaDesign&layout=compact&title_color=CE4F0A&icon_color=CE4F0A&bg_color=222&text_color=F2F2F2&hide_border=true" width="355" alt="Github Top Languages" loading="lazy"></a>
         </section>
     <section id="features" class="features">
         <h2>FEATURES</h2>
@@ -155,63 +232,63 @@
     <div class="skills-graph">
         <div class="skill-row">
             <div class="skill-label">
-                <img src="icons/figma.png" alt="Figma Icon">
+                <img src="icons/figma.png" alt="Figma Icon" loading="lazy">
                 <span>Figma</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" style="width: 95%"></div></div>
         </div>
         <div class="skill-row">
             <div class="skill-label">
-                <img src="icons/photoshop.png" alt="Adobe Photoshop Icon">
+                <img src="icons/photoshop.png" alt="Adobe Photoshop Icon" loading="lazy">
                 <span>Adobe Photoshop</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div>
         </div>
         <div class="skill-row">
             <div class="skill-label">
-                <img src="icons/illustrator.png" alt="Adobe Illustrator Icon">
+                <img src="icons/illustrator.png" alt="Adobe Illustrator Icon" loading="lazy">
                 <span>Adobe Illustrator</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div>
         </div>
         <div class="skill-row">
             <div class="skill-label">
-                <img src="icons/premiere-pro.png" alt="Adobe Premiere Pro Icon">
+                <img src="icons/premiere-pro.png" alt="Adobe Premiere Pro Icon" loading="lazy">
                 <span>Premiere Pro</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%"></div></div>
         </div>
         <div class="skill-row">
             <div class="skill-label">
-                <img src="icons/html-5.png" alt="HTML5 Icon">
+                <img src="icons/html-5.png" alt="HTML5 Icon" loading="lazy">
                 <span>HTML5</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" style="width: 90%"></div></div>
         </div>
         <div class="skill-row">
             <div class="skill-label">
-                <img src="icons/css-3.png" alt="CSS3 Icon">
+                <img src="icons/css-3.png" alt="CSS3 Icon" loading="lazy">
                 <span>CSS3</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div>
         </div>
         <div class="skill-row">
             <div class="skill-label">
-                <img src="icons/js.png" alt="JavaScript Icon">
+                <img src="icons/js.png" alt="JavaScript Icon" loading="lazy">
                 <span>JavaScript</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" style="width: 70%"></div></div>
         </div>
         <div class="skill-row">
             <div class="skill-label">
-                <img src="icons/blender.webp" alt="Blender Icon">
+                <img src="icons/blender.webp" alt="Blender Icon" loading="lazy">
                 <span>Blender</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" style="width: 60%"></div></div>
         </div>
         <div class="skill-row">
             <div class="skill-label">
-                <img src="icons/after-effects.png" alt="After Effects Icon">
+                <img src="icons/after-effects.png" alt="After Effects Icon" loading="lazy">
                 <span>After Effects</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" style="width: 65%"></div></div>
@@ -222,9 +299,9 @@
 
     <section id="socials" class="socials">
         <ul>
-            <li><a href="https://github.com/HyenaDesign"><img src="icons/icons8-github.svg" alt="github link"></a></li>
-            <li><a href="https://www.instagram.com/hyena_the_designer"><img src="icons/icons8-instagram.svg" alt="instagram link"></a></li>
-            <li><a href="https://www.youtube.com/channel/UCCJYXWcln2oLbzhLJt0FEwQ"><img src="icons/icons8-youtube.svg" alt="youtube link"></a></li>
+            <li><a href="https://github.com/HyenaDesign"><img src="icons/icons8-github.svg" alt="github link" loading="lazy"></a></li>
+            <li><a href="https://www.instagram.com/hyena_the_designer"><img src="icons/icons8-instagram.svg" alt="instagram link" loading="lazy"></a></li>
+            <li><a href="https://www.youtube.com/channel/UCCJYXWcln2oLbzhLJt0FEwQ"><img src="icons/icons8-youtube.svg" alt="youtube link" loading="lazy"></a></li>
         </ul>
     </section>
     
@@ -233,10 +310,41 @@
             &copy; HYENA 2024
         </div>
     </footer>
-    <script src="scripts/preloader.js"></script>
+    
+    <!-- Optimized script loading for better performance -->
+    <script src="scripts/preloader.js" async></script>
 </div>
 
-    <script src="scripts/nav.js"></script>
-    <script src="scripts/animations.js"></script>
+    <!-- Load critical navigation immediately -->
+    <script src="scripts/nav.js" defer></script>
+    
+    <!-- Performance monitoring (remove in production) -->
+    <script src="scripts/performance.js" defer></script>
+    
+    <!-- Load animations and GSAP after page load -->
+    <script>
+        window.addEventListener('load', function() {
+            // Load GSAP first, then animations
+            const gsapScript = document.createElement('script');
+            gsapScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
+            gsapScript.onload = function() {
+                const scrollTriggerScript = document.createElement('script');
+                scrollTriggerScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js';
+                scrollTriggerScript.onload = function() {
+                    // Load animations after GSAP is ready
+                    const animationsScript = document.createElement('script');
+                    animationsScript.src = 'scripts/animations.js';
+                    document.body.appendChild(animationsScript);
+                };
+                document.head.appendChild(scrollTriggerScript);
+            };
+            document.head.appendChild(gsapScript);
+            
+            // Load contact form script
+            const contactScript = document.createElement('script');
+            contactScript.src = 'scripts/contact.js';
+            document.body.appendChild(contactScript);
+        });
+    </script>
 </body>
 </html>
