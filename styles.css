@@ -327,9 +327,9 @@ nav ul li a:hover {
     transition: transform 0.3s;
     color: #fff;
     overflow: hidden;
-    background-image: url('assets/scrolling-bg.svg');
+    background-image: url('assets/topography.svg');
     background-repeat: repeat-x; 
-    background-size: auto 100%; 
+    background-size: auto 250%; 
     animation: scrollBackground 10s linear infinite;
     box-shadow: 0px 0px 30px black;
 }
@@ -339,14 +339,13 @@ nav ul li a:hover {
         background-position: 0 0;
     }
     to {
-        background-position: 100% 0;
+        background-position: 250% 0;
     }
 }
 
 .feature-card:hover {
     transform: scale(1.05);
     color: var(--orange);
-    box-shadow: 0px 0px 20px var(--orange);
 }
 
 .feature-card h3 {
