@@ -47,9 +47,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="contact.css">
     
-    <!-- Netlify Identity Widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -293,13 +290,6 @@
                 hintElement.classList.remove('show');
             }, 4000);
         }
-        
-        // Load CMS content loader
-        document.addEventListener('DOMContentLoaded', function() {
-            const cmsScript = document.createElement('script');
-            cmsScript.src = 'scripts/cms-loader.js';
-            document.body.appendChild(cmsScript);
-        });
     </script>
 </body>
 </html>
