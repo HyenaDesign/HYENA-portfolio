@@ -1,0 +1,19 @@
+hero_title: "HYENA DESIGN"
+hero_subtitle: "Bold & Creative Design Solutions"
+about_text: |
+  Unleashing bold & creative design solutions. Specializing in UI/UX design, 
+  brand identity, and visual storytelling that elevates your brand.
+
+services:
+  - name: "Web Design"
+    description: "Custom websites that combine stunning visuals with seamless functionality"
+    icon: "/icons/html-5.png"
+  - name: "UI/UX Design"
+    description: "User-centered design that creates engaging digital experiences"
+    icon: "/icons/figma.png"
+  - name: "3D Design"
+    description: "Creative 3D modeling and rendering using Blender"
+    icon: "/icons/blender.webp"
+  - name: "Brand Identity"
+    description: "Complete brand packages that tell your unique story"
+    icon: "/icons/illustrator.png"

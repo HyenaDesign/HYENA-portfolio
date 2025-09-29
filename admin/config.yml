@@ -1,0 +1,73 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+# Uncomment below to enable drafts
+# publish_mode: editorial_workflow
+
+media_folder: "assets" # Media files will be stored in the repo under assets
+public_folder: "/assets" # The src attribute for uploaded media will begin with /assets
+
+collections:
+  - name: "projects" # Used in routes, e.g., /admin/collections/projects
+    label: "Projects" # Used in the UI
+    folder: "_projects" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Project URL", name: "url", widget: "string", required: false}
+      - {label: "Technologies", name: "technologies", widget: "list", default: []}
+      - {label: "Category", name: "category", widget: "select", options: ["Web Design", "Blender", "Branding", "UI/UX"]}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "_data/home.yml"
+        fields:
+          - {label: "Hero Title", name: "hero_title", widget: "string"}
+          - {label: "Hero Subtitle", name: "hero_subtitle", widget: "text"}
+          - {label: "About Text", name: "about_text", widget: "markdown"}
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - {label: "Service Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Icon", name: "icon", widget: "image"}
+      
+      - label: "About Page"
+        name: "about"
+        file: "_data/about.yml"
+        fields:
+          - {label: "Page Title", name: "title", widget: "string"}
+          - {label: "Bio", name: "bio", widget: "markdown"}
+          - {label: "Profile Image", name: "profile_image", widget: "image"}
+          - label: "Skills"
+            name: "skills"
+            widget: "list"
+            fields:
+              - {label: "Skill Name", name: "name", widget: "string"}
+              - {label: "Level", name: "level", widget: "number", min: 1, max: 100}
+      
+      - label: "Contact Info"
+        name: "contact"
+        file: "_data/contact.yml"
+        fields:
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Address", name: "address", widget: "text"}
+          - label: "Social Media"
+            name: "social"
+            widget: "list"
+            fields:
+              - {label: "Platform", name: "platform", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Icon", name: "icon", widget: "string"}

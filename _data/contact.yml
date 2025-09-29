@@ -1,0 +1,15 @@
+email: "contact@hyenathedesigner.be"
+phone: "+32 123 456 789"
+address: |
+  Belgium
+
+social:
+  - platform: "GitHub"
+    url: "https://github.com/hyenathedesigner"
+    icon: "icons8-github.svg"
+  - platform: "Instagram"
+    url: "https://instagram.com/hyenathedesigner"
+    icon: "icons8-instagram.svg"
+  - platform: "YouTube"
+    url: "https://youtube.com/@hyenathedesigner"
+    icon: "icons8-youtube.svg"

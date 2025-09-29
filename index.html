@@ -120,6 +120,9 @@
         }
     </style>
     
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
     <!-- Defer JavaScript loading -->
     <script>
         // Load GSAP asynchronously after page load
@@ -137,6 +140,17 @@
                 loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js');
             });
         });
+        
+        // Netlify Identity redirect handling
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -357,6 +371,11 @@
             const contactScript = document.createElement('script');
             contactScript.src = 'scripts/contact.js';
             document.body.appendChild(contactScript);
+            
+            // Load CMS content loader
+            const cmsScript = document.createElement('script');
+            cmsScript.src = 'scripts/cms-loader.js';
+            document.body.appendChild(cmsScript);
         });
     </script>
 </body>

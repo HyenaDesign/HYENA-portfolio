@@ -1,0 +1,21 @@
+title: "About Me"
+bio: |
+  I'm a passionate designer who specializes in creating bold, innovative design solutions. 
+  With expertise in UI/UX design, 3D modeling, and brand identity creation, I help brands 
+  tell their stories through compelling visual experiences.
+
+profile_image: "/assets/hyena-logo.webp"
+
+skills:
+  - name: "HTML/CSS"
+    level: 90
+  - name: "JavaScript"
+    level: 75
+  - name: "Figma"
+    level: 95
+  - name: "Blender"
+    level: 85
+  - name: "Adobe Creative Suite"
+    level: 80
+  - name: "UI/UX Design"
+    level: 90
