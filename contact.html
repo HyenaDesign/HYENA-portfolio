@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5DBRXCCT');</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://api.fontshare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="assets/hyena-logo.webp" as="image" type="image/webp">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=switzer@800&display=swap" as="style">
+    
+    <!-- Primary Meta Tags -->
+    <title>Contact – HYENA DESIGN</title>
+    <meta name="title" content="Contact HYENA DESIGN" />
+    <meta name="description" content="Ready to collaborate? Let's connect and bring your creative vision to life. Reach out to Hyena Design for bold, innovative design solutions." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="HYENA DESIGN" />
+    <meta property="og:url" content="https://hyenathedesigner.be/contact.html" />
+    <meta property="og:title" content="Contact HYENA DESIGN - Let's Create Something Bold" />
+    <meta property="og:description" content="Ready to collaborate? Connect with Hyena Design for innovative design solutions that elevate your brand." />
+    <meta property="og:image" content="https://hyenathedesigner.be/assets/hyena-metatag-img.webp" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://hyenathedesigner.be/contact.html" />
+    <meta property="twitter:title" content="Contact HYENA DESIGN - Let's Create Something Bold" />
+    <meta property="twitter:description" content="Ready to collaborate? Connect with Hyena Design for innovative design solutions that elevate your brand." />
+    <meta property="twitter:image" content="https://hyenathedesigner.be/assets/hyena-metatag-img.webp" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/NewFavicon.svg">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Hyena Design",
+            "jobTitle": "Creative Developer & Designer",
+            "url": "https://hyenathedesigner.be",
+            "sameAs": [
+                "https://github.com/HyenaDesign",
+                "https://www.instagram.com/hyena_the_designer",
+                "https://www.youtube.com/channel/UCCJYXWcln2oLbzhLJt0FEwQ"
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DBRXCCT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <nav>
+        <a href="index.html"><img src="assets/hyena-logo.webp" alt="Hyena Logo" class="logo"></a>
+        <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html#projects" class="nav-link">PROJECTS</a></li>
+                <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                <li><a href="contact.html" id="join" class="nav-link active">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="contact-main">
+        <div class="scroll-progress"></div>
+        
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">LET'S CREATE</h1>
+                    <h2 class="hero-subtitle">SOMETHING <span class="highlight">BOLD</span></h2>
+                    <p class="contact-lead hero-description">
+                        Ready to bring your vision to life? I'm always excited to collaborate on projects that push creative boundaries.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connection Options -->
+        <section class="connection-grid">
+            <div class="connection-container">
+                <h2 class="section-title">CHOOSE YOUR ADVENTURE</h2>
+                
+                <div class="connection-cards">
+                    <!-- Quick Chat Card -->
+                    <div class="connection-card" data-type="chat">
+                        <div class="card-icon">💬</div>
+                        <h3>QUICK CHAT</h3>
+                        <p>Got a quick question or want to bounce ideas around?</p>
+                        <div class="connection-options">
+                            <a href="https://www.instagram.com/hyena_the_designer" target="_blank" class="connection-link instagram">
+                                <img src="icons/icons8-instagram.svg" alt="Instagram">
+                                <span>DM on Instagram</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Collaboration Card -->
+                    <div class="connection-card" data-type="project">
+                        <div class="card-icon">🚀</div>
+                        <h3>PROJECT COLLAB</h3>
+                        <p>Ready to start something amazing together?</p>
+                        <div class="connection-options">
+                            <button class="connection-link email-trigger" onclick="revealEmail()">
+                                <span>📧</span>
+                                <span>Reveal Email</span>
+                            </button>
+                            <div class="email-reveal" id="email-reveal">
+                                <div class="email-content">
+                                    <span class="email-address" id="email-address">sam.hyenadesign@gmail.com</span>
+                                    <button class="copy-email" onclick="copyEmail()">Copy</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Check My Work Card -->
+                    <div class="connection-card" data-type="explore">
+                        <div class="card-icon">👀</div>
+                        <h3>GET INSPIRED</h3>
+                        <p>Want to see what I'm up to and get inspired?</p>
+                        <div class="connection-options">
+                            <a href="https://github.com/HyenaDesign" target="_blank" class="connection-link github">
+                                <img src="icons/icons8-github.svg" alt="GitHub">
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCCJYXWcln2oLbzhLJt0FEwQ" target="_blank" class="connection-link youtube">
+                                <img src="icons/icons8-youtube.svg" alt="YouTube">
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creative Contact Section -->
+        <section class="creative-contact">
+            <div class="creative-container">
+                <h2 class="section-title">OR... BE CREATIVE</h2>
+                <div class="creative-prompt">
+                    <div class="prompt-content">
+                        <h3>SEND ME YOUR WILDEST PROJECT IDEA</h3>
+                        <p>Draw it, describe it, meme it, dream it. I love unconventional briefs!</p>
+                        
+                        <div class="creative-options">
+                            <div class="creative-option" onclick="showCreativeHint('sketch')">
+                                <span class="option-emoji">🎨</span>
+                                <span>Sketch your concept</span>
+                            </div>
+                            <div class="creative-option" onclick="showCreativeHint('music')">
+                                <span class="option-emoji">🎵</span>
+                                <span>Send a mood playlist</span>
+                            </div>
+                            <div class="creative-option" onclick="showCreativeHint('colors')">
+                                <span class="option-emoji">🌈</span>
+                                <span>Describe it in colors</span>
+                            </div>
+                            <div class="creative-option" onclick="showCreativeHint('bold')">
+                                <span class="option-emoji">🔥</span>
+                                <span>Just tell me it needs to be BOLD</span>
+                            </div>
+                        </div>
+                        
+                        <div class="creative-hint" id="creative-hint">
+                            <p id="hint-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Availability Status -->
+        <section class="availability-status">
+            <div class="status-container">
+                <div class="status-indicator">
+                    <div class="status-light"></div>
+                    <div class="status-text">
+                        <h3>Currently Available</h3>
+                        <p>Taking on new projects • Response time: 24-48h</p>
+                    </div>
+                </div>
+                
+                <div class="what-next">
+                    <h4>WHAT HAPPENS NEXT</h4>
+                    <div class="process-steps">
+                        <div class="step">
+                            <span class="step-number">1</span>
+                            <span>We chat about your vision</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <span>I create a custom proposal</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <span>We bring it to life together</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            &copy; HYENA 2024
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/nav.js" defer></script>
+    <script src="scripts/contact-interactions.js" defer></script>
+    
+    <!-- Load animations after page load -->
+    <script>
+        // Immediate fallback animation trigger
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add CSS animation classes immediately
+            setTimeout(() => {
+                const heroTitle = document.querySelector('.hero-title');
+                const heroSubtitle = document.querySelector('.hero-subtitle');
+                const heroDescription = document.querySelector('.hero-description');
+                
+                if (heroTitle) heroTitle.classList.add('animate-in');
+                if (heroSubtitle) heroSubtitle.classList.add('animate-in');
+                if (heroDescription) heroDescription.classList.add('animate-in');
+            }, 100);
+        });
+
+        window.addEventListener('load', function() {
+            // Load GSAP first, then animations
+            const gsapScript = document.createElement('script');
+            gsapScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
+            gsapScript.onload = function() {
+                const scrollTriggerScript = document.createElement('script');
+                scrollTriggerScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js';
+                scrollTriggerScript.onload = function() {
+                    // Load contact animations
+                    const animationsScript = document.createElement('script');
+                    animationsScript.src = 'scripts/contact-animations.js';
+                    document.body.appendChild(animationsScript);
+                };
+                document.head.appendChild(scrollTriggerScript);
+            };
+            document.head.appendChild(gsapScript);
+        });
+
+        // Email reveal and copy functionality are now handled by contact-interactions.js
+        // This avoids duplicate function definitions and ensures consistency
+
+        // Creative hint functionality
+        function showCreativeHint(type) {
+            const hintElement = document.getElementById('creative-hint');
+            const hintText = document.getElementById('hint-text');
+            
+            const hints = {
+                sketch: "Love it! Send me a rough sketch, doodle, or even a napkin drawing. Visual brainstorming is where magic happens! 📧",
+                music: "Genius! Music speaks volumes about the vibe you're after. Drop those Spotify links and let's vibe together! 🎧",
+                colors: "Perfect! Tell me what orange means to you, or share your dream palette. Colors are emotions! 🎨",
+                bold: "YES! That's exactly my language. Let's make something that stops people in their tracks! 💥"
+            };
+            
+            hintText.textContent = hints[type] || "Let's get creative together!";
+            hintElement.classList.add('show');
+            
+            setTimeout(() => {
+                hintElement.classList.remove('show');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>

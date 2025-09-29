@@ -146,6 +146,18 @@ nav ul li #join:hover {
     color: var(--eerie-black);
 }
 
+/* Ensure active state maintains border */
+nav ul li #join.active {
+    color: var(--orange);
+    background-color: transparent;
+    border: 2px solid var(--orange);
+}
+
+/* Active state for regular nav links */
+nav ul li a.active {
+    color: var(--orange);
+}
+
 nav ul li a:hover {
     color: var(--orange);
     -webkit-text-stroke: 0px;
