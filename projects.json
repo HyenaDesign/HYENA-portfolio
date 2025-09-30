@@ -3,7 +3,7 @@
     "title": "Nothing OS - GNOME Theme",
     "description": "A modern, responsive portfolio website showcasing creative projects with dynamic animations and interactive features.",
     "technologies": ["HTML", "CSS", "JavaScript", "WebGL"],
-    "link": "#",
+    "link": "nothing.html",
     "image": "nothingos/nothingos.png"
   },
   {
@@ -25,6 +25,6 @@
     "description": "A curated collection of digital artwork and 3D renders created using Blender and post-processing techniques.",
     "technologies": ["Blender", "Photoshop", "After Effects"],
     "link": "blender.html",
-    "image": "blender/CDRENDER.webp"
+    "image": "tlr/5in.webp"
   }
 ]
