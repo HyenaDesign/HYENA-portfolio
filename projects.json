@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Nothing OS - GNOME Theme",
+    "description": "A modern, responsive portfolio website showcasing creative projects with dynamic animations and interactive features.",
+    "technologies": ["HTML", "CSS", "JavaScript", "WebGL"],
+    "link": "#",
+    "image": "nothingos/nothingos.png"
+  },
+  {
+    "title": "SWEAR - Three.js",
+    "description": "Interactive 3D environment built with Three.js featuring advanced lighting and particle systems.",
+    "technologies": ["Three.js", "GLSL", "WebGL", "JavaScript"],
+    "link": "https://swearthreejs.vercel.app/",
+    "image": "assets/Swear.webp"
+  },
+  {
+    "title": "Hyena's Den - Posterfolio",
+    "description": "A curated collection of digital artwork and 3D renders created using Blender and post-processing techniques.",
+    "technologies": ["Blender", "Photoshop", "After Effects"],
+    "link": "blender.html",
+    "image": "assets/hyenasden.png"
+  },
+  {
+    "title": "The Lost Regiment - Magazine",
+    "description": "A curated collection of digital artwork and 3D renders created using Blender and post-processing techniques.",
+    "technologies": ["Blender", "Photoshop", "After Effects"],
+    "link": "blender.html",
+    "image": "blender/CDRENDER.webp"
+  }
+]
