@@ -12,6 +12,9 @@
     opacity: 1;
     margin-top: 10px;
     transition: opacity 0.3s ease;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .highlight {
@@ -142,6 +145,9 @@
     line-height: 1.6;
     color: #fff;
     opacity: 0.9;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .highlight {
@@ -635,6 +641,11 @@
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+}
+
+.hero-content p {
+    min-width: 1200px;
+    font-size: 70px;
 }
 
 /* Responsive Design */

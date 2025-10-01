@@ -434,6 +434,11 @@
     animation: slideInUp 0.8s ease-out 0.4s both;
 }
 
+.hero-content p {
+    min-width: 1100px;
+    font-size: 70px;
+}
+
 @keyframes slideInUp {
     from {
         opacity: 0;
