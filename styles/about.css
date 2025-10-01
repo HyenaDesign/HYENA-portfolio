@@ -561,13 +561,27 @@
 
 .social-link {
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: rgba(206, 79, 10, 0.1);
+    border: 1px solid rgba(206, 79, 10, 0.2);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    flex-shrink: 0;
 }
 
 .social-link img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
+    width: 18px;
+    height: 18px;
+    filter: invert(48%) sepia(100%) saturate(2455%) hue-rotate(6deg) brightness(99%) contrast(102%);
+    transition: filter 0.3s ease;
+    object-fit: contain;
+    display: block;
+    margin: auto;
 }
 
 .social-hover {
@@ -586,8 +600,15 @@
     white-space: nowrap;
 }
 
+.social-link:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(206, 79, 10, 0.3);
+}
+
 .social-link:hover img {
-    transform: translateY(-5px);
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
 }
 
 .social-link:hover .social-hover {
