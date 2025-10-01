@@ -138,27 +138,88 @@ html, body {
 
 @media (max-width: 900px) {
     .project-details {
-        padding: 24px 4vw;
+        margin: 40px 10px 20px 10px;
+        padding: 30px 5vw;
+        border-radius: 12px;
     }
+    
     .project-header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 20px;
     }
+    
     .project-cover {
         width: 100%;
         max-width: 400px;
-        margin-bottom: 18px;
+        margin: 0 auto 15px auto;
+        display: block;
     }
+    
     .project-header-content {
         width: 100%;
+        text-align: center;
     }
+    
+    .project-header-content h1 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+    }
+    
+    .project-type, .project-date {
+        font-size: 1rem;
+    }
+    
     .project-links {
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
+        align-items: center;
     }
+    
+    .project-btn {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+        padding: 12px 20px;
+    }
+    
     .project-gallery .gallery-grid {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
+    }
+    
+    .project-gallery .gallery-grid img {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .tools-list {
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-details {
+        margin: 20px 5px 15px 5px;
+        padding: 20px 4vw;
+    }
+    
+    .project-header-content h1 {
+        font-size: clamp(1.5rem, 8vw, 1.8rem);
+    }
+    
+    .project-summary h2,
+    .project-details-section h2,
+    .project-tools h2,
+    .project-gallery h2 {
+        font-size: 1.3rem;
+    }
+    
+    .project-summary p,
+    .project-details-section ul,
+    .project-tools ul {
+        font-size: 1rem;
     }
 }
 

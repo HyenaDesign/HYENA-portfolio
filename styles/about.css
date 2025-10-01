@@ -9,7 +9,7 @@
     font-size: clamp(1rem, 2.5vw, 1.1rem);
     line-height: 1.6;
     color: #fff;
-    opacity: 1; /* Show immediately, animate with JS if needed */
+    opacity: 1;
     margin-top: 10px;
     transition: opacity 0.3s ease;
 }
@@ -66,7 +66,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    opacity: 1; /* Show immediately */
+    opacity: 1;
     line-height: 1.1;
 }
 
@@ -106,7 +106,7 @@
     font-size: clamp(1.1rem, 3vw, 1.5rem);
     color: #fff;
     margin-bottom: 30px;
-    opacity: 1; /* Show immediately */
+    opacity: 1;
     transition: opacity 0.3s ease;
 }
 
@@ -411,7 +411,7 @@
 
 /* Skills Section */
 .about-skills {
-    padding: 100px 5%;
+    padding: 60px 5%;
 }
 
 .skills-container {
@@ -420,20 +420,28 @@
 }
 
 .skills-category {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .skills-category h3 {
     color: #fff;
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
     margin-bottom: 30px;
     text-align: center;
+    font-family: var(--primary-font);
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
 }
 
 .skill-item {
@@ -467,11 +475,12 @@
 }
 
 .skill-level {
-    height: 6px;
+    height: 8px;
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
+    border-radius: 4px;
     overflow: hidden;
     position: relative;
+    margin-top: 8px;
 }
 
 .skill-level::before {
@@ -480,11 +489,22 @@
     top: 0;
     left: 0;
     height: 100%;
-    background: var(--orange);
-    border-radius: 3px;
-    width: var(--level);
-    transition: width 1s ease;
+    background: linear-gradient(90deg, var(--orange), #ffb34f);
+    border-radius: 4px;
+    width: 0%;
+    transition: width 1.5s ease;
 }
+
+/* Skill level data attributes */
+.skill-item[data-skill="Figma"] .skill-level::before { width: 95%; }
+.skill-item[data-skill="Photoshop"] .skill-level::before { width: 90%; }
+.skill-item[data-skill="Illustrator"] .skill-level::before { width: 85%; }
+.skill-item[data-skill="HTML5"] .skill-level::before { width: 90%; }
+.skill-item[data-skill="CSS3"] .skill-level::before { width: 88%; }
+.skill-item[data-skill="JavaScript"] .skill-level::before { width: 75%; }
+.skill-item[data-skill="Blender"] .skill-level::before { width: 80%; }
+.skill-item[data-skill="After Effects"] .skill-level::before { width: 85%; }
+.skill-item[data-skill="Premiere Pro"] .skill-level::before { width: 88%; }
 
 /* Contact Section */
 .about-contact {
@@ -653,35 +673,202 @@
 }
 
 @media (max-width: 768px) {
+    .about-hero {
+        min-height: 100vh;
+        padding: 60px 5% 40px 5%;
+    }
+    
+    .hero-content {
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .hero-text {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-text h1 {
+        font-size: clamp(2rem, 12vw, 3.5rem);
+        margin-bottom: 12px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .role-text {
+        font-size: clamp(1rem, 4vw, 1.3rem);
+        margin-bottom: 18px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .about-lead {
+        font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+        padding: 0 5px;
+        line-height: 1.5;
+        text-align: center;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
     .section-title {
-        font-size: 2rem;
+        font-size: clamp(1.8rem, 6vw, 2rem);
+        margin-bottom: 40px;
     }
 
     .cards-container {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .skill-item {
+        padding: 15px;
     }
 
     .about-socials {
         flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .timeline {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 5px;
+    }
+    
+    .timeline-item {
+        padding: 20px;
+        overflow: visible;
+        word-wrap: break-word;
+    }
+    
+    .timeline-content {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .timeline-content h3 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+        margin-bottom: 12px;
+        word-wrap: break-word;
+    }
+    
+    .timeline-content h4 {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        margin-bottom: 12px;
+        line-height: 1.4;
+        word-wrap: break-word;
+    }
+    
+    .timeline-content p {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+        line-height: 1.5;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
     }
 }
 
 @media (max-width: 480px) {
-    .typewriter {
-        font-size: 1.2rem;
+    .about-main {
+        padding-top: 5px;
     }
-
+    
+    .about-hero {
+        padding: 50px 3% 30px 3%;
+        min-height: 95vh;
+    }
+    
+    .hero-content {
+        gap: 15px;
+    }
+    
+    .hero-text h1 {
+        font-size: clamp(1.8rem, 15vw, 3rem);
+        margin-bottom: 8px;
+        line-height: 1.05;
+    }
+    
+    .role-text {
+        font-size: clamp(0.9rem, 5vw, 1.2rem);
+        margin-bottom: 12px;
+    }
+    
     .about-lead {
-        font-size: 1rem;
+        font-size: clamp(0.85rem, 4vw, 1rem);
+        padding: 0 8px;
+        line-height: 1.4;
+    }
+    
+    .section-title {
+        font-size: clamp(1.5rem, 8vw, 1.8rem);
+        margin-bottom: 25px;
+    }
+    
+    .about-skills {
+        padding: 35px 3%;
+    }
+    
+    .skills-category {
+        margin-bottom: 25px;
+    }
+    
+    .skills-category h3 {
+        font-size: clamp(1.2rem, 6vw, 1.4rem);
+        margin-bottom: 15px;
+    }
+    
+    .skill-item {
+        padding: 10px;
+        gap: 12px;
+    }
+    
+    .skill-item img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .timeline {
+        padding: 0 3px;
+        gap: 15px;
+    }
+    
+    .timeline-item {
+        padding: 15px;
+    }
+    
+    .timeline-content h3 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        margin-bottom: 8px;
+    }
+    
+    .timeline-content h4 {
+        font-size: clamp(0.95rem, 4.5vw, 1.1rem);
+        margin-bottom: 8px;
+        line-height: 1.3;
+    }
+    
+    .timeline-content p {
+        font-size: clamp(0.8rem, 3.8vw, 0.95rem);
+        line-height: 1.4;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
     }
 
     .about-btn {
         width: 100%;
         justify-content: center;
+        padding: 10px 15px;
+        font-size: 0.85rem;
     }
 }
 
