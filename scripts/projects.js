@@ -121,13 +121,13 @@
       container.style.outline = 'none';
     });
 
-    // Smooth auto-scroll to center first card on load
-    setTimeout(() => {
-      const firstCard = container.querySelector('.project-card');
-      if (firstCard) {
-        firstCard.scrollIntoView({ behavior: 'smooth', inline: 'center' });
-      }
-    }, 100);
+    // Auto-scroll disabled to prevent unwanted page scrolling
+    // setTimeout(() => {
+    //   const firstCard = container.querySelector('.project-card');
+    //   if (firstCard) {
+    //     firstCard.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+    //   }
+    // }, 100);
   }
 
   // Load projects when the script runs
