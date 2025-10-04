@@ -1,0 +1,29 @@
+{
+  "songs": [
+    {
+      "title": "infinite source",
+      "artist": "Deftones",
+      "embed": "<iframe data-testid=\"embed-iframe\" src=\"https://open.spotify.com/embed/track/3txlvthoUa9vWvG1zr2Lnr?utm_source=generator&theme=0\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>"
+    },
+    {
+      "title": "Tower of Memories",
+      "artist": "Ivri",
+      "embed": "<iframe data-testid=\"embed-iframe\" style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/track/0qhVpwKivK3u4OMLb7Z9Ah?utm_source=generator&theme=0\" width=\"100%\" height=\"352\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>"
+    },
+    {
+      "title": "Hunting For Witches",
+      "artist": "Bloc Party",
+      "embed": "<iframe data-testid=\"embed-iframe\" style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/track/7Ms6GPeXkFA5FEkXQzEImM?utm_source=generator&theme=0\" width=\"100%\" height=\"352\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>"
+    },
+    {
+      "title": "Say What You Want",
+      "artist": "Wu-Tang Clan",
+      "embed": "<iframe data-testid=\"embed-iframe\" style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/track/7nhJa2JFtr7MAuZspPkaU9?utm_source=generator&theme=0\" width=\"100%\" height=\"352\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>"
+    },
+    {
+      "title": "Closer",
+      "artist": "Kings of Leon",
+      "embed": "<iframe data-testid=\"embed-iframe\" style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/track/1O8d2pWtBclzuY3FctBPVa?utm_source=generator&theme=0\" width=\"100%\" height=\"352\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>"
+    }
+  ]
+}
