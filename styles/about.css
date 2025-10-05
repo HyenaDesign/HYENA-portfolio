@@ -693,6 +693,11 @@
         gap: 20px;
         text-align: center;
     }
+
+    .hero-content p {
+        min-width: 10px;
+        font-size: 30px;
+    }
     
     .hero-text {
         text-align: center;
@@ -756,6 +761,7 @@
     }
     
     .timeline-item {
+        margin-left: -35px;
         padding: 20px;
         overflow: visible;
         word-wrap: break-word;

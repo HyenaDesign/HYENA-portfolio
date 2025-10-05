@@ -472,6 +472,11 @@
         font-size: clamp(1.5rem, 8vw, 3rem);
         margin: -15px 0 20px;
     }
+
+    .hero-content p {
+        min-width: 10px;
+        font-size: 30px;
+    }
     
     .contact-lead {
         font-size: clamp(1rem, 4vw, 1.2rem);
@@ -509,6 +514,13 @@
     
     .prompt-content {
         padding: 30px 20px;
+    }
+
+    .process-steps {
+        flex-direction: column;
+        gap: 25px;
+        justify-content: center;
+        align-items: center;
     }
 }
 

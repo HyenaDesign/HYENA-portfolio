@@ -970,8 +970,8 @@ footer {
     }
 
     .feature-card, .resource-card, .content-card {
-        width: 95%;
-        max-width: 400px;
+        width: 85%;
+        max-width: 380px;
         margin: 0 auto;
         padding: 20px;
     }
