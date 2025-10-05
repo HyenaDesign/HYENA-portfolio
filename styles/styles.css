@@ -233,6 +233,13 @@ nav ul li a:hover {
     animation: subtleFloat 5s ease-in-out infinite;
 }
 
+.hero-image img {
+    width: 350px;
+    height: auto;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
 @keyframes subtleFloat {
     0%, 100% {
         transform: translateY(-50%) rotate(5deg);
@@ -242,13 +249,6 @@ nav ul li a:hover {
     }
 }
 
-
-.hero-image iframe {
-    width: 400px;
-    height: 300px;
-    border-radius: 12px;
-    pointer-events: auto;
-}
 
 .widgets {
     display: flex;

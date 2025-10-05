@@ -332,7 +332,7 @@ window.revealEmailAnimated = function() {
     if (emailReveal.classList.contains('show')) return;
     
     // Update email here
-    const email = 'contact@hyenadesign.be'; // Replace with actual email
+    const email = 'sam.hyenadesign@gmail.com'; // Replace with actual email
     
     // Animate button transformation
     gsap.to(trigger, {
