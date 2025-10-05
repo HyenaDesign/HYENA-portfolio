@@ -163,15 +163,12 @@ nav ul li a:hover {
 }
 /* hero section styles */
 .hero-banner {
-    position: relative;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
     padding: 20px;
-    margin-top: -100px;
 }
 
 .hero-content {
@@ -182,6 +179,7 @@ nav ul li a:hover {
     padding: 5vh 2vw;
     cursor: default;
     user-select: none;
+    margin-top: -150px;
 }
 
 .hero-content h1 {
@@ -223,40 +221,12 @@ nav ul li a:hover {
     line-height: 90px;
 }
 
-.hero-image {
-    position: absolute;
-    right: 15%;
-    top: 50%;
-    transform: translateY(-50%);
-    transform: rotate(5deg);
-    z-index: 10;
-    animation: subtleFloat 5s ease-in-out infinite;
-}
-
-.hero-image img {
-    width: 350px;
-    height: auto;
-    border-radius: 12px;
-    pointer-events: none;
-}
-
-@keyframes subtleFloat {
-    0%, 100% {
-        transform: translateY(-50%) rotate(5deg);
-    }
-    50% {
-        transform: translateY(-55%) rotate(5deg);
-    }
-}
-
-
 .widgets {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 200px;
-    margin-top: -170px;
 }
 
 .widgets img {
@@ -274,6 +244,7 @@ nav ul li a:hover {
     .widgets {
         flex-direction: column;
         gap: 10px;
+        margin-top: -170px;
     }
 
     .widgets img {
