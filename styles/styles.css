@@ -200,6 +200,29 @@ nav ul li a:hover {
   white-space: nowrap;
 }
 
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--orange);
+    font-family: var(--primary-font);
+    font-size: 14px;
+    letter-spacing: 2px;
+    user-select: none;
+    animation: float 2s infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
 @keyframes shine { 
     0% {
         background-position: -260px;
@@ -221,39 +244,12 @@ nav ul li a:hover {
     line-height: 90px;
 }
 
-.widgets {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 200px;
-}
-
-.widgets img {
-    scale: 1.4;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.widgets img:hover {
-    transform: scale(1.05);
-}
-
 
 /* widgets for smaller screens */
 @media (max-width: 768px) {
-    .widgets {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: -170px;
-    }
 
-    .widgets img {
-        width: 95%;
-        scale: 1;
-    }
-
-    .widgets #top-langs {
-        width: 390px;
+    .scroll-down-indicator {
+        display: none;
     }
 
     /* Responsive project cards */
@@ -294,6 +290,11 @@ nav ul li a:hover {
 /* cards styles */
 .features, .resources, .about, .contact {
     padding: 60px 20px;
+}
+
+.features {
+    background: none;
+    margin-top: -100px;
 }
 
 .features h2, .resources h2, .about h2, .contact h2 {
@@ -499,6 +500,12 @@ nav ul li a:hover {
     height: 400px; 
     object-fit: cover; 
     border-radius: 4px; 
+}
+
+.go-to-label {
+    font-family: var(--primary-font);
+    color: var(--orange);
+
 }
 
 
@@ -1029,15 +1036,6 @@ footer {
         font-size: clamp(1rem, 7vw, 1.5rem);
         width: 98%;
         line-height: 1.3;
-    }
-    
-    .widgets img {
-        width: 98%;
-    }
-    
-    .widgets #top-langs {
-        width: 95%;
-        max-width: 350px;
     }
     
     .project-card {
