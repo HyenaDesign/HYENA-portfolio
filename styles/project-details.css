@@ -199,6 +199,261 @@ html, body {
     }
 }
 
+/* Blender Gallery Specific Styles */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange) 0%, #ffb34f 100%);
+    z-index: 1001;
+    transition: width 0.1s ease-out;
+}
+
+.blender-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+    justify-content: flex-start;
+}
+
+.artwork-item {
+    position: relative;
+    background: rgba(34, 34, 34, 0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 2px solid rgba(206, 79, 10, 0.2);
+    flex: 0 0 calc(33.333% - 17px);
+    width: calc(33.333% - 17px);
+}
+
+.artwork-item:hover {
+    border-color: var(--orange);
+    box-shadow: 0 15px 35px rgba(206, 79, 10, 0.3);
+}
+
+.artwork-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.artwork-item:hover img {
+    transform: scale(1.05);
+}
+
+.artwork-info {
+    padding: 20px;
+    opacity: 0.9;
+    transform: translateY(5px);
+    transition: all 0.3s ease;
+}
+
+.artwork-info h3 {
+    color: var(--orange);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    font-family: var(--primary-font);
+}
+
+.artwork-info p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.artwork-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.artwork-tags span {
+    background: rgba(206, 79, 10, 0.2);
+    color: var(--orange);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(206, 79, 10, 0.3);
+}
+
+.project-skills {
+    margin-bottom: 36px;
+}
+
+.project-skills h2 {
+    color: var(--orange);
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.skills-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.skill-category {
+    background: rgba(34, 34, 34, 0.6);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(206, 79, 10, 0.2);
+}
+
+.skill-category h3 {
+    color: var(--orange);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    font-family: var(--primary-font);
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-category li {
+    color: #eee;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.skill-category li:last-child {
+    border-bottom: none;
+}
+
+.skill-category li:hover {
+    color: var(--orange);
+}
+
+.skill-category li::before {
+    content: '→';
+    color: var(--orange);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Lightbox Styles */
+.lightbox {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Enhanced Responsive Design for Blender Gallery */
+@media (max-width: 1024px) {
+    .blender-gallery {
+        gap: 20px;
+    }
+    
+    .artwork-item {
+        flex: 0 0 calc(50% - 10px);
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .blender-gallery {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .artwork-item {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .artwork-item img {
+        height: 220px;
+    }
+    
+    .artwork-info {
+        padding: 15px;
+    }
+    
+    .artwork-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .artwork-info p {
+        font-size: 0.9rem;
+    }
+    
+    .skills-showcase {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .skill-category {
+        padding: 20px;
+    }
+    
+    .artwork-tags {
+        gap: 6px;
+    }
+    
+    .artwork-tags span {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .blender-gallery {
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .artwork-item img {
+        height: 200px;
+    }
+    
+    .artwork-info {
+        padding: 12px;
+    }
+    
+    .artwork-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+    }
+    
+    .artwork-info p {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+    
+    .skill-category {
+        padding: 15px;
+    }
+    
+    .skill-category h3 {
+        font-size: 1.1rem;
+    }
+    
+    .skill-category li {
+        font-size: 0.9rem;
+        padding: 6px 0;
+    }
+}
+
 @media (max-width: 480px) {
     .project-details {
         margin: 20px 5px 15px 5px;

@@ -1,15 +1,5 @@
 [
-  {
-    "title": "Nothing OS - GNOME Theme",
-    "description": "A modern, responsive portfolio website showcasing creative projects with dynamic animations and interactive features.",
-    "technologies": ["Linux", "CSS", "Eww", "Conky"],
-    "link": "nothing.html",
-    "image": "nothingos/nothingos.png",
-    "collaborator": {
-      "name": "",
-      "link": ""
-    }
-  },
+  
   {
     "title": "SWEAR - Three.js",
     "description": "Interactive 3D environment built with Three.js featuring advanced lighting and particle systems.",
@@ -21,12 +11,35 @@
       "link": "https://yungfuzzzz.github.io/portfolio-2026/contact.html"
     }
   },
+  
+  {
+    "title": "Blender 3D Gallery",
+    "description": "A collection of 3D artwork and renders showcasing diverse styles from surreal digital sculptures to photorealistic visualizations.",
+    "technologies": ["Blender", "Cycles", "Sculpting", "Materials"],
+    "link": "blender-gallery.html",
+    "image": "blender/skullpture.webp",
+    "collaborator": {
+      "name": "",
+      "link": ""
+    }
+  },
   {
     "title": "Hyena's Den - Posterfolio",
     "description": "A curated collection of digital artwork posters made using Photoshop and Illustrator.",
     "technologies": ["Illustrator", "Photoshop"],
     "link": "https://hyenasden.vercel.app/",
     "image": "assets/hyenasden.png",
+    "collaborator": {
+      "name": "",
+      "link": ""
+    }
+  },
+  {
+    "title": "Nothing OS - GNOME Theme",
+    "description": "A modern, responsive portfolio website showcasing creative projects with dynamic animations and interactive features.",
+    "technologies": ["Linux", "CSS", "Eww", "Conky"],
+    "link": "nothing.html",
+    "image": "nothingos/nothingos.png",
     "collaborator": {
       "name": "",
       "link": ""
@@ -54,4 +67,5 @@
       "link": ""
     }
   }
+
 ]

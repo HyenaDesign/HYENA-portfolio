@@ -512,6 +512,7 @@
 .skill-item[data-skill="Blender"] .skill-level::before { width: 80%; }
 .skill-item[data-skill="After Effects"] .skill-level::before { width: 85%; }
 .skill-item[data-skill="Premiere Pro"] .skill-level::before { width: 88%; }
+.skill-item[data-skill="Unity"] .skill-level::before { width: 70%; }
 
 /* Contact Section */
 .about-contact {
