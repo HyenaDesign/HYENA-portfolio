@@ -29,7 +29,7 @@
     
     <!-- Preload critical assets -->
     <link rel="preload" href="assets/hyena-logo.webp" as="image" type="image/webp">
-    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="styles/styles.css" as="style">
     <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=switzer@800&display=swap" as="style">
     
     <!-- Primary Meta Tags -->
@@ -151,9 +151,23 @@
     </section>
 
     <section id="projects" class="projects">
-        <h2>PROJECTS</h2>
-        <div class="project-carousel" id="project-carousel">
-            <!-- Project cards will be dynamically inserted here -->
+        <div class="projects-header">
+            <p class="section-kicker">SELECTED WORK</p>
+            <h2>PROJECTS</h2>
+        </div>
+        <div class="featured-projects" id="featured-projects" aria-live="polite">
+            <!-- Featured project cards are rendered from projects.json -->
+        </div>
+        <div class="project-browser">
+            <div class="project-browser-header">
+                <h3>ALL PROJECTS</h3>
+                <div class="project-filters" id="project-filters" aria-label="Filter projects by category">
+                    <!-- Filter buttons are rendered from projects.json -->
+                </div>
+            </div>
+            <div class="project-grid" id="project-grid" aria-live="polite">
+                <!-- Project cards are rendered from projects.json. Add future projects in projects.json only. -->
+            </div>
         </div>
     </section>    
 
@@ -286,7 +300,7 @@
                     <ul class="footer-links">
                         <li><a href="#features">UI/UX Design</a></li>
                         <li><a href="#features">Web Development</a></li>
-                        <li><a href="blender.html">3D Art & Animation</a></li>
+                        <li><a href="blender-gallery.html">3D Art & Animation</a></li>
                         <li><a href="#features">Brand Identity</a></li>
                     </ul>
                 </div>
@@ -308,7 +322,7 @@
                     <ul class="footer-links">
                         <li><a href="contact.html">Get in Touch</a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="mailto:hello@hyenadesign.com">Email</a></li>
+                        <li><a href="mailto:hyenathedesigner@gmail.com">Email</a></li>
                     </ul>
                 </div>
             </div>

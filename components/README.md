@@ -106,7 +106,7 @@ Edit `scripts/components.js` to modify how navigation works (hamburger menu, act
 ## Pages To Convert
 - ⏳ `index.html`
 - ⏳ `contact.html`
-- ⏳ `blender.html`
+- ⏳ `blender-gallery.html`
 - ⏳ `nothing.html`
 
 ## Technical Notes

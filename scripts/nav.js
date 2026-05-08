@@ -4,14 +4,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Only add event listener if both elements exist
     if (hamburger && navLinks) {
+        hamburger.setAttribute('aria-expanded', 'false');
+
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', String(isOpen));
             
             // Toggle hamburger animation if it has spans (contact page style)
             const spans = hamburger.querySelectorAll('span');
             if (spans.length > 0) {
                 hamburger.classList.toggle('active');
             }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!navLinks.classList.contains('active')) return;
+            if (hamburger.contains(event.target) || navLinks.contains(event.target)) return;
+
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape') return;
+
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
         });
     }
     
@@ -24,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             if (hamburger) {
                 hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
             }
         });
     });

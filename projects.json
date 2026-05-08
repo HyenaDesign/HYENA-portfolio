@@ -1,9 +1,20 @@
 [
-  
   {
+    "id": "swear-threejs",
     "title": "SWEAR - Three.js",
     "description": "Interactive 3D environment built with Three.js featuring advanced lighting and particle systems.",
     "technologies": ["Three.js", "Vue", "WebGL", "JavaScript"],
+    "category": "Development",
+    "tags": ["3D", "Interactive", "WebGL"],
+    "status": "Live",
+    "featured": true,
+    "links": [
+      {
+        "label": "Live Demo",
+        "url": "https://swearthreejs.vercel.app/",
+        "type": "live"
+      }
+    ],
     "link": "https://swearthreejs.vercel.app/",
     "image": "assets/Swear.webp",
     "collaborator": {
@@ -11,11 +22,22 @@
       "link": "https://yungfuzzzz.github.io/portfolio-2026/contact.html"
     }
   },
-  
   {
+    "id": "blender-gallery",
     "title": "Blender 3D Gallery",
     "description": "A collection of 3D artwork and renders showcasing diverse styles from surreal digital sculptures to photorealistic visualizations.",
     "technologies": ["Blender", "Cycles", "Sculpting", "Materials"],
+    "category": "3D",
+    "tags": ["Gallery", "Render", "Digital Art"],
+    "status": "Case Study",
+    "featured": true,
+    "links": [
+      {
+        "label": "Case Study",
+        "url": "blender-gallery.html",
+        "type": "case-study"
+      }
+    ],
     "link": "blender-gallery.html",
     "image": "blender/skullpture.webp",
     "collaborator": {
@@ -24,9 +46,21 @@
     }
   },
   {
+    "id": "hyenas-den",
     "title": "Hyena's Den - Posterfolio",
     "description": "A curated collection of digital artwork posters made using Photoshop and Illustrator.",
     "technologies": ["Illustrator", "Photoshop"],
+    "category": "Design",
+    "tags": ["Poster", "Brand", "Visual Design"],
+    "status": "Live",
+    "featured": true,
+    "links": [
+      {
+        "label": "Live Demo",
+        "url": "https://hyenasden.vercel.app/",
+        "type": "live"
+      }
+    ],
     "link": "https://hyenasden.vercel.app/",
     "image": "assets/hyenasden.png",
     "collaborator": {
@@ -35,9 +69,21 @@
     }
   },
   {
+    "id": "nothing-os-gnome",
     "title": "Nothing OS - GNOME Theme",
     "description": "A modern, responsive portfolio website showcasing creative projects with dynamic animations and interactive features.",
     "technologies": ["Linux", "CSS", "Eww", "Conky"],
+    "category": "Development",
+    "tags": ["Linux", "Theme", "Interface"],
+    "status": "Case Study",
+    "featured": false,
+    "links": [
+      {
+        "label": "Case Study",
+        "url": "nothing.html",
+        "type": "case-study"
+      }
+    ],
     "link": "nothing.html",
     "image": "nothingos/nothingos.png",
     "collaborator": {
@@ -46,9 +92,15 @@
     }
   },
   {
+    "id": "the-lost-regiment",
     "title": "The Lost Regiment - Magazine",
     "description": "A collection of digital magazine covers and posters created using Illustrator and Photoshop.",
     "technologies": ["Illustrator", "Photoshop"],
+    "category": "Design",
+    "tags": ["Magazine", "Poster", "Editorial"],
+    "status": "Archived",
+    "featured": false,
+    "links": [],
     "link": "",
     "image": "tlr/5in.webp",
     "collaborator": {
@@ -57,9 +109,15 @@
     }
   },
   {
+    "id": "untox",
     "title": "UNTOX - THE APP FOR GAMERS",
     "description": "A mobile app design for gamers to report toxic behavior, featuring a sleek UI/UX created with Figma.",
     "technologies": ["Figma", "Photoshop"],
+    "category": "UI/UX",
+    "tags": ["Mobile App", "Gaming", "Prototype"],
+    "status": "Concept",
+    "featured": false,
+    "links": [],
     "link": "",
     "image": "untox/untox-mockup.webp",
     "collaborator": {

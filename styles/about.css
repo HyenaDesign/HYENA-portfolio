@@ -165,7 +165,7 @@
     position: relative;
     width: 100%;
     padding-bottom: 100%;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
     transform: perspective(1000px) rotateY(-15deg);
     transition: transform 0.5s ease;
@@ -253,9 +253,9 @@
 
 /* Journey Section */
 .about-journey {
-    padding: 100px 5%;
+    padding: 90px 5%;
     position: relative;
-    background: rgba(34, 34, 34, 0.3);
+    background: rgba(34, 34, 34, 0.18);
 }
 
 .section-title {
@@ -267,7 +267,7 @@
 }
 
 .timeline {
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -276,12 +276,13 @@
 }
 
 .timeline-item {
-    background: rgba(34, 34, 34, 0.9);
-    padding: 40px;
-    border-radius: 15px;
+    background: var(--surface);
+    padding: 34px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
 .timeline-item::before {
@@ -297,7 +298,8 @@
 
 .timeline-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .timeline-content {
@@ -326,7 +328,7 @@
 
 /* Cards Section */
 .about-cards {
-    padding: 100px 5%;
+    padding: 90px 5%;
     background: rgba(0, 0, 0, 0.2);
 }
 
@@ -334,15 +336,16 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
 }
 
 .about-card {
-    background: rgba(34, 34, 34, 0.9);
-    border-radius: 15px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
     padding: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
     position: relative;
     overflow: hidden;
 }
@@ -365,8 +368,9 @@
 }
 
 .about-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(206, 79, 10, 0.2);
+    transform: translateY(-6px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .card-content h3 {
@@ -408,8 +412,9 @@
     padding: 8px;
     text-align: center;
     background: rgba(206, 79, 10, 0.1);
-    border-radius: 5px;
-    transition: background 0.3s ease;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-base), border-color var(--transition-base);
 }
 
 .interests-grid span:hover {
@@ -422,7 +427,7 @@
 }
 
 .skills-container {
-    max-width: 1200px;
+    max-width: var(--container);
     margin: 0 auto;
 }
 
@@ -452,17 +457,20 @@
 }
 
 .skill-item {
-    background: rgba(34, 34, 34, 0.9);
+    background: var(--surface);
     padding: 20px;
-    border-radius: 10px;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     gap: 20px;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
 .skill-item:hover {
-    transform: translateX(10px);
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-card);
 }
 
 .skill-item img {
@@ -544,33 +552,36 @@
     align-items: center;
     gap: 10px;
     padding: 15px 30px;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     font-family: var(--primary-font);
     font-size: 1.1rem;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: transform var(--transition-base), background var(--transition-base), color var(--transition-base), border-color var(--transition-base);
 }
 
 .about-btn.primary {
     background: var(--orange);
-    color: #fff;
+    color: var(--eerie-black);
+    border: 2px solid var(--orange);
 }
 
 .about-btn.secondary {
     background: transparent;
-    color: #fff;
+    color: var(--orange);
     border: 2px solid var(--orange);
 }
 
 .about-btn:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
 }
 
 .about-btn.primary:hover {
-    background: #e65a0a;
+    background: transparent;
+    color: var(--orange);
 }
 
 .about-btn.secondary:hover {
-    background: rgba(206, 79, 10, 0.1);
+    background: var(--orange);
+    color: var(--eerie-black);
 }
 
 .btn-icon {
@@ -596,8 +607,8 @@
     height: 42px;
     background: rgba(206, 79, 10, 0.1);
     border: 1px solid rgba(206, 79, 10, 0.2);
-    border-radius: 10px;
-    transition: all 0.3s ease;
+    border-radius: var(--radius-md);
+    transition: transform var(--transition-base), background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
     text-decoration: none;
     flex-shrink: 0;
 }
@@ -620,7 +631,7 @@
     background: rgba(34, 34, 34, 0.9);
     color: #fff;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     font-size: 0.9rem;
     opacity: 0;
     visibility: hidden;

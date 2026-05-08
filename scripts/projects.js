@@ -1,134 +1,174 @@
-  async function loadProjects() {
-    try {
-      const response = await fetch('projects.json');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const projects = await response.json();
+const projectState = {
+  projects: [],
+  activeCategory: 'All'
+};
 
-      const container = document.getElementById('project-carousel');
-      if (!container) {
-        console.error('Project carousel container not found');
-        return;
-      }
+const projectElements = {
+  featured: document.getElementById('featured-projects'),
+  grid: document.getElementById('project-grid'),
+  filters: document.getElementById('project-filters')
+};
 
-      container.innerHTML = projects.map(project => {
-        // Check if collaborator exists and has content
-        const hasCollaborator = project.collaborator && 
-                               project.collaborator.name && 
-                               project.collaborator.name.trim() !== '';
-        
-        const collaboratorHTML = hasCollaborator 
-          ? `<p class="collaborator"><strong>Collaborator:</strong> <a href="${project.collaborator.link}" target="_blank" rel="noopener noreferrer">${project.collaborator.name}</a></p>`
-          : '';
-        
-        return `
-          <div class="project-card">
-            <img src="${project.image}" alt="${project.title}" onerror="this.style.display='none'">
-            <div class="project-content">
-              <h3>${project.title}</h3>
-              <p class="description">${project.description}</p>
-              <p class="technologies"><strong>Technologies:</strong> ${project.technologies.join(', ')}</p>
-              ${collaboratorHTML}
-              <a href="${project.link}" target="_blank" rel="noopener noreferrer">View Project</a>
-            </div>
-          </div>
-        `;
-      }).join('');
+function escapeHTML(value = '') {
+  const element = document.createElement('div');
+  element.textContent = value;
+  return element.innerHTML;
+}
 
-      // Initialize enhanced scrolling after content is loaded
-      initializeEnhancedScrolling(container);
-    } catch (error) {
-      console.error('Error loading projects:', error);
-      const container = document.getElementById('project-carousel');
-      if (container) {
-        container.innerHTML = '<p style="color: var(--orange); text-align: center;">Error loading projects. Please try again later.</p>';
-      }
+function isExternalLink(url = '') {
+  return /^https?:\/\//i.test(url);
+}
+
+function normalizeProject(project) {
+  const fallbackLinks = project.link
+    ? [{ label: 'View Project', url: project.link, type: 'project' }]
+    : [];
+
+  return {
+    ...project,
+    technologies: Array.isArray(project.technologies) ? project.technologies : [],
+    tags: Array.isArray(project.tags) ? project.tags : [],
+    links: Array.isArray(project.links) && project.links.length ? project.links : fallbackLinks,
+    category: project.category || 'Project',
+    status: project.status || '',
+    featured: Boolean(project.featured)
+  };
+}
+
+function renderPills(items, className) {
+  if (!items.length) return '';
+
+  return `
+    <ul class="${className}" aria-label="${className.replace('project-', '').replace('-', ' ')}">
+      ${items.map(item => `<li>${escapeHTML(item)}</li>`).join('')}
+    </ul>
+  `;
+}
+
+function renderProjectLinks(project) {
+  if (!project.links.length) {
+    return '<span class="project-link project-link-muted">Details coming soon</span>';
+  }
+
+  return project.links.map(link => {
+    const targetAttributes = isExternalLink(link.url) ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<a class="project-link" href="${escapeHTML(link.url)}"${targetAttributes}>${escapeHTML(link.label)}</a>`;
+  }).join('');
+}
+
+function renderCollaborator(project) {
+  const collaborator = project.collaborator;
+  const hasCollaborator = collaborator && collaborator.name && collaborator.name.trim() !== '';
+
+  if (!hasCollaborator) return '';
+
+  const collaboratorName = escapeHTML(collaborator.name);
+  const collaboratorLink = collaborator.link ? escapeHTML(collaborator.link) : '';
+
+  if (!collaboratorLink) {
+    return `<p class="project-collaborator"><strong>Collaborator:</strong> ${collaboratorName}</p>`;
+  }
+
+  return `
+    <p class="project-collaborator">
+      <strong>Collaborator:</strong>
+      <a href="${collaboratorLink}" target="_blank" rel="noopener noreferrer">${collaboratorName}</a>
+    </p>
+  `;
+}
+
+function renderProjectCard(project, variant = 'standard') {
+  const isFeatured = variant === 'featured';
+  const featuredLabel = project.featured ? '<span class="featured-badge">Featured</span>' : '';
+  const statusLabel = project.status ? `<span class="project-status">${escapeHTML(project.status)}</span>` : '';
+
+  return `
+    <article class="project-card ${isFeatured ? 'project-card-featured' : ''}" data-category="${escapeHTML(project.category)}">
+      <a class="project-media" href="${project.links[0] ? escapeHTML(project.links[0].url) : '#projects'}"${project.links[0] && isExternalLink(project.links[0].url) ? ' target="_blank" rel="noopener noreferrer"' : ''} aria-label="Open ${escapeHTML(project.title)}">
+        <img src="${escapeHTML(project.image)}" alt="${escapeHTML(project.title)} preview" loading="lazy" onerror="this.parentElement.classList.add('project-media-empty'); this.remove();">
+      </a>
+      <div class="project-content">
+        <div class="project-meta">
+          <span>${escapeHTML(project.category)}</span>
+          ${statusLabel}
+          ${featuredLabel}
+        </div>
+        <h3>${escapeHTML(project.title)}</h3>
+        <p class="description">${escapeHTML(project.description)}</p>
+        ${renderPills(project.technologies, 'project-tech-list')}
+        ${isFeatured ? renderPills(project.tags, 'project-tag-list') : ''}
+        ${renderCollaborator(project)}
+        <div class="project-actions">
+          ${renderProjectLinks(project)}
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function getCategories(projects) {
+  return ['All', ...new Set(projects.map(project => project.category).filter(Boolean))];
+}
+
+function renderFilters(projects) {
+  if (!projectElements.filters) return;
+
+  projectElements.filters.innerHTML = getCategories(projects).map(category => {
+    const isActive = category === projectState.activeCategory;
+    return `
+      <button class="project-filter ${isActive ? 'active' : ''}" type="button" data-category="${escapeHTML(category)}" aria-pressed="${isActive}">
+        ${escapeHTML(category)}
+      </button>
+    `;
+  }).join('');
+
+  projectElements.filters.addEventListener('click', event => {
+    const button = event.target.closest('.project-filter');
+    if (!button) return;
+
+    projectState.activeCategory = button.dataset.category;
+    renderProjectGrid();
+    renderFilters(projectState.projects);
+  }, { once: true });
+}
+
+function renderFeaturedProjects() {
+  if (!projectElements.featured) return;
+
+  const featuredProjects = projectState.projects.filter(project => project.featured);
+  projectElements.featured.innerHTML = featuredProjects.map(project => renderProjectCard(project, 'featured')).join('');
+}
+
+function renderProjectGrid() {
+  if (!projectElements.grid) return;
+
+  const visibleProjects = projectState.activeCategory === 'All'
+    ? projectState.projects
+    : projectState.projects.filter(project => project.category === projectState.activeCategory);
+
+  projectElements.grid.innerHTML = visibleProjects.map(project => renderProjectCard(project)).join('');
+}
+
+async function loadProjects() {
+  try {
+    const response = await fetch('projects.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
+
+    const projects = await response.json();
+    projectState.projects = projects.map(normalizeProject);
+
+    renderFeaturedProjects();
+    renderProjectGrid();
+    renderFilters(projectState.projects);
+  } catch (error) {
+    console.error('Error loading projects:', error);
+
+    const fallbackMessage = '<p class="projects-error">Error loading projects. Please try again later.</p>';
+    if (projectElements.featured) projectElements.featured.innerHTML = fallbackMessage;
+    if (projectElements.grid) projectElements.grid.innerHTML = fallbackMessage;
   }
+}
 
-  // Enhanced scrolling functionality
-  function initializeEnhancedScrolling(container) {
-    let isScrolling = false;
-    let scrollTimeout;
-
-    // Add smooth momentum scrolling
-    container.addEventListener('scroll', () => {
-      isScrolling = true;
-      
-      // Clear timeout and set new one
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        isScrolling = false;
-      }, 150);
-
-      // Add visual feedback during scroll
-      container.style.background = 'linear-gradient(90deg, rgba(206, 79, 10, 0.05) 0%, transparent 50%, rgba(206, 79, 10, 0.05) 100%)';
-    });
-
-    // Remove visual feedback when scrolling stops
-    container.addEventListener('scrollend', () => {
-      container.style.background = 'none';
-    });
-
-    // Enhanced keyboard navigation
-    container.addEventListener('keydown', (e) => {
-      const cardWidth = 340; // card width + gap
-      const currentScroll = container.scrollLeft;
-      
-      switch(e.key) {
-        case 'ArrowLeft':
-          e.preventDefault();
-          container.scrollTo({
-            left: currentScroll - cardWidth,
-            behavior: 'smooth'
-          });
-          break;
-        case 'ArrowRight':
-          e.preventDefault();
-          container.scrollTo({
-            left: currentScroll + cardWidth,
-            behavior: 'smooth'
-          });
-          break;
-        case 'Home':
-          e.preventDefault();
-          container.scrollTo({
-            left: 0,
-            behavior: 'smooth'
-          });
-          break;
-        case 'End':
-          e.preventDefault();
-          container.scrollTo({
-            left: container.scrollWidth,
-            behavior: 'smooth'
-          });
-          break;
-      }
-    });
-
-    // Make container focusable for keyboard navigation
-    container.setAttribute('tabindex', '0');
-    
-    // Add visual focus indicator
-    container.addEventListener('focus', () => {
-      container.style.outline = '2px solid rgba(206, 79, 10, 0.5)';
-      container.style.outlineOffset = '4px';
-    });
-    
-    container.addEventListener('blur', () => {
-      container.style.outline = 'none';
-    });
-
-    // Auto-scroll disabled to prevent unwanted page scrolling
-    // setTimeout(() => {
-    //   const firstCard = container.querySelector('.project-card');
-    //   if (firstCard) {
-    //     firstCard.scrollIntoView({ behavior: 'smooth', inline: 'center' });
-    //   }
-    // }, 100);
-  }
-
-  // Load projects when the script runs
-  loadProjects();
+loadProjects();

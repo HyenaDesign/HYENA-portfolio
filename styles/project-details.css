@@ -5,12 +5,13 @@ html, body {
 }
 
 .project-details {
-    max-width: 1000px;
+    max-width: var(--container);
     margin: 60px auto 40px auto;
-    background: rgba(34,34,34,0.92);
-    border-radius: 18px;
-    box-shadow: 0 0 40px #0008;
-    padding: 48px 24px 80px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    padding: 48px 32px 80px 32px;
     color: #fff;
     font-family: var(--primary-font, 'Helvetica', sans-serif);
 }
@@ -26,7 +27,7 @@ html, body {
 .project-cover {
     width: 320px;
     max-width: 100%;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     box-shadow: 0 4px 24px #0006;
 }
 
@@ -82,7 +83,7 @@ html, body {
 .project-gallery .gallery-grid img {
     width: 300px;
     max-width: 100%;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     box-shadow: 0 2px 12px #0007;
     background: #222;
 }
@@ -97,10 +98,11 @@ html, body {
 }
 
 .tools-list li {
-    background: #222;
+    background: rgba(0, 0, 0, 0.32);
     color: var(--orange);
     padding: 8px 18px;
-    border-radius: 6px;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-sm);
     font-size: 1em;
     font-family: var(--primary-font);
     margin-bottom: 6px;
@@ -115,25 +117,32 @@ html, body {
 
 .project-btn {
     background: var(--orange);
-    color: #fff;
+    color: var(--eerie-black);
     padding: 12px 28px;
-    border-radius: 8px;
+    border: 2px solid var(--orange);
+    border-radius: var(--radius-md);
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.2s;
+    transition: transform var(--transition-base), background var(--transition-base), color var(--transition-base);
     font-family: var(--primary-font);
     box-shadow: 0 2px 8px #0004;
 }
 
 .project-btn.secondary {
-    background: #222;
+    background: transparent;
     color: var(--orange);
     border: 2px solid var(--orange);
 }
 
 .project-btn:hover {
-    background: #ffb34f;
-    color: #222;
+    background: transparent;
+    color: var(--orange);
+    transform: translateY(-2px);
+}
+
+.project-btn.secondary:hover {
+    background: var(--orange);
+    color: var(--eerie-black);
 }
 
 @media (max-width: 900px) {
@@ -221,19 +230,19 @@ html, body {
 
 .artwork-item {
     position: relative;
-    background: rgba(34, 34, 34, 0.9);
-    border-radius: 15px;
+    background: var(--surface);
+    border-radius: var(--radius-md);
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
     cursor: pointer;
-    border: 2px solid rgba(206, 79, 10, 0.2);
+    border: 1px solid var(--border-soft);
     flex: 0 0 calc(33.333% - 17px);
     width: calc(33.333% - 17px);
 }
 
 .artwork-item:hover {
-    border-color: var(--orange);
-    box-shadow: 0 15px 35px rgba(206, 79, 10, 0.3);
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .artwork-item img {
@@ -278,7 +287,7 @@ html, body {
     background: rgba(206, 79, 10, 0.2);
     color: var(--orange);
     padding: 4px 10px;
-    border-radius: 15px;
+    border-radius: var(--radius-sm);
     font-size: 0.8rem;
     font-weight: 500;
     border: 1px solid rgba(206, 79, 10, 0.3);
@@ -302,10 +311,10 @@ html, body {
 }
 
 .skill-category {
-    background: rgba(34, 34, 34, 0.6);
+    background: rgba(34, 34, 34, 0.72);
     padding: 25px;
-    border-radius: 12px;
-    border: 1px solid rgba(206, 79, 10, 0.2);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
 }
 
 .skill-category h3 {
