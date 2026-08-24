@@ -27,6 +27,8 @@ html, body {
 .project-cover {
     width: 320px;
     max-width: 100%;
+    height: auto;
+    object-fit: contain;
     border-radius: var(--radius-md);
     box-shadow: 0 4px 24px #0006;
 }
@@ -40,6 +42,13 @@ html, body {
     color: var(--orange);
     font-size: 2.5em;
     margin-bottom: 10px;
+}
+
+.project-logo {
+    display: block;
+    width: 180px;
+    max-width: 100%;
+    margin-bottom: 18px;
 }
 
 .project-type, .project-date {
@@ -83,6 +92,9 @@ html, body {
 .project-gallery .gallery-grid img {
     width: 300px;
     max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    align-self: flex-start;
     border-radius: var(--radius-md);
     box-shadow: 0 2px 12px #0007;
     background: #222;

@@ -124,6 +124,23 @@
       "name": "",
       "link": ""
     }
+  },
+  {
+    "id": "promptly",
+    "title": "PROMPTLY - THE APP FOR WRITERS",
+    "description": "A desktop website design for writers to generate and manage creative prompts, featuring a clean UI/UX created with Figma.",
+    "technologies": ["Figma", "Photoshop"],
+    "category": "UI/UX",
+    "tags": ["Desktop website", "Writing", "Prototype"],
+    "status": "Concept",
+    "featured": false,
+    "links": [{"label": "View Case Study", "url": "promptly.html", "type": "case-study"}],
+    "link": "promptly.html",
+    "image": "promptly/promptly-figma.jpg",
+    "collaborator": {
+      "name": "",
+      "link": ""
+    }
   }
 
 ]
