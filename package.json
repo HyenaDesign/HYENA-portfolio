@@ -1,6 +1,13 @@
 {
-  "dependencies": {
-    "gsap": "^3.12.5",
-    "three": "^0.170.0"
+  "name": "hyena-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "test": "node tools/check-site.mjs && node tools/check-interactions.mjs"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

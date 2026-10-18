@@ -1,0 +1,23 @@
+.inverting-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2147483647;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.inverting-cursor[hidden] {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.has-inverting-cursor,
+  html.has-inverting-cursor * {
+    cursor: none !important;
+  }
+}

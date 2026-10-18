@@ -21,3 +21,12 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}      # Your FTP password (from repository secrets)
         local-dir: ./                              # Directory to upload (the repository root)
         server-dir: /www/                 # Directory on your FTP server (adjust if needed)
+
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          tools/**
+          README.md
+          package*.json
+          assets/textures/generation-notes.md

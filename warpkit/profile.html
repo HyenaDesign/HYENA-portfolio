@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile portrait</title>
+    <link rel="stylesheet" href="../css/cursor.css">
+    <style>
+      html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+      body { background: #fff url("posters/profile.jpg") center / cover no-repeat; }
+      warpkit-scene { display: block; width: 100%; height: 100%; }
+    </style>
+    <!-- A separate window isolates WarpKit 1.4.0's shared pointer state. -->
+    <script src="warpkit-runtime-1.4.0.js" defer></script>
+    <script src="scenes/profile.js" defer></script>
+    <script src="../js/cursor.js" defer></script>
+  </head>
+  <body>
+    <warpkit-scene name="profile"
+                   poster="posters/profile.jpg"
+                   fit="cover"
+                   pointer="element"
+                   role="img"
+                   aria-label="Profile portrait"></warpkit-scene>
+  </body>
+</html>

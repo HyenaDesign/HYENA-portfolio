@@ -1,0 +1,70 @@
+@media (max-width: 56.25rem) {
+  :root {
+    --card-padding: 16px;
+  }
+
+  .card-content p {
+    font-size: 0.9375rem;
+  }
+
+  .footer-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  }
+}
+
+@media (max-width: 30rem) {
+  .bento-card--work {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "image"
+      "content"
+      "action";
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .navbar {
+    top: var(--grid-gap);
+    right: var(--grid-gap);
+    max-width: calc(100% - 2 * var(--grid-gap));
+    padding-inline: 0.25rem;
+    font-size: 0.875rem;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+  }
+
+  .portfolio-grid > .bento-card,
+  .portfolio-content > .bento-card,
+  .footer-row {
+    grid-column: 1;
+  }
+
+  .bento-card--profile,
+  .bento-card--about,
+  .bento-card--service,
+  .bento-card--project,
+  .bento-card--work {
+    min-height: 13rem;
+  }
+
+  .bento-card--project {
+    min-height: 17rem;
+  }
+
+  .footer-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bento-card--contact {
+    min-height: 4.5rem;
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+  }
+
+  .bento-card--footer {
+    min-height: 9rem;
+  }
+}

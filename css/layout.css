@@ -1,0 +1,103 @@
+body {
+  overflow-x: clip;
+  padding-block: var(--grid-gap);
+  padding-inline: var(--grid-gap);
+}
+
+.portfolio-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(var(--main-row-height), auto)) auto;
+  gap: var(--grid-gap);
+  width: 100%;
+}
+
+/* Keep one semantic main landmark while its cards share the outer grid. */
+.portfolio-content {
+  display: contents;
+}
+
+.bento-card--hero {
+  grid-column: span 6;
+  min-height: 90vh;
+  min-height: 90svh;
+}
+
+.bento-card--profile,
+.bento-card--service,
+.bento-card--project {
+  grid-column: span 2;
+}
+
+.bento-card--about,
+.bento-card--work {
+  grid-column: span 4;
+}
+
+.footer-row {
+  grid-column: span 6;
+  display: grid;
+  /* The reference contact card occupies roughly 22% of the last row. */
+  grid-template-columns: minmax(0, 2fr) minmax(0, 7fr);
+  gap: var(--grid-gap);
+  min-height: var(--footer-row-height);
+}
+
+.bento-card--about,
+.bento-card--work {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 1rem;
+}
+
+.card-content {
+  align-self: center;
+}
+
+.bento-card--work {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "image content"
+    "image action";
+  column-gap: clamp(1rem, 2vw, 2rem);
+}
+
+.bento-card--work .selected-work-image {
+  grid-area: image;
+  align-self: center;
+}
+
+.bento-card--work .card-content {
+  grid-area: content;
+  min-width: 0;
+  align-self: start;
+}
+
+.bento-card--work .card-cta {
+  grid-area: action;
+}
+
+.card-cta {
+  justify-self: end;
+}
+
+.bento-card--project {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.project-slides,
+.project-slide {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.project-slide {
+  position: relative;
+  overflow: hidden;
+}

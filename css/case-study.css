@@ -1,0 +1,36 @@
+.case-page { padding: var(--grid-gap); }
+.case-nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 1.25rem; background: var(--color-card-dark); border-radius: var(--card-radius); }
+.case-brand { font-weight: 700; font-size: 1.5rem; letter-spacing: -0.04em; }
+.case-brand span { color: var(--color-accent); }
+.case-nav div { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.case-nav div a { display: inline-flex; align-items: center; min-height: 44px; padding: 0.5rem 0.8rem; border-radius: 999px; font-weight: 500; }
+.case-nav div a:hover, .case-nav div a:focus-visible { background: var(--color-accent); color: var(--color-text-dark); }
+.project-details { display: grid; gap: var(--grid-gap); margin-block: var(--grid-gap); }
+.project-details > section, .project-header { padding: clamp(1.25rem, 4vw, 4rem); background: var(--color-card-dark); border-radius: var(--card-radius); min-width: 0; }
+.project-header { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); align-items: center; }
+.project-header h1 { font-family: "Clash Grotesk", Arial, sans-serif; font-size: clamp(2.25rem, 5vw, 5rem); font-weight: 600; line-height: 1; letter-spacing: -0.05em; overflow-wrap: anywhere; }
+.project-cover { display: block; width: 100%; height: auto; max-height: 70vh; object-fit: contain; border-radius: var(--card-radius); }
+.project-logo { max-width: 12rem; max-height: 5rem; margin-bottom: 1.5rem; }
+.project-type { color: var(--color-accent-soft); margin-top: 1rem; }
+.project-date { font-size: 0.875rem; }
+.project-details h2 { margin-bottom: 1.5rem; }
+.project-details h3 { margin-block: 1.5rem 0.6rem; }
+.project-details p, .project-details li { max-width: 75ch; }
+.project-details p + p { margin-top: 1rem; }
+.project-details li + li { margin-top: 0.5rem; }
+.project-details ul { padding-left: 1.25rem; }
+.project-details .highlight { color: var(--color-accent-soft); }
+.gallery-grid, .blender-gallery, .skills-showcase { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+.gallery-grid img, .artwork-item img { display: block; width: 100%; height: auto; border-radius: var(--card-radius); }
+.case-image-link { display: block; min-width: 0; }
+.case-image-link:hover { opacity: 0.9; }
+.artwork-item { min-width: 0; padding: 1rem; background: var(--color-background); border-radius: var(--card-radius); }
+.artwork-info { padding-top: 0.5rem; }
+.artwork-tags, .tools-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.project-details .tools-list { padding: 0; list-style: none; }
+.artwork-tags span, .tools-list li { padding: 0.3rem 0.65rem; border: 1px solid currentColor; border-radius: 999px; font-size: 0.8125rem; }
+.project-details .tools-list li { margin: 0; }
+.project-links { display: flex; flex-wrap: wrap; gap: 1rem; }
+.project-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0.75rem 1.25rem; background: var(--color-accent); color: var(--color-text-dark); font-weight: 600; border-radius: var(--card-radius); }
+.project-btn:hover, .project-btn:focus-visible { background: var(--color-accent-soft); }
+@media (max-width: 48rem) { .project-header, .gallery-grid, .blender-gallery, .skills-showcase { grid-template-columns: minmax(0, 1fr); } }

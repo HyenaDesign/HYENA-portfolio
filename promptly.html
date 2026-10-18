@@ -1,32 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promptly - HYENA Portfolio</title>
-    <meta name="description" content="Detailed case study for Promptly, a writing prompt app concept by Hyena Design.">
-    <link rel="icon" type="image/x-icon" href="assets/NewFavicon.svg">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/project-details.css">
-</head>
-<body>
-    <nav>
-        <a href="index.html"><img src="assets/hyena-logo.webp" alt="Hyena Logo" class="logo"></a>
-        <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
-        <div class="nav-links">
-            <ul>
-                <li><a href="index.html#projects" class="nav-link">PROJECTS</a></li>
-                <li><a href="about.html" class="nav-link">ABOUT</a></li>
-                <li><a href="contact.html" id="join" class="nav-link">CONTACT</a></li>
-            </ul>
-        </div>
-    </nav>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Promptly — Hyena Design</title>
+    <meta name="description" content="A writing workspace for discovering, organizing, and developing creative ideas.">
+    <link rel="canonical" href="https://hyenathedesigner.be/promptly.html">
+    <link rel="icon" type="image/svg+xml" href="assets/NewFavicon.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Hyena Design">
+    <meta property="og:title" content="Promptly — Hyena Design">
+    <meta property="og:description" content="A writing workspace for discovering, organizing, and developing creative ideas.">
+    <meta property="og:url" content="https://hyenathedesigner.be/promptly.html">
+    <meta property="og:image" content="https://hyenathedesigner.be/assets/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Hyena Design — creative portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Promptly — Hyena Design">
+    <meta name="twitter:description" content="A writing workspace for discovering, organizing, and developing creative ideas.">
+    <meta name="twitter:image" content="https://hyenathedesigner.be/assets/og-image.png">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/cursor.css">
+    <link rel="stylesheet" href="css/case-study.css">
+    <script src="js/cursor.js" defer></script>
 
-    <main class="project-details">
+  </head>
+  <body class="case-page">
+    <a class="skip-link" href="#case-content">Skip to case study</a>
+    <nav class="case-nav" aria-label="Main navigation">
+      <a class="case-brand" href="index.html">Hyena Design<span aria-hidden="true">.</span></a>
+      <div><a href="index.html#projects">Projects</a><a href="index.html#about">About</a><a href="mailto:hyenathedesigner@gmail.com">Contact ↗</a></div>
+    </nav>
+    <main class="project-details" id="case-content">
         <header class="project-header">
-            <img src="promptly/promptly-figma.jpg" alt="Promptly Figma interface" class="project-cover">
+            <a class="case-image-link" href="assets/promptly/promptly-figma.jpg"><img src="assets/promptly/promptly-figma.jpg" alt="Promptly Figma interface" class="project-cover"></a>
             <div class="project-header-content">
-                <img src="promptly/promptly-logo.svg" alt="Promptly logo" class="project-logo">
+                <img src="assets/promptly/promptly-logo.svg" alt="Promptly logo" class="project-logo">
                 <h1>PROMPTLY</h1>
                 <p class="project-type">UI/UX Design</p>
                 <p class="project-date">2025</p>
@@ -41,11 +52,11 @@
         <section class="project-gallery">
             <h2>Screenshots &amp; Mockups</h2>
             <div class="gallery-grid">
-                <img src="promptly/promptly-figma.jpg" alt="Promptly Figma design screens">
-                <img src="promptly/promptly-developedweb.jpg" alt="Promptly developed web interface">
-                <img src="promptly/promptly-sidebar.jpg" alt="Promptly sidebar exploration">
-                <img src="promptly/promptly-sidebarweb.jpg" alt="Promptly web sidebar interface">
-                <img src="promptly/promptly-taskbar.jpg" alt="Promptly taskbar interface exploration">
+                <a class="case-image-link" href="assets/promptly/promptly-figma.jpg"><img src="assets/promptly/promptly-figma.jpg" alt="Promptly Figma design screens"></a>
+                <a class="case-image-link" href="assets/promptly/promptly-developedweb.jpg"><img src="assets/promptly/promptly-developedweb.jpg" alt="Promptly developed web interface"></a>
+                <a class="case-image-link" href="assets/promptly/promptly-sidebar.jpg"><img src="assets/promptly/promptly-sidebar.jpg" alt="Promptly sidebar exploration"></a>
+                <a class="case-image-link" href="assets/promptly/promptly-sidebarweb.jpg"><img src="assets/promptly/promptly-sidebarweb.jpg" alt="Promptly web sidebar interface"></a>
+                <a class="case-image-link" href="assets/promptly/promptly-taskbar.jpg"><img src="assets/promptly/promptly-taskbar.jpg" alt="Promptly taskbar interface exploration"></a>
             </div>
         </section>
 
@@ -78,71 +89,46 @@
         <section class="project-tools">
             <h2>Tools &amp; Technologies</h2>
             <ul class="tools-list">
-                <li>Figma</li>
-                <li>Photoshop</li>
-                <li>UI/UX Design</li>
-                <li>Desktop Web Design</li>
-            </ul>
+<li>Vue</li>
+<li>Vite</li>
+<li>React</li>
+</ul>
         </section>
 
         <section class="project-links">
             <a href="index.html#projects" class="project-btn secondary">Back to Projects</a>
         </section>
     </main>
-
-    <footer class="professional-footer">
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-col brand-col">
-                    <div class="brand-info">
-                        <img src="assets/hyena-logo.webp" alt="Hyena" class="footer-brand-logo">
-                        <p class="brand-tagline">Creative design solutions that make an impact.</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://github.com/HyenaDesign" class="social-link"><img src="icons/icons8-github.svg" alt="GitHub"></a>
-                        <a href="https://www.instagram.com/hyena_the_designer" class="social-link"><img src="icons/icons8-instagram.svg" alt="Instagram"></a>
-                        <a href="https://www.youtube.com/channel/UCCJYXWcln2oLbzhLJt0FEwQ" class="social-link"><img src="icons/icons8-youtube.svg" alt="YouTube"></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html#features">UI/UX Design</a></li>
-                        <li><a href="index.html#features">Web Development</a></li>
-                        <li><a href="blender-gallery.html">3D Art &amp; Animation</a></li>
-                        <li><a href="index.html#features">Brand Identity</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Featured Work</h4>
-                    <ul class="footer-links">
-                        <li><a href="https://swearthreejs.vercel.app/">SWEAR - Three.js</a></li>
-                        <li><a href="nothing.html">Nothing OS</a></li>
-                        <li><a href="promptly.html">Promptly</a></li>
-                        <li><a href="index.html#projects">All Projects</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-heading">Connect</h4>
-                    <ul class="footer-links">
-                        <li><a href="contact.html">Get in Touch</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="mailto:hyenathedesigner@gmail.com">Email</a></li>
-                    </ul>
-                </div>
+    <footer class="bento-card bento-card--light bento-card--footer">
+          <div class="footer-top">
+            <div class="footer-identity">
+              <a class="footer-brand" href="index.html#home" aria-label="Hyena Design — back to top">HYENA<span>DESIGN<span class="footer-brand-dot" aria-hidden="true">.</span></span></a>
+              <p>Design, code &amp; creative curiosity.</p>
             </div>
-            <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <p class="copyright">&copy; 2025 HYENA. All rights reserved.</p>
-                    <div class="footer-legal">
-                        <a href="#">Privacy</a>
-                        <a href="#">Terms</a>
-                    </div>
-                </div>
+            <div class="footer-elsewhere">
+              <p class="footer-label" id="footer-elsewhere-title">Find me elsewhere</p>
+              <nav class="footer-socials footer-links" aria-labelledby="footer-elsewhere-title">
+                <a href="https://www.instagram.com/hyena_the_designer">
+                  <svg class="footer-social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                  <span>Instagram</span><span class="footer-link-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="https://www.linkedin.com/in/sam-apers-948888331/?isSelfProfile=true">
+                  <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.2 8.4H2V22h3.2V8.4ZM3.6 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM22 13.7c0-4.1-2.2-6-5.1-6-2.3 0-3.3 1.3-3.9 2.2V8.4H9.8V22H13v-7.6c0-2 1-3.2 2.8-3.2 1.7 0 2.8 1.1 2.8 3.2V22H22v-8.3Z"/></svg>
+                  <span>LinkedIn</span><span class="footer-link-arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="http://layers.name/hyena"><span>layers.name</span><span class="footer-link-arrow" aria-hidden="true">↗</span></a>
+                <a href="https://www.unform.be/"><span>Unform</span><span class="footer-link-arrow" aria-hidden="true">↗</span></a>
+              </nav>
             </div>
-        </div>
-    </footer>
-
-    <script src="scripts/nav.js"></script>
-</body>
+          </div>
+          <div class="footer-bottom">
+            <p class="copyright">© 2026 Hyena Design</p>
+            <nav class="footer-links footer-navigation" aria-label="Footer navigation">
+              <a href="index.html#about">About</a>
+              <a href="index.html#work">Work</a>
+              <a href="index.html#home">Back to top <span aria-hidden="true">↑</span></a>
+            </nav>
+          </div>
+        </footer>
+  </body>
 </html>

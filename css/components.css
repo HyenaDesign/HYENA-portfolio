@@ -1,0 +1,945 @@
+@font-face {
+  font-family: "Styro";
+  src: url("../assets/fonts/Styro-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("../assets/fonts/ClashGrotesk-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Keep native scrolling and keyboard support with a custom visual treatment. */
+html {
+  scrollbar-color: var(--color-accent) var(--color-background);
+  scrollbar-width: thin;
+}
+
+/* Use the more detailed treatment where scrollbar pseudo-elements exist. */
+@supports selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: auto;
+    scrollbar-width: auto;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    min-height: 48px;
+    border: 3px solid var(--color-background);
+    border-radius: 999px;
+    background: var(--color-accent);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-soft);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #ffffff;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--color-background);
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+}
+
+@media (forced-colors: active) {
+  html {
+    scrollbar-color: auto;
+  }
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text-light);
+  font-family: "Clash Grotesk", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+:where(a, button):focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+.bento-card {
+  min-width: 0;
+  padding: var(--card-padding);
+  border-radius: var(--card-radius);
+  overflow-wrap: break-word;
+  scroll-margin-block: 5rem;
+}
+
+.bento-card--dark {
+  background: var(--color-card-dark);
+  color: var(--color-text-light);
+}
+
+.bento-card--light {
+  background: var(--color-card-light);
+  color: var(--color-text-dark);
+}
+
+.bento-card--accent {
+  background: var(--color-accent);
+  color: var(--color-text-dark);
+}
+
+.bento-card--about h2 {
+  color: var(--color-accent);
+}
+
+/* The service row reads as paper, ink, then signature orange. */
+.bento-card--service[data-service="ui-ux"] {
+  background: var(--color-card-light);
+  color: var(--color-text-dark);
+}
+
+.bento-card--service[data-service="motion"] h2 {
+  color: var(--color-accent-soft);
+}
+
+h1 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.8vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+h4 {
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+h5 {
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+h6 {
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bento-card--service h2,
+.project-slide h2 {
+  font-size: clamp(1.375rem, 2.2vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.bento-card--service h2 {
+  font-size: clamp(1.5rem, 2.6vw, 2.75rem);
+  font-weight: 600;
+}
+
+#primary-service-title {
+  color: var(--color-text-dark);
+}
+
+#primary-service-description {
+  color: var(--color-text-dark);
+  font-weight: 600;
+}
+
+.bento-card--service.bento-card--accent h2 {
+  font-weight: 700;
+}
+
+.navbar,
+.button,
+.footer-links,
+.bento-card--contact {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.card-content {
+  width: 100%;
+  text-align: left;
+}
+
+.card-content p {
+  max-width: 38ch;
+  margin: 0.75rem 0 0;
+}
+
+.bento-card--about .card-content p,
+.bento-card--work .card-content p {
+  max-width: 70ch;
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* A quiet liner-note detail: personal taste, in the site's own visual language. */
+.music-note {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(247, 245, 239, 0.18);
+}
+
+.music-note-title {
+  color: var(--color-accent);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.music-artists {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin: 0.625rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.music-artists li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-card-muted);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.music-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  color: var(--color-accent-soft);
+}
+
+.bento-card--hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 5rem;
+  text-align: center;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  background: url("../warpkit/posters/hero-section.jpg") center / cover no-repeat;
+}
+
+.hero-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(16, 16, 16, 0.6);
+  pointer-events: none;
+}
+
+.bento-card--hero::after {
+  content: "";
+  position: absolute;
+  bottom: var(--card-padding);
+  left: var(--card-padding);
+  width: 4rem;
+  height: 0.5rem;
+  background: var(--color-accent);
+  pointer-events: none;
+}
+
+.bento-card--hero h1 {
+  font-family: "Styro", Arial, Helvetica, sans-serif;
+  position: relative;
+  z-index: 1;
+  font-size: clamp(3rem, 36vw, 43.75rem);
+  min-width: 0;
+  max-width: 100%;
+  pointer-events: none;
+}
+
+.navbar {
+  /* Stay visible beyond the hero without changing the card layout. */
+  position: fixed;
+  z-index: 20;
+  top: calc(2 * var(--grid-gap));
+  right: calc(2 * var(--grid-gap));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: max-content;
+  max-width: calc(100% - 4 * var(--grid-gap));
+  gap: 4px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: #1b1b1b;
+  color: var(--color-text-light);
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  box-shadow:
+    inset 1px 0 1px rgba(255, 199, 139, 0.2),
+    inset -1px 0 1px rgba(255, 127, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 8px 28px rgba(0, 0, 0, 0.24);
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar {
+    background: rgba(18, 18, 18, 0.78);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    backdrop-filter: blur(20px) saturate(140%);
+  }
+}
+
+.navbar a:focus-visible {
+  outline-offset: -3px;
+}
+
+.navbar a,
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding-inline: 0.625rem;
+  text-transform: uppercase;
+}
+
+.navbar a {
+  position: relative;
+  padding-inline: 1rem;
+  border-radius: 999px;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: calc(50% - 6px);
+  width: 12px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transition: transform 180ms ease;
+}
+
+.navbar a[href="#contact"] {
+  background: var(--color-accent);
+  color: var(--color-text-dark);
+  text-transform: uppercase;
+}
+
+.navbar a[href="#contact"]::after {
+  background: currentColor;
+}
+
+.navbar a[href="#contact"]:focus-visible {
+  background: var(--color-accent-soft);
+}
+
+.navbar a:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .navbar a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .navbar a[href="#contact"]:hover {
+    background: var(--color-accent-soft);
+  }
+}
+
+.navbar a:active {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar a,
+  .navbar a::after {
+    transition: none;
+  }
+
+  .navbar a:hover {
+    transform: none;
+  }
+}
+
+.bento-card--profile {
+  position: relative;
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+}
+
+.profile-scene {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: inherit;
+  background: url("../warpkit/posters/profile.jpg") center / cover no-repeat;
+}
+
+.project-thumbnail {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: cover;
+  border-radius: var(--card-radius);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-width: min(100%, 9rem);
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--card-radius);
+  text-align: center;
+  font-weight: 600;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.selected-work-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  background: var(--color-card-muted);
+}
+
+.selected-work-image img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.button-icon {
+  width: 1.25em;
+  height: 1.25em;
+  flex-shrink: 0;
+}
+
+.button--light {
+  background: var(--color-accent);
+  color: var(--color-text-dark);
+}
+
+.button--dark {
+  background: var(--color-text-dark);
+  color: var(--color-text-light);
+}
+
+.bento-card--service {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: calc(var(--card-padding) + 2.5rem);
+}
+
+.service-index {
+  position: absolute;
+  top: var(--card-padding);
+  left: var(--card-padding);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.service-index::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--color-accent);
+}
+
+.bento-card--accent .service-index::before {
+  background: var(--color-text-dark);
+}
+
+.button--light:hover,
+.button--light:focus-visible {
+  background: var(--color-accent-soft);
+}
+
+.button--dark:hover,
+.button--dark:focus-visible {
+  background: var(--color-accent);
+  color: var(--color-text-dark);
+}
+
+.bento-card--about .button:focus-visible {
+  outline-color: var(--color-accent-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}
+
+.project-caption {
+  position: relative;
+  margin-top: auto;
+  z-index: 1;
+  padding: 1rem;
+  background: rgba(17, 17, 17, 0.88);
+  color: #ffffff;
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.project-slide h2 {
+  text-align: left;
+}
+
+.project-slide p {
+  margin-top: 0.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.project-message {
+  margin: auto 0;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0.5rem;
+  color: var(--color-accent-soft);
+  font-weight: 600;
+}
+
+.project-link:hover,
+.project-link:focus-visible,
+.project-credit a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.bento-card--work .card-content .project-credit {
+  font-size: 0.8125rem;
+}
+
+.project-credit a {
+  font-weight: 600;
+}
+
+
+/* Let captions grow with wrapping tags while retaining image space above. */
+.project-slide {
+  padding-top: 7rem;
+}
+
+.project-tags {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.project-tag-row {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.project-tag-label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-tag {
+  max-width: 100%;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.project-tag--category {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-text-dark);
+  font-weight: 600;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .has-service-cursor,
+  .has-service-cursor * {
+    cursor: none;
+  }
+}
+
+.service-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.service-cursor img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: service-cursor-float 3.6s ease-in-out infinite;
+}
+
+.service-cursor img[src$="design-services.svg"],
+.service-cursor img[src$="graphic-eq.svg"] {
+  filter: brightness(0);
+}
+
+@keyframes service-cursor-float {
+  0%, 100% { transform: translateY(4px) rotate(-2deg); }
+  50% { transform: translateY(-4px) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-cursor img {
+    animation: none;
+  }
+}
+
+.carousel-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.carousel-controls button {
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid currentColor;
+  border-radius: var(--card-radius);
+  background: transparent;
+  cursor: pointer;
+}
+
+.carousel-controls button:hover,
+.carousel-controls button:focus-visible {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-text-dark);
+}
+
+.carousel-controls button:focus-visible {
+  outline-color: var(--color-accent-soft);
+}
+
+.carousel-status {
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+
+.bento-card--contact {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.35em;
+  font-size: clamp(1rem, 2.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--color-text-dark);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.bento-card--contact:focus-visible {
+  background: var(--color-background);
+  color: var(--color-accent);
+  box-shadow: inset 0 0 0 2px var(--color-accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bento-card--contact:hover {
+    background: var(--color-background);
+    color: var(--color-accent);
+    box-shadow: inset 0 0 0 2px var(--color-accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bento-card--contact {
+    transition: none;
+  }
+}
+
+.contact-icon {
+  display: block;
+  flex-shrink: 0;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.bento-card--contact:focus-visible {
+  outline-color: var(--color-text-light);
+  outline-offset: -5px;
+}
+
+.bento-card--footer {
+  background: var(--color-card-muted);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.footer-brand {
+  display: inline-block;
+  font-size: clamp(2rem, 3.5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.065em;
+}
+
+.footer-brand > span {
+  display: block;
+}
+
+.footer-brand-dot {
+  color: var(--color-accent-ink);
+}
+
+.footer-identity p {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.footer-label {
+  margin-bottom: 0.65rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-socials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.footer-socials a {
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(17, 17, 16, 0.2);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  text-transform: none;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.footer-socials a:hover,
+.footer-socials a:focus-visible {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.footer-social-icon {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.footer-link-arrow {
+  margin-left: auto;
+  transition: transform 180ms ease;
+}
+
+.footer-socials a:hover .footer-link-arrow,
+.footer-socials a:focus-visible .footer-link-arrow {
+  transform: translate(2px, -2px);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(17, 17, 16, 0.2);
+}
+
+.footer-navigation {
+  gap: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.footer-navigation a {
+  gap: 0.4rem;
+}
+
+.footer-navigation a:hover,
+.footer-navigation a:focus-visible {
+  color: var(--color-accent-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.copyright {
+  font-size: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-socials a,
+  .footer-link-arrow {
+    transition: none;
+  }
+}
+
+@media (max-width: 56.25rem) {
+  .footer-top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 22rem) {
+  .footer-socials {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  padding: 0.75rem 1rem;
+  transform: translateY(-150%);
+  background: var(--color-card-light);
+  color: var(--color-text-dark);
+}
+
+.skip-link:focus {
+  transform: none;
+}

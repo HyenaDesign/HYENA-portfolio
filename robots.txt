@@ -1,11 +1,4 @@
-# Allow all bots to access everything except the /private/ directory
 User-agent: *
-Disallow: /private/
+Allow: /
 
-# Block Googlebot from crawling the /test/ directory
-User-agent: Googlebot
-Disallow: /test/
-
-
-# Specify the location of your sitemap
 Sitemap: https://hyenathedesigner.be/sitemap.xml

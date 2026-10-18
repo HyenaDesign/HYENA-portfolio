@@ -1,0 +1,20 @@
+:root {
+  /* HYENA: ink and paper form the base; orange signals identity and action. */
+  --color-background: #101010;
+  --color-card-dark: #20201e;
+  --color-card-light: #f7f5ef;
+  --color-card-muted: #e6e2d9;
+  --color-accent: #ff7f00;
+  --color-accent-soft: #ffc78b;
+  --color-accent-ink: #923c00;
+  --color-text-dark: #111110;
+  --color-text-light: #f7f5ef;
+
+  --grid-gap: 10px;
+  --card-radius: 10px;
+  --card-padding: 20px;
+
+  /* The reference's four main rows are about 30% of its grid width. */
+  --main-row-height: clamp(13rem, 30.3vw, 27.25rem);
+  --footer-row-height: clamp(7rem, 16.3vw, 14.6875rem);
+}
