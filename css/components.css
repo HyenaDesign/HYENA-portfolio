@@ -676,6 +676,28 @@ h6 {
   color: var(--color-accent-ink);
 }
 
+.featured-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+}
+
+.featured-controls button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid currentColor;
+  border-radius: var(--card-radius);
+  background: transparent;
+}
+
+.featured-controls button:hover {
+  background: var(--color-accent);
+}
+
 
 /* Let captions grow with wrapping tags while retaining image space above. */
 .project-slide {

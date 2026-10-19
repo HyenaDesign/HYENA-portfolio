@@ -118,6 +118,46 @@ console.log('PASS: carousel loading, tags, links, five-second timer, navigation,
 
 function rootPath() { return root; }
 
+for (const reduced of [false,true]) {
+  const h=harness(reduced);
+  h.context.fetch=async()=>({ok:true,json:async()=>projects});
+  vm.runInNewContext(fs.readFileSync(path.join(root,'js/featured-projects.js'),'utf8'),h.context);
+  await new Promise(resolve=>setImmediate(resolve));
+  const groups=h.context.groupFeaturedProjects(projects);
+  assert.equal(Object.values(groups).flat().length,projects.length);
+  for(const [group,initial] of [['ui','Promptly'],['motion','SWEAR 3D Shoe Configurator'],['graphic','The Lost Regiment']]) {
+    const card=new Element(), image=new Element(), title=new Element(), description=new Element();
+    const link=new Element('a'), label=new Element(), credit=new Element(), more=new Element(), body=new Element();
+    image.style={}; title.textContent=initial; link.querySelector=()=>label;
+    card.querySelector=s=>({'.selected-work-image img':image,'h2':title,'.card-content > p':description,
+      '.card-cta':link,'.project-credit':credit,'.project-more':more,'.card-content':body})[s];
+    h.context.setupFeaturedCarousel(card,groups[group]);
+    assert.equal(title.textContent,initial);
+    const controls=body.children[0], [previous,status,next]=controls.children;
+    assert.equal(controls.children.length,3);
+    assert(more.hidden);
+    if(!reduced) {
+      const timer=[...h.timers.values()].at(-1);
+      assert.equal(timer.ms,5000); timer.fn();
+      assert.notEqual(title.textContent,initial);
+      card.emit('pointerenter',{pointerType:'mouse'});
+      const before=h.timers.size; card.emit('pointerleave'); assert.equal(h.timers.size,before+1);
+    }
+    next.emit('click');
+    const active=groups[group].find(project=>project.title===title.textContent);
+    assert.equal(link.href,active.url || active.thumbnail);
+    assert.equal(image.src,active.thumbnail);
+    assert.equal(credit.hidden,active.title!==initial);
+    previous.emit('click'); assert(status.textContent.includes('/'));
+    card.emit('focusin'); const before=h.timers.size;
+    card.emit('focusout',{relatedTarget:null});
+    assert.equal(h.timers.size,before+(reduced?0:1));
+  }
+  h.document.hidden=true; h.document.emit('visibilitychange'); assert.equal(h.timers.size,0);
+}
+console.log('PASS: service-matched project rotation, five-second interval, navigation, credits, pause and reduced motion.');
+
+
 {
   const document = new Element(), window = new Element(), surface = new Element();
   const frames = new Map(), captures = new Set();
