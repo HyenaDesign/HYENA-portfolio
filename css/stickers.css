@@ -23,10 +23,10 @@
   --sticker-art: url("../assets/stickers/FeelingBoldToday.png");
   grid-column: 1 / 5;
   grid-row: 4 / 5;
-  left: var(--card-padding);
+  left: 30%;
   bottom: 0;
   width: clamp(120px, 12vw, 170px);
-  translate: 0 50%;
+  translate: -50% 50%;
 }
 
 .sticker-anchor--volume {

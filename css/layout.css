@@ -70,10 +70,8 @@ body {
 
 .bento-card--work {
   grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  grid-template-rows: 1fr auto;
-  grid-template-areas:
-    "image content"
-    "image action";
+  grid-template-rows: 1fr;
+  grid-template-areas: "image content";
   column-gap: clamp(1rem, 2vw, 2rem);
 }
 
@@ -85,11 +83,11 @@ body {
 .bento-card--work .card-content {
   grid-area: content;
   min-width: 0;
-  align-self: start;
+  align-self: center;
 }
 
 .bento-card--work .card-cta {
-  grid-area: action;
+  margin-top: 1.5rem;
 }
 
 .card-cta {
