@@ -16,7 +16,7 @@
   {
     "title": "Promptly",
     "description": "A web and interface design project for Promptly.",
-    "thumbnail": "assets/promptly/promptly-developedweb.jpg",
+    "thumbnail": "assets/promptly/promptly-developedweb-card.webp",
     "categories": [
       "Web design",
       "UI/UX design"
@@ -31,19 +31,20 @@
   {
     "title": "Untox",
     "description": "A visual identity and social design project for Untox.",
-    "thumbnail": "assets/untox/untox-mockup.webp",
+    "thumbnail": "assets/untox/untox-mockup-card.webp",
     "categories": [
       "Brand identity",
       "Social design"
     ],
     "techStack": [
       "Figma"
-    ]
+    ],
+    "artwork": "assets/untox/untox-mockup.webp"
   },
   {
     "title": "The Lost Regiment",
     "description": "Graphic design for a Need for Speed magazine.",
-    "thumbnail": "assets/tlr/5in.webp",
+    "thumbnail": "assets/tlr/5in-card.webp",
     "categories": [
       "Graphic design",
       "Editorial design"
@@ -51,12 +52,13 @@
     "techStack": [
       "Photoshop",
       "Illustrator"
-    ]
+    ],
+    "artwork": "assets/tlr/5in.webp"
   },
   {
     "title": "Hyenas Den",
     "description": "A selected poster gallery for Hyenas Den, a creative collective.",
-    "thumbnail": "assets/hyenasden/hyenasden.png",
+    "thumbnail": "assets/hyenasden/hyenasden-card.webp",
     "categories": [
       "Graphic design",
       "Poster design"
@@ -71,7 +73,7 @@
   {
     "title": "Blender 3D Gallery",
     "description": "Digital sculptures, atmospheric renders, and experiments in form, texture, and light.",
-    "thumbnail": "assets/blender/skullpture.webp",
+    "thumbnail": "assets/blender/skullpture-card.webp",
     "categories": [
       "3D art",
       "Digital sculpture"
@@ -85,7 +87,7 @@
   {
     "title": "Unform Practice Enterprise",
     "description": "A webdesign for Unform, a practice enterprise for web development and design.",
-    "thumbnail": "assets/unform/unfom-mockup.png",
+    "thumbnail": "assets/unform/unfom-mockup-card.webp",
     "categories": [
       "Web design",
       "Front-end development"
@@ -100,25 +102,48 @@
   {
     "title": "SWEAR 3D Shoe Configurator",
     "description": "A student collaboration with SWEAR: customize a sneaker in real time inside an interactive 3D world.",
-    "thumbnail": "assets/Swear/Swear.webp",
-    "categories": ["Creative development", "Interactive 3D"],
-    "techStack": ["Three.js", "GSAP", "Blender", "WebGL"],
+    "thumbnail": "assets/Swear/Swear-card.webp",
+    "categories": [
+      "Creative development",
+      "Interactive 3D"
+    ],
+    "techStack": [
+      "Three.js",
+      "GSAP",
+      "Blender",
+      "WebGL"
+    ],
     "url": "https://swearthreejs.vercel.app/"
   },
   {
     "title": "ModuleMind AI assistant for Students",
     "description": "A fully developed app for students to manage their study life and get AI assistance.",
-    "thumbnail": "assets/modulemind/modulemind.png",
-    "categories": ["Creative development", "App development"],
-    "techStack": ["React", "Node.js", "HTML", "CSS"],
+    "thumbnail": "assets/modulemind/modulemind-card.webp",
+    "categories": [
+      "Creative development",
+      "App development"
+    ],
+    "techStack": [
+      "React",
+      "Node.js",
+      "HTML",
+      "CSS"
+    ],
     "url": "https://www.modulemind.site/"
   },
   {
     "title": "DISCOGS Rebrand",
     "description": "A rebranding project for DISCOGS, a music database and marketplace.",
-    "thumbnail": "assets/discogs/discogs.png",
-    "categories": ["Brand identity", "Logo design"],
-    "techStack": ["Figma", "Illustrator", "Photoshop"],
+    "thumbnail": "assets/discogs/discogs-card.webp",
+    "categories": [
+      "Brand identity",
+      "Logo design"
+    ],
+    "techStack": [
+      "Figma",
+      "Illustrator",
+      "Photoshop"
+    ],
     "url": "index.html"
   }
 ]

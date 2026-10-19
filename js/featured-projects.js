@@ -50,7 +50,7 @@ function setupFeaturedCarousel(card, projects) {
     image.style.objectPosition = project.title === "Promptly" ? "left center" : "center";
     title.textContent = project.title;
     description.textContent = project.description;
-    link.href = project.url || project.thumbnail;
+    link.href = project.url || project.artwork || project.thumbnail;
     label.textContent = project.url ? "View Project" : "View Artwork";
     if (credit) credit.hidden = project.title !== originalTitle;
     status.textContent = `${active + 1} / ${projects.length}`;
@@ -93,6 +93,7 @@ async function loadFeaturedProjects() {
       ["title", "description", "thumbnail"].some(key => typeof project[key] !== "string" || !project[key].trim()) ||
       !Array.isArray(project.categories) || project.categories.some(value => typeof value !== "string") ||
       !/^assets\/[\w /.-]+$/i.test(project.thumbnail) ||
+      (project.artwork !== undefined && (typeof project.artwork !== "string" || !/^assets\/[\w /.-]+$/i.test(project.artwork))) ||
       (project.url !== undefined && (typeof project.url !== "string" || !/^(https?:\/\/|[\w-]+\.html(?:#[\w-]+)?$)/i.test(project.url))))) {
       throw new Error("Invalid projects");
     }

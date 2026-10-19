@@ -1,0 +1,56 @@
+[
+  {
+    "source": "assets/promptly/promptly-developedweb.jpg",
+    "output": "assets/promptly/promptly-developedweb-card.webp",
+    "before": 123638,
+    "after": 52344
+  },
+  {
+    "source": "assets/untox/untox-mockup.webp",
+    "output": "assets/untox/untox-mockup-card.webp",
+    "before": 336804,
+    "after": 48866
+  },
+  {
+    "source": "assets/tlr/5in.webp",
+    "output": "assets/tlr/5in-card.webp",
+    "before": 86048,
+    "after": 64096
+  },
+  {
+    "source": "assets/hyenasden/hyenasden.png",
+    "output": "assets/hyenasden/hyenasden-card.webp",
+    "before": 1757735,
+    "after": 132374
+  },
+  {
+    "source": "assets/blender/skullpture.webp",
+    "output": "assets/blender/skullpture-card.webp",
+    "before": 158264,
+    "after": 108424
+  },
+  {
+    "source": "assets/unform/unfom-mockup.png",
+    "output": "assets/unform/unfom-mockup-card.webp",
+    "before": 1914929,
+    "after": 158328
+  },
+  {
+    "source": "assets/Swear/Swear.webp",
+    "output": "assets/Swear/Swear-card.webp",
+    "before": 49158,
+    "after": 28906
+  },
+  {
+    "source": "assets/modulemind/modulemind.png",
+    "output": "assets/modulemind/modulemind-card.webp",
+    "before": 1459694,
+    "after": 106656
+  },
+  {
+    "source": "assets/discogs/discogs.png",
+    "output": "assets/discogs/discogs-card.webp",
+    "before": 2503739,
+    "after": 212770
+  }
+]

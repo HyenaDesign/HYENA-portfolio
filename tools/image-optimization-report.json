@@ -1,0 +1,86 @@
+[
+  {
+    "source": "assets/nothingos/nothingos.gif",
+    "output": "assets/nothingos/nothingos-optimized.webp",
+    "before": 9167140,
+    "after": 7111910,
+    "lossless": true
+  },
+  {
+    "source": "assets/nothingos/nothingwidget.png",
+    "output": "assets/nothingos/nothingwidget-optimized.webp",
+    "before": 156234,
+    "after": 129676,
+    "lossless": true
+  },
+  {
+    "source": "assets/promptly/promptly-developedweb.jpg",
+    "output": "assets/promptly/promptly-developedweb-optimized.webp",
+    "before": 123638,
+    "after": 64942,
+    "lossless": false
+  },
+  {
+    "source": "assets/promptly/promptly-figma.jpg",
+    "output": "assets/promptly/promptly-figma-optimized.webp",
+    "before": 50602,
+    "after": 21246,
+    "lossless": false
+  },
+  {
+    "source": "assets/promptly/promptly-sidebar.jpg",
+    "output": "assets/promptly/promptly-sidebar-optimized.webp",
+    "before": 25220,
+    "after": 12296,
+    "lossless": false
+  },
+  {
+    "source": "assets/promptly/promptly-sidebarweb.jpg",
+    "output": "assets/promptly/promptly-sidebarweb-optimized.webp",
+    "before": 60306,
+    "after": 33918,
+    "lossless": false
+  },
+  {
+    "source": "assets/promptly/promptly-taskbar.jpg",
+    "output": "assets/promptly/promptly-taskbar-optimized.webp",
+    "before": 76798,
+    "after": 39692,
+    "lossless": false
+  },
+  {
+    "source": "assets/stickers/FeelingBoldToday.png",
+    "output": "assets/stickers/FeelingBoldToday-optimized.webp",
+    "before": 66445,
+    "after": 48784,
+    "lossless": true
+  },
+  {
+    "source": "assets/stickers/GoodMood.png",
+    "output": "assets/stickers/GoodMood-optimized.webp",
+    "before": 55125,
+    "after": 33410,
+    "lossless": true
+  },
+  {
+    "source": "assets/stickers/TurnItUp.png",
+    "output": "assets/stickers/TurnItUp-optimized.webp",
+    "before": 62261,
+    "after": 40394,
+    "lossless": true
+  },
+  {
+    "source": "assets/textures/sticker-residue-oval.png",
+    "output": "assets/textures/sticker-residue-oval-optimized.webp",
+    "before": 177321,
+    "after": 118312,
+    "lossless": true
+  },
+  {
+    "source": "assets/textures/sticker-residue-strip.png",
+    "output": "assets/textures/sticker-residue-strip-optimized.webp",
+    "before": 158040,
+    "after": 99854,
+    "lossless": true
+  }
+]

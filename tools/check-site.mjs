@@ -43,6 +43,7 @@ for (const project of projects) {
   for (const key of ['title','description','thumbnail']) assert.equal(typeof project[key],'string');
   for (const key of ['categories','techStack']) assert(project[key].length && project[key].every(t=>typeof t==='string' && t.trim()));
   checkReference('projects.json',project.thumbnail);
+  if (project.artwork) checkReference('projects.json',project.artwork);
   if (project.url) checkReference('projects.json',project.url);
 }
 for (const file of files.filter(f=>f.startsWith('warpkit/scenes/') && f.endsWith('.js'))) {

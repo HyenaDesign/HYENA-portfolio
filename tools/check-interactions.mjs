@@ -145,7 +145,7 @@ for (const reduced of [false,true]) {
     }
     next.emit('click');
     const active=groups[group].find(project=>project.title===title.textContent);
-    assert.equal(link.href,active.url || active.thumbnail);
+    assert.equal(link.href,active.url || active.artwork || active.thumbnail);
     assert.equal(image.src,active.thumbnail);
     assert.equal(credit.hidden,active.title!==initial);
     previous.emit('click'); assert(status.textContent.includes('/'));
@@ -156,6 +156,25 @@ for (const reduced of [false,true]) {
   h.document.hidden=true; h.document.emit('visibilitychange'); assert.equal(h.timers.size,0);
 }
 console.log('PASS: service-matched project rotation, five-second interval, navigation, credits, pause and reduced motion.');
+
+for (const name of ['hero-section','profile']) {
+  const frames=[], idle=[], scripts=[];
+  const document={currentScript:{src:'https://hyenathedesigner.be/js/warpkit-bootstrap.js'},
+    querySelector:()=>({getAttribute:()=>name}), createElement:()=>({}),
+    head:{append:script=>{scripts.push(script);}}};
+  vm.runInNewContext(fs.readFileSync(path.join(root,'js/warpkit-bootstrap.js'),'utf8'), {
+    document, URL, console, window:{requestIdleCallback:(fn,options)=>{assert.equal(options.timeout,700);idle.push(fn);}},
+    requestAnimationFrame:fn=>frames.push(fn),
+  });
+  assert.equal(scripts.length,0,'GPU startup waits for initial paint');
+  frames.shift()(); frames.shift()(); assert.equal(scripts.length,0);
+  const startup=idle.shift()();
+  assert.equal(scripts[0].src,'https://hyenathedesigner.be/warpkit/warpkit-runtime-1.4.0.js');
+  scripts[0].onload(); await new Promise(resolve=>setImmediate(resolve));
+  assert.equal(scripts[1].src,`https://hyenathedesigner.be/warpkit/scenes/${name}.js`);
+  scripts[1].onload(); await startup;
+}
+console.log('PASS: WarpKit starts after paint/idle and loads each unchanged scene after its runtime.');
 
 
 {
