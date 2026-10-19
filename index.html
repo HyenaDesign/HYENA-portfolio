@@ -33,6 +33,7 @@
     <script src="js/vendor/gsap.min.js" defer></script>
     <script src="js/vendor/ScrollTrigger.min.js" defer></script>
     <script src="js/main.js" defer></script>
+    <script src="js/navigation.js" defer></script>
     <script src="js/cursor.js" defer></script>
     <script src="js/scroll-animations.js" defer></script>
     <script src="js/stickers.js" defer></script>
@@ -47,7 +48,7 @@
           <img src="assets/stickers/GoodMood.png" alt="" width="375" height="277" draggable="false">
         </button>
       </div>
-      <div class="sticker-anchor sticker-anchor--bold" data-focus-target="#work .button">
+      <div class="sticker-anchor sticker-anchor--bold" data-focus-target="#swear .button">
         <button type="button" class="foil-sticker foil-sticker--bold" data-sticker-name="Feeling Bold Today" aria-label="Scrape off Feeling Bold Today sticker" title="Click to scrape off">
           <img src="assets/stickers/FeelingBoldToday.png" alt="" width="594" height="331" draggable="false">
         </button>
@@ -70,6 +71,7 @@
           <a href="#contact">Contact</a>
         </nav>
         <h1>HYENA DESIGN</h1>
+        <p class="hero-offering">I design and build websites, 3D experiences &amp; visual identities.</p>
       </header>
 
       <main class="portfolio-content">
@@ -118,8 +120,8 @@
               </ul>
             </aside>
           </div>
-          <a class="button button--light card-cta" href="#services">
-            <span>Explore Services</span>
+          <a class="button button--light card-cta" href="mailto:hyenathedesigner@gmail.com">
+            <span>Let's Talk</span>
             <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
               <path d="M212-86q-53 0-89.5-36.5T86-212v-536q0-53 36.5-89.5T212-874h268v126H212v536h536v-268h126v268q0 53-36.5 89.5T748-86H212Zm207-246-87-87 329-329H560v-126h314v314H748v-101L419-332Z"/>
             </svg>
@@ -130,67 +132,72 @@
           <span class="service-index" aria-hidden="true">01 /</span>
           <div class="card-content">
             <h2 id="service-one-title">UI/UX Design</h2>
-            <p>CRAFTING USER-FRIENDLY AND VISUALLY STUNNING USER INTERFACES THAT ENGAGE YOUR AUDIENCE AND DRIVE CONVERSIONS</p>
+            <p>WEBSITES AND INTERFACES, FROM WIREFRAME TO WORKING PRODUCT.</p>
           </div>
+        </section>
+
+        <section class="bento-card bento-card--light bento-card--work" id="work" aria-labelledby="work-title">
+          <div class="selected-work-image" id="projects">
+            <img src="assets/promptly/promptly-developedweb.jpg" alt="Promptly interface with a sidebar and prompt library" loading="lazy" decoding="async">
+          </div>
+          <div class="card-content">
+            <h2 id="work-title">Promptly</h2>
+            <p>A web interface for finding and organizing prompts. From interface design to a working build.</p>
+            <p class="project-more">More UI work: <a href="nothing.html">Nothing OS ↗</a></p>
+          </div>
+          <a class="button button--dark card-cta" href="promptly.html">
+            <span>View Project</span>
+            <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M212-86q-53 0-89.5-36.5T86-212v-536q0-53 36.5-89.5T212-874h268v126H212v536h536v-268h126v268q0 53-36.5 89.5T748-86H212Zm207-246-87-87 329-329H560v-126h314v314H748v-101L419-332Z"/>
+            </svg>
+          </a>
         </section>
 
         <section class="bento-card bento-card--dark bento-card--service" data-service="motion" aria-labelledby="service-two-title">
           <span class="service-index" aria-hidden="true">02 /</span>
           <div class="card-content">
-            <h2 id="service-two-title">Motion Design</h2>
-            <p>CREATING ENGAGING ANIMATIONS AND TRANSITIONS THAT BRING YOUR IDEAS TO LIFE AND CAPTIVATE YOUR AUDIENCE</p>
+            <h2 id="service-two-title">3D &amp; Creative Development</h2>
+            <p>INTERACTIVE PRODUCT EXPERIENCES AND CUSTOM 3D VISUALS.</p>
           </div>
+        </section>
+
+        <section class="bento-card bento-card--light bento-card--work" id="swear" aria-labelledby="swear-title">
+          <div class="selected-work-image">
+            <img src="assets/Swear/Swear.webp" alt="Green SWEAR sneaker in the interactive 3D configurator" loading="lazy" decoding="async">
+          </div>
+          <div class="card-content">
+            <h2 id="swear-title">SWEAR 3D Shoe Configurator</h2>
+            <p>A student collaboration with SWEAR: customize a sneaker in real time inside an interactive 3D world.</p>
+            <p class="project-credit">Created with <a href="https://yungfuzzzz.github.io/portfolio/">Faisal ↗</a></p>
+            <p class="project-more">More 3D work: <a href="blender-gallery.html">Blender gallery ↗</a></p>
+          </div>
+          <a class="button button--dark card-cta" href="https://swearthreejs.vercel.app/">
+            <span>View Project</span>
+            <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M212-86q-53 0-89.5-36.5T86-212v-536q0-53 36.5-89.5T212-874h268v126H212v536h536v-268h126v268q0 53-36.5 89.5T748-86H212Zm207-246-87-87 329-329H560v-126h314v314H748v-101L419-332Z"/>
+            </svg>
+          </a>
         </section>
 
         <section class="bento-card bento-card--accent bento-card--service" data-service="graphic" aria-labelledby="primary-service-title">
           <span class="service-index" aria-hidden="true">03 /</span>
           <div class="card-content">
             <h2 id="primary-service-title">Graphic Design</h2>
-            <p id="primary-service-description">CREATING STUNNING VISUALS THAT CAPTURE ATTENTION AND COMMUNICATE YOUR BRAND MESSAGE EFFECTIVELY</p>
+            <p id="primary-service-description">POSTERS, EDITORIAL DESIGN AND VISUAL IDENTITIES.</p>
           </div>
         </section>
 
-        <section class="bento-card bento-card--dark bento-card--project" id="projects" aria-label="Projects" aria-roledescription="carousel">
-          <noscript><p>Explore <a href="nothing.html">Nothing OS</a>, <a href="promptly.html">Promptly</a>, and the <a href="blender-gallery.html">Blender gallery</a>. Enable JavaScript for the project carousel.</p></noscript>
-          <div class="project-slides" id="project-slides">
-            <p class="project-message" role="status">Loading projects…</p>
-          </div>
-          <div class="carousel-controls" hidden>
-            <button type="button" data-direction="-1" aria-label="Previous project" aria-controls="project-slides">&#8592;</button>
-            <span class="carousel-status" aria-live="polite" aria-atomic="true"></span>
-            <button type="button" data-direction="1" aria-label="Next project" aria-controls="project-slides">&#8594;</button>
-          </div>
-        </section>
-
-        <section class="bento-card bento-card--light bento-card--work" id="work" aria-labelledby="work-title">
-          <div class="selected-work-image" aria-hidden="true">
-            <img src="assets/Swear/Swear.webp" alt="">
+        <section class="bento-card bento-card--light bento-card--work" id="graphic-work" aria-labelledby="graphic-work-title">
+          <div class="selected-work-image">
+            <img src="assets/tlr/5in.webp" alt="Automotive editorial artwork with a green drift car and expressive typography" loading="lazy" decoding="async">
           </div>
           <div class="card-content">
-            <h2 id="work-title">SWEAR 3D SHOE CONFIGURATOR</h2>
-            <p>Swear is a company that specializes in creating personalized shoes. As a student, I had the opportunity to work with them to develop a 3D shoe configurator that allows users to customize their shoes in real-time. It's an interactive 3D environment built with Three.js featuring advanced lighting and 3D world assets.</p>
-            <div class="project-tags">
-              <div class="project-tag-row">
-                <span class="project-tag-label">Category</span>
-                <ul class="project-tag-list" aria-label="Category">
-                  <li class="project-tag project-tag--category">Creative development</li>
-                  <li class="project-tag project-tag--category">Interactive 3D</li>
-                </ul>
-              </div>
-              <div class="project-tag-row">
-                <span class="project-tag-label">Tech stack</span>
-                <ul class="project-tag-list" aria-label="Tech stack">
-                  <li class="project-tag">Three.js</li>
-                  <li class="project-tag">GSAP</li>
-                  <li class="project-tag">Blender</li>
-                  <li class="project-tag">WebGL</li>
-                </ul>
-              </div>
-            </div>
-            <p class="project-credit">Created with <a href="https://yungfuzzzz.github.io/portfolio/">Faisal ↗</a></p>
+            <h2 id="graphic-work-title">The Lost Regiment</h2>
+            <p>Editorial artwork for a Need for Speed magazine, combining automotive imagery and bold typography.</p>
+            <p class="project-more">More graphic work: <a href="https://hyenasden.vercel.app/">Hyenas Den ↗</a></p>
           </div>
-          <a class="button button--dark card-cta" href="https://swearthreejs.vercel.app/">
-            <span>View Project</span>
+          <a class="button button--dark card-cta" href="assets/tlr/5in.webp">
+            <span>View Artwork</span>
             <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true" focusable="false">
               <path d="M212-86q-53 0-89.5-36.5T86-212v-536q0-53 36.5-89.5T212-874h268v126H212v536h536v-268h126v268q0 53-36.5 89.5T748-86H212Zm207-246-87-87 329-329H560v-126h314v314H748v-101L419-332Z"/>
             </svg>

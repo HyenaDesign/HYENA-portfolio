@@ -313,6 +313,16 @@ h6 {
   pointer-events: none;
 }
 
+.hero-offering {
+  position: absolute;
+  z-index: 1;
+  bottom: calc(var(--card-padding) + 1.75rem);
+  left: var(--card-padding);
+  right: var(--card-padding);
+  font-size: clamp(0.875rem, 1.3vw, 1.125rem);
+  line-height: 1.5;
+}
+
 .navbar {
   /* Stay visible beyond the hero without changing the card layout. */
   position: fixed;
@@ -333,11 +343,24 @@ h6 {
   color: var(--color-text-light);
   font-size: 0.875rem;
   letter-spacing: 0.02em;
+  transition: transform 220ms ease, opacity 220ms ease;
   box-shadow:
     inset 1px 0 1px rgba(255, 199, 139, 0.2),
     inset -1px 0 1px rgba(255, 127, 0, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 8px 28px rgba(0, 0, 0, 0.24);
+}
+
+.navbar.is-scroll-hidden:not(:focus-within) {
+  transform: translateY(calc(-100% - 3 * var(--grid-gap)));
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar {
+    transition: none;
+  }
 }
 
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
@@ -482,7 +505,7 @@ h6 {
 .selected-work-image {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  min-height: 0;
   overflow: hidden;
   border-radius: var(--card-radius);
   background: var(--color-card-muted);
@@ -495,6 +518,20 @@ h6 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+}
+
+/* The shared row height sets the frame; crop around each work's focal point. */
+#work .selected-work-image img {
+  object-position: left center;
+}
+
+#graphic-work .selected-work-image img {
+  object-position: center 45%;
+}
+
+.bento-card--work h2 {
+  font-size: clamp(1.5rem, 2.3vw, 2.25rem);
 }
 
 .button-icon {
@@ -613,6 +650,24 @@ h6 {
 
 .project-credit a {
   font-weight: 600;
+}
+
+.bento-card--work .card-content .project-more {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.project-more a {
+  display: inline-block;
+  padding-block: 0.5rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.project-more a:hover {
+  color: var(--color-accent-ink);
 }
 
 

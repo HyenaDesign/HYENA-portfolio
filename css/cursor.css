@@ -9,6 +9,19 @@
   background: #fff;
   mix-blend-mode: difference;
   pointer-events: none;
+  transition: width 240ms cubic-bezier(0.22, 1, 0.36, 1),
+              height 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.inverting-cursor.is-clickable {
+  width: 16px;
+  height: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inverting-cursor {
+    transition: none;
+  }
 }
 
 .inverting-cursor[hidden] {

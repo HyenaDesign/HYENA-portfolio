@@ -40,7 +40,7 @@ if (window.gsap && window.ScrollTrigger) {
     // Stickers follow the reveal of their junction, without inheriting card transforms.
     [
       [".sticker-anchor--mood", ".bento-card--profile"],
-      [".sticker-anchor--bold", ".bento-card--work"],
+      [".sticker-anchor--bold", "#swear"],
       [".sticker-anchor--volume", ".footer-row"],
     ].forEach(([sticker, trigger]) => {
       const tween = gsap.fromTo(sticker, { opacity: 0, scale: 0.92 }, {
