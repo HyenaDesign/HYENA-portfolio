@@ -68,3 +68,100 @@ for (const reduced of [false,true]) {
   button.emit('click');assert.equal(h.timers.size,0);
 }
 console.log('PASS: carousel loading, tags, links, five-second timer, navigation, pause states, reduced motion, errors, and sticker removal/focus.');
+
+// Drag scrolling must distinguish intentional drags from clicks and controls.
+{
+  const document = new Element(), window = new Element(), root = new Element();
+  const captures = new Set(), scrolls = [];
+  document.documentElement = root;
+  root.setPointerCapture = id => captures.add(id);
+  root.hasPointerCapture = id => captures.has(id);
+  root.releasePointerCapture = id => captures.delete(id);
+  window.scrollY = 400;
+  root.scrollHeight = 3000; window.innerHeight = 800;
+  window.matchMedia = () => ({matches:true, addEventListener(){}});
+  window.scrollTo = options => scrolls.push(options);
+  window.getSelection = () => ({removeAllRanges() {}});
+  vm.runInNewContext(fs.readFileSync(path.join(rootPath(),'js/drag-scroll.js'),'utf8'), {document, window, performance:{now:()=>0}, cancelAnimationFrame(){}});
+  function event(overrides={}) {
+    return {pointerType:'mouse', button:0, buttons:1, isPrimary:true, pointerId:1,
+      clientY:200, target:{closest:()=>null}, preventDefault(){this.prevented=true},
+      stopImmediatePropagation(){this.stopped=true}, ...overrides};
+  }
+  for (const overrides of [{pointerType:'touch'}, {button:2}, {shiftKey:true}, {target:{closest:()=>({})}}]) {
+    document.emit('pointerdown',event(overrides));
+    document.emit('pointermove',event({clientY:100}));
+    assert.equal(scrolls.length,0);
+  }
+  document.emit('pointerdown',event());
+  document.emit('pointermove',event({clientY:197}));
+  assert.equal(scrolls.length,0);
+  document.emit('pointerup',event());
+  const click=event(); document.emit('click',click); assert(!click.prevented);
+  document.emit('pointerdown',event());
+  document.emit('pointermove',event({clientY:150}));
+  assert.equal(scrolls.at(-1).top,450);
+  assert.equal(scrolls.at(-1).behavior,'instant');
+  assert(root.classList.contains('is-drag-scrolling')); assert(captures.has(1));
+  document.emit('pointerup',event());
+  assert(!root.classList.contains('is-drag-scrolling')); assert.equal(captures.size,0);
+  const afterDrag=event(); document.emit('click',afterDrag); assert(afterDrag.prevented && afterDrag.stopped);
+  document.emit('pointerdown',event());
+  document.emit('pointermove',event({clientY:250}));
+  assert.equal(scrolls.at(-1).top,350);
+  window.emit('blur'); assert.equal(captures.size,0);
+  document.emit('pointerdown',event());
+  document.emit('pointermove',event({clientY:100}));
+  document.emit('pointercancel',event()); assert.equal(captures.size,0);
+  console.log('PASS: drag scrolling threshold, direction, control/touch exclusions, click suppression and cancellation.');
+}
+
+function rootPath() { return root; }
+
+{
+  const document = new Element(), window = new Element(), surface = new Element();
+  const frames = new Map(), captures = new Set();
+  let now = 0, id = 0;
+  document.documentElement = surface;
+  surface.scrollHeight = 3000; window.innerHeight = 800; window.scrollY = 400;
+  surface.setPointerCapture = id => captures.add(id);
+  surface.hasPointerCapture = id => captures.has(id);
+  surface.releasePointerCapture = id => captures.delete(id);
+  window.matchMedia = () => ({matches:false, addEventListener(){}});
+  window.getSelection = () => ({removeAllRanges(){}});
+  window.scrollTo = ({top}) => {window.scrollY = Math.max(0,Math.min(2200,top));};
+  vm.runInNewContext(fs.readFileSync(path.join(root,'js/drag-scroll.js'),'utf8'), {
+    document, window, performance:{now:()=>now},
+    requestAnimationFrame:fn=>{frames.set(++id,fn);return id;},
+    cancelAnimationFrame:id=>frames.delete(id),
+  });
+  const event = y => ({pointerType:'mouse',button:0,buttons:1,isPrimary:true,pointerId:1,
+    clientY:y,target:{closest:()=>null},preventDefault(){}});
+  function tick() {
+    now += 16;
+    const pending=[...frames.values()]; frames.clear();
+    pending.forEach(fn=>fn(now));
+  }
+  document.emit('pointerdown',event(200)); now+=16;
+  document.emit('pointermove',event(140)); tick();
+  assert(window.scrollY>400 && window.scrollY<460,'Drag eases toward the pointer');
+  document.emit('pointerup',event(140));
+  for(let i=0;i<100;i++) tick();
+  assert(window.scrollY>750 && window.scrollY<900,'Release adds noticeable but bounded momentum');
+  assert.equal(frames.size,0,'Momentum settles');
+  document.emit('pointerdown',event(200)); now+=16;
+  document.emit('pointermove',event(140)); tick();
+  now+=100; document.emit('pointerup',event(140));
+  const pausedTarget=window.scrollY;
+  for(let i=0;i<100;i++) tick();
+  assert(window.scrollY-pausedTarget<60,'Pausing before release removes momentum');
+  document.emit('pointerdown',event(200)); now+=16;
+  document.emit('pointermove',event(100)); tick(); document.emit('pointerup',event(100));
+  window.emit('wheel'); assert.equal(frames.size,0,'Wheel immediately cancels momentum');
+  window.scrollY=2190;
+  document.emit('pointerdown',event(200)); now+=16;
+  document.emit('pointermove',event(0)); document.emit('pointerup',event(0));
+  for(let i=0;i<100;i++) tick();
+  assert.equal(window.scrollY,2200); assert.equal(frames.size,0);
+  console.log('PASS: smooth dragging, bounded momentum, stale velocity, interruption and page boundaries.');
+}

@@ -28,6 +28,13 @@
   display: none;
 }
 
+html.is-drag-scrolling,
+html.is-drag-scrolling * {
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grabbing;
+}
+
 @media (hover: hover) and (pointer: fine) {
   html.has-inverting-cursor,
   html.has-inverting-cursor * {

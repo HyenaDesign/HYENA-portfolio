@@ -51,6 +51,8 @@
   });
   window.addEventListener("blur", hideCursor);
   window.addEventListener("resize", hideCursor);
-  window.addEventListener("scroll", hideCursor, { passive: true, capture: true });
+  window.addEventListener("scroll", () => {
+    if (!document.documentElement.classList.contains("is-drag-scrolling")) hideCursor();
+  }, { passive: true, capture: true });
   finePointer.addEventListener("change", hideCursor);
 })();
