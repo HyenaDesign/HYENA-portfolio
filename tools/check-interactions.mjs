@@ -159,14 +159,18 @@ console.log('PASS: service-matched project rotation, five-second interval, navig
 
 for (const name of ['hero-section','profile']) {
   const frames=[], idle=[], scripts=[];
+  let reveal;
+  const siteReady = new Promise(resolve => { reveal = resolve; });
   const document={currentScript:{src:'https://hyenathedesigner.be/js/warpkit-bootstrap.js'},
     querySelector:()=>({getAttribute:()=>name}), createElement:()=>({}),
     head:{append:script=>{scripts.push(script);}}};
   vm.runInNewContext(fs.readFileSync(path.join(root,'js/warpkit-bootstrap.js'),'utf8'), {
-    document, URL, console, window:{requestIdleCallback:(fn,options)=>{assert.equal(options.timeout,700);idle.push(fn);}},
+    document, URL, console, window:{siteReady,requestIdleCallback:(fn,options)=>{assert.equal(options.timeout,700);idle.push(fn);}},
     requestAnimationFrame:fn=>frames.push(fn),
   });
   assert.equal(scripts.length,0,'GPU startup waits for initial paint');
+  assert.equal(frames.length,0,'GPU startup waits until the loader closes');
+  reveal(); await new Promise(resolve=>setImmediate(resolve));
   frames.shift()(); frames.shift()(); assert.equal(scripts.length,0);
   const startup=idle.shift()();
   assert.equal(scripts[0].src,'https://hyenathedesigner.be/warpkit/warpkit-runtime-1.4.0.js');

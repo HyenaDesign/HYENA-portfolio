@@ -171,7 +171,6 @@ if (carousel) {
       if (slides.length > 1) {
         setupProjectCarousel(carousel, slides, controls, status);
       }
-      window.ScrollTrigger?.refresh();
     } catch (error) {
       console.error("Unable to display portfolio projects:", error);
       slideContainer.innerHTML = "";

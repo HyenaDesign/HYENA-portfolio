@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node tools/serve.mjs",
-    "test": "node tools/check-site.mjs && node tools/check-interactions.mjs"
+    "test": "node tools/check-site.mjs && node tools/check-interactions.mjs && node tools/check-preloader.mjs && node tools/check-scroll-reveals.mjs"
   },
   "engines": {
     "node": ">=20"

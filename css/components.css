@@ -1026,3 +1026,57 @@ h6 {
 .skip-link:focus {
   transform: none;
 }
+
+/* Static artwork sits behind the text without fading labels or adding filters. */
+.bento-card--accent,
+.button--light,
+.button--dark,
+.navbar a[href="#contact"],
+.project-btn {
+  position: relative;
+  isolation: isolate;
+}
+
+.bento-card--accent::before,
+.button--light::before,
+.button--dark::before,
+.navbar a[href="#contact"]::before,
+.project-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: url("../assets/hyena-print.svg") center / 280px 280px repeat;
+  opacity: var(--hyena-print-opacity);
+  pointer-events: none;
+}
+
+.button--light::before,
+.button--dark::before,
+.navbar a[href="#contact"]::before,
+.project-btn::before {
+  background-size: 180px 180px;
+}
+
+/* Dark buttons gain the print only in their existing orange interaction state. */
+.button--dark::before,
+.bento-card--contact:focus-visible::before {
+  opacity: 0;
+}
+
+.button--dark:hover::before,
+.button--dark:focus-visible::before {
+  opacity: var(--hyena-print-opacity);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bento-card--contact:hover::before { opacity: 0; }
+}
+
+@media (forced-colors: active) {
+  .bento-card--accent::before,
+  .button::before,
+  .navbar a[href="#contact"]::before,
+  .project-btn::before { display: none; }
+}

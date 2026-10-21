@@ -1,0 +1,43 @@
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+}
+
+.site-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #101010;
+  color: #f7f5ef;
+  opacity: 1;
+  transition: opacity 240ms ease;
+}
+
+.site-preloader[open] {
+  display: grid;
+  place-items: center;
+}
+
+.site-preloader::backdrop {
+  background: #101010;
+}
+
+.site-preloader img {
+  display: block;
+  width: min(320px, 70vw, 70vh);
+  height: auto;
+}
+
+.site-preloader.is-leaving {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-preloader { transition: none; }
+}

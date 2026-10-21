@@ -29,8 +29,34 @@
     }
   }
 
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    if ("requestIdleCallback" in window) window.requestIdleCallback(start, { timeout: 700 });
-    else setTimeout(start, 0);
-  }));
+  function schedule() {
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      if ("requestIdleCallback" in window) window.requestIdleCallback(start, { timeout: 700 });
+      else setTimeout(start, 0);
+    }));
+  }
+
+  // The profile is a same-origin frame: it must also wait for the parent's
+  // loader, and stop rendering when its card scrolls out of the viewport.
+  let ready = window.siteReady;
+  let frame;
+  try {
+    frame = window.frameElement;
+    if (frame) ready = window.parent.siteReady;
+  } catch { /* Standalone or cross-origin embeds use their own readiness. */ }
+  function activate() {
+    if (frame && "IntersectionObserver" in window.parent) {
+      let started = false;
+      const observer = new window.parent.IntersectionObserver(([entry]) => {
+        scene.toggleAttribute("paused", !entry.isIntersecting);
+        if (entry.isIntersecting && !started) {
+          started = true;
+          schedule();
+        }
+      });
+      observer.observe(frame);
+    } else schedule();
+  }
+  if (ready) ready.then(activate);
+  else activate();
 })();

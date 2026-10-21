@@ -1,64 +1,61 @@
 "use strict";
 
-// Content stays visible if GSAP cannot load. The hero stays stationary so its
-// fixed navbar never gets trapped inside a transformed ancestor.
-if (window.gsap && window.ScrollTrigger) {
-  gsap.registerPlugin(ScrollTrigger);
-  const media = gsap.matchMedia();
+// One-time reveals need no scroll listener or continuously running animation
+// engine. Keep content visible until it enters, including if JavaScript fails.
+(() => {
+  if (!("IntersectionObserver" in window)) return;
+  const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const pending = new Map();
+  const active = new Map();
+  let observer;
 
-  media.add("(prefers-reduced-motion: no-preference)", () => {
-    const cards = gsap.utils.toArray(".bento-card:not(.bento-card--hero)");
-    const directions = [
-      { x: -64, y: 0 }, { x: 64, y: 0 },
-      { x: -48, y: 24 }, { x: 0, y: 64 }, { x: 48, y: 24 },
-      { x: -64, y: 0 }, { x: 64, y: 0 },
-      { x: 0, y: 48 }, { x: 0, y: -32 },
-    ];
-    const cleanup = [];
+  function stop(element) {
+    active.get(element)?.cancel();
+    active.delete(element);
+  }
 
-    cards.forEach((card, index) => {
-      const direction = directions[index % directions.length];
-      const tween = gsap.fromTo(card, { ...direction, opacity: 0 }, {
-        x: 0,
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: card,
-          start: "top 94%",
-          toggleActions: "play none none reverse",
-        },
-      });
+  function reveal(element, animate = true) {
+    const kind = pending.get(element);
+    if (!kind) return;
+    pending.delete(element);
+    observer?.unobserve(element);
+    if (!animate || motion.matches || !element.animate) return;
+    const animation = element.animate([
+      { opacity: 0.35, transform: kind === "sticker" ? "scale(0.96)" : "translateY(24px)" },
+      { opacity: 1, transform: "none" },
+    ], { duration: 450, easing: "cubic-bezier(0.22, 1, 0.36, 1)" });
+    active.set(element, animation);
+    animation.onfinish = () => { active.delete(element); };
+  }
 
-      // Keyboard navigation must never land on an unrevealed control.
-      const revealOnFocus = () => { tween.pause().progress(1); };
-      card.addEventListener("focusin", revealOnFocus);
-      cleanup.push(() => card.removeEventListener("focusin", revealOnFocus));
+  function start() {
+    if (motion.matches) return;
+    observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) reveal(entry.target);
+      }
+      if (!pending.size) observer.disconnect();
+    }, { threshold: 0 });
+
+    document.querySelectorAll(".bento-card:not(.bento-card--hero), .sticker-anchor").forEach(element => {
+      // Do not transform the live GPU portrait and its iframe during scrolling.
+      if (element.classList.contains("bento-card--profile")) return;
+      pending.set(element, element.classList.contains("sticker-anchor") ? "sticker" : "card");
+      observer.observe(element);
     });
+  }
 
-    // Stickers follow the reveal of their junction, without inheriting card transforms.
-    [
-      [".sticker-anchor--mood", ".bento-card--profile"],
-      [".sticker-anchor--bold", "#swear"],
-      [".sticker-anchor--volume", ".footer-row"],
-    ].forEach(([sticker, trigger]) => {
-      const tween = gsap.fromTo(sticker, { opacity: 0, scale: 0.92 }, {
-        opacity: 1,
-        scale: 1,
-        duration: 0.65,
-        ease: "power2.out",
-        scrollTrigger: { trigger, start: "top 94%", toggleActions: "play none none reverse" },
-      });
-      const anchor = document.querySelector(sticker);
-      const revealOnFocus = () => { tween.pause().progress(1); };
-      anchor.addEventListener("focusin", revealOnFocus);
-      cleanup.push(() => anchor.removeEventListener("focusin", revealOnFocus));
-    });
-
-    return () => cleanup.forEach((removeListener) => removeListener());
+  // Focused controls remain steady and immediately readable.
+  document.addEventListener("focusin", event => {
+    const element = event.target.closest(".bento-card, .sticker-anchor");
+    if (element) { reveal(element, false); stop(element); }
   });
-
-  document.fonts?.ready.then(() => ScrollTrigger.refresh());
-  window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
-}
+  motion.addEventListener("change", () => {
+    if (!motion.matches) return;
+    observer?.disconnect();
+    pending.clear();
+    for (const element of active.keys()) stop(element);
+  });
+  if (window.siteReady) window.siteReady.then(start);
+  else start();
+})();
